@@ -3,20 +3,17 @@ import { useState, useEffect, useRef, useScroll } from "react";
 import "../main.css";
 
 useScroll = () => {
-  console.log(`스크롤찌`);
   // 스크롤 X, Y 좌표를 객체로 저장`
   const [position, setPosition] = useState({
-    yOffset: 0,
-    prevScollHeight: 0, //현재 스크롤 위치보다 이전에 위치한 스크롤 섹션들의 스크롤 높이의 합
-    curScene: 0, //현재 활성화된(눈 앞에 보고있는) 씬(scroll-section)
+    yOffset: 0
   });
 
   const onScroll = () => {
-    setPosition((prev) => ({ ...prev, yOffset: window.pageYOffset }));
+    setPosition({yOffset: window.pageYOffset});
+    //setPosition((prev) => ({ ...prev, yOffset: window.pageYOffset }));
   };
 
   useEffect(() => {
-    console.log(position);
     window.addEventListener("scroll", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -29,16 +26,19 @@ useScroll = () => {
 const Home = () => {
   const sectionRef = useRef([]);
   const messageRef = useRef([]);
-  const sectionbodyRef = useRef(null);
 
-  let { yOffset, prevScollHeight, curScene } = useScroll();
+  let { yOffset} = useScroll();
 
   const [windowHeightSize, setWindowHeightSize] = useState(window.innerHeight);
   const [preY, setPreY] = useState(yOffset);
 
-  const sceneInfo = [
+  const [prevScollHeight, setPrevScollHeight] = useState(0);
+  const [curScene, setCurScene] = useState(0);
+
+  const [sceneInfo, setSceneInfo] = useState([
     {
       //0
+      id:0,
       type: "sticky",
       heightNum: 5, //브라우저 높이의 5배로 scrollHeight 세팅
       scrollHeight: 0,
@@ -55,32 +55,33 @@ const Home = () => {
     },
     {
       //1
+      id:1,
       type: "normal",
       heightNum: 5,
       scrollHeight: 0,
     },
     {
       //2
+      id:2,
       type: "sticky",
       heightNum: 5,
       scrollHeight: 0,
     },
     {
       //3
+      id:3,
       type: "sticky",
       heightNum: 5,
       scrollHeight: 0,
     },
-  ];
+  ]);
 
   const setLayout = () => {
     // 각 스크롤 섹션의 높이 셋팅
     for (let i = 0; i < sceneInfo.length; i++) {
-      sceneInfo[i].scrollHeight = sceneInfo[i].heightNum * windowHeightSize;
+      debugger;
+      sceneInfo[i] = {...sceneInfo[i], scrollHeight:sceneInfo[i].heightNum * windowHeightSize};
       sectionRef.current[i].style.height = `${sceneInfo[i].scrollHeight}px`;
-
-      if (i === 0) {
-      }
     }
 
     //현재 스크롤 위치보다 토탈 스크롤 위치가 커지면 break => 새로고침시에
@@ -88,30 +89,28 @@ const Home = () => {
     for (let i = 0; i < sceneInfo.length; i++) {
       totalScrollHeight += sceneInfo[i].scrollHeight;
       if (totalScrollHeight >= yOffset) {
-        curScene = i;
+        setCurScene(i);
         break;
       }
     }
   };
 
   const scrollLoop = () => {
-    console.log(`불리넹?`);
-    prevScollHeight = 0;
+    setPrevScollHeight(0);
     for (let i = 0; i < curScene; i++) {
-      prevScollHeight += sceneInfo[i].scrollHeight;
+      setPrevScollHeight(prevScollHeight + sceneInfo[i].scrollHeight);
     }
 
-    console.log(sceneInfo);
     console.log(curScene);
     if (yOffset > prevScollHeight + sceneInfo[curScene].scrollHeight) {
-      curScene++;
-      sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
+      setCurScene(1);
+      //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
     }
 
     if (yOffset < prevScollHeight) {
       if (curScene === 0) return; //브라우저 바운스 효과로 인해 마이너스가 되는 것을 방지(모바일)
-      curScene--;
-      sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
+      setCurScene(curScene - 1);
+      //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
     }
   };
 
@@ -160,7 +159,7 @@ const Home = () => {
 
   return (
     <div>
-      <div ref={sectionbodyRef}>
+      <div id={`show-scene-${curScene}`}>
         <div className="container">
           <nav className="global-nav">
             <div className="global-nav-links">
@@ -193,6 +192,7 @@ const Home = () => {
             className="scroll-section"
             id="scroll-section-0"
             ref={(el) => (sectionRef.current[0] = el)}
+            //height={`${sceneInfo[0].scrollHeight}px`}
           >
             <h1>AirMug Pro</h1>
             <div
@@ -234,6 +234,7 @@ const Home = () => {
             className="scroll-section"
             id="scroll-section-1"
             ref={(el) => (sectionRef.current[1] = el)}
+            //height={`${sceneInfo[1].scrollHeight}px`}
           >
             <p className="description">
               <strong>보통 스크롤 영역</strong>
@@ -255,6 +256,7 @@ const Home = () => {
             className="scroll-section"
             id="scroll-section-2"
             ref={(el) => (sectionRef.current[2] = el)}
+            //height={`${sceneInfo[2].scrollHeight}px`}
           >
             <div className="sticky-elem main-message">
               <p>
@@ -281,6 +283,7 @@ const Home = () => {
             className="scroll-section"
             id="scroll-section-3"
             ref={(el) => (sectionRef.current[3] = el)}
+            //height={`${sceneInfo[3].scrollHeight}px`}
           >
             <p className="mid-message">
               <strong>textText</strong>
