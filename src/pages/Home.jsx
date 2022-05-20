@@ -2,37 +2,33 @@ import React from "react";
 import { useState, useEffect, useRef, useScroll } from "react";
 import "../main.css";
 
-useScroll = () => {
-  // 스크롤 X, Y 좌표를 객체로 저장`
-  const [position, setPosition] = useState({
-    yOffset: 0
-  });
-
+ useScroll = () => {
+  // 스크롤 X, Y 좌표를 객체로 저장
+  const [yOffset, setYOffset] = useState(0);
+  
   const onScroll = () => {
-    setPosition({yOffset: window.pageYOffset});
-    //setPosition((prev) => ({ ...prev, yOffset: window.pageYOffset }));
+    setYOffset(window.pageYOffset);
   };
-
+  
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, [window.pageYOffset]);
+  }, []);
 
-  return position;
-};
+  return yOffset;
+}
 
 const Home = () => {
   const sectionRef = useRef([]);
   const messageRef = useRef([]);
 
-  let { yOffset} = useScroll();
+  const yOffset = useScroll();
 
   const [windowHeightSize, setWindowHeightSize] = useState(window.innerHeight);
-  const [preY, setPreY] = useState(yOffset);
 
-  const [prevScollHeight, setPrevScollHeight] = useState(0);
+  //const [prevScollHeight, setPrevScollHeight] = useState(0);
   const [curScene, setCurScene] = useState(0);
 
   const [sceneInfo, setSceneInfo] = useState([
@@ -79,7 +75,6 @@ const Home = () => {
   const setLayout = () => {
     // 각 스크롤 섹션의 높이 셋팅
     for (let i = 0; i < sceneInfo.length; i++) {
-      debugger;
       sceneInfo[i] = {...sceneInfo[i], scrollHeight:sceneInfo[i].heightNum * windowHeightSize};
       sectionRef.current[i].style.height = `${sceneInfo[i].scrollHeight}px`;
     }
@@ -95,15 +90,9 @@ const Home = () => {
     }
   };
 
-  const scrollLoop = () => {
-    setPrevScollHeight(0);
-    for (let i = 0; i < curScene; i++) {
-      setPrevScollHeight(prevScollHeight + sceneInfo[i].scrollHeight);
-    }
-
-    console.log(curScene);
+  const scrollLoop = (prevScollHeight) => {
     if (yOffset > prevScollHeight + sceneInfo[curScene].scrollHeight) {
-      setCurScene(1);
+      setCurScene(curScene + 1);
       //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
     }
 
@@ -137,25 +126,27 @@ const Home = () => {
   */
 
   useEffect(() => {
-    if (yOffset !== preY) {
-      console.log(`11111`);
-      setPreY(yOffset);
-      scrollLoop();
-    } else {
-      console.log(`22222`);
       const handleResize = () => {
         setWindowHeightSize(window.innerHeight);
       };
 
       setLayout();
-      // scrollLoop();
 
       window.addEventListener("resize", handleResize);
       return () => {
         window.removeEventListener("resize", handleResize);
-      };
     }
-  }, [windowHeightSize, yOffset]);
+  }, [windowHeightSize]);
+
+  useEffect(() => {
+    let prevScrollHeight = 0;
+
+    for (let i = 0; i < curScene; i++) {
+      prevScrollHeight = prevScrollHeight + sceneInfo[i].scrollHeight;
+    }
+
+    scrollLoop(prevScrollHeight);
+  }, [yOffset])
 
   return (
     <div>
