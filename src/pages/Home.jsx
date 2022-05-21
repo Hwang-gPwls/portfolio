@@ -2,14 +2,14 @@ import React from "react";
 import { useState, useEffect, useRef, useScroll } from "react";
 import "../main.css";
 
- useScroll = () => {
+useScroll = () => {
   // 스크롤 X, Y 좌표를 객체로 저장
   const [yOffset, setYOffset] = useState(0);
-  
+
   const onScroll = () => {
     setYOffset(window.pageYOffset);
   };
-  
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
@@ -18,7 +18,7 @@ import "../main.css";
   }, []);
 
   return yOffset;
-}
+};
 
 const Home = () => {
   const sectionRef = useRef([]);
@@ -30,11 +30,12 @@ const Home = () => {
 
   //const [prevScollHeight, setPrevScollHeight] = useState(0);
   const [curScene, setCurScene] = useState(0);
+  let enterNewScene = false; //새로운 scene이 시작된 순간 true
 
   const [sceneInfo, setSceneInfo] = useState([
     {
       //0
-      id:0,
+      id: 0,
       type: "sticky",
       heightNum: 5, //브라우저 높이의 5배로 scrollHeight 세팅
       scrollHeight: 0,
@@ -51,21 +52,21 @@ const Home = () => {
     },
     {
       //1
-      id:1,
+      id: 1,
       type: "normal",
       heightNum: 5,
       scrollHeight: 0,
     },
     {
       //2
-      id:2,
+      id: 2,
       type: "sticky",
       heightNum: 5,
       scrollHeight: 0,
     },
     {
       //3
-      id:3,
+      id: 3,
       type: "sticky",
       heightNum: 5,
       scrollHeight: 0,
@@ -75,7 +76,10 @@ const Home = () => {
   const setLayout = () => {
     // 각 스크롤 섹션의 높이 셋팅
     for (let i = 0; i < sceneInfo.length; i++) {
-      sceneInfo[i] = {...sceneInfo[i], scrollHeight:sceneInfo[i].heightNum * windowHeightSize};
+      sceneInfo[i] = {
+        ...sceneInfo[i],
+        scrollHeight: sceneInfo[i].heightNum * windowHeightSize,
+      };
       sectionRef.current[i].style.height = `${sceneInfo[i].scrollHeight}px`;
     }
 
@@ -91,51 +95,112 @@ const Home = () => {
   };
 
   const scrollLoop = (prevScollHeight) => {
+    enterNewScene = false;
+
     if (yOffset > prevScollHeight + sceneInfo[curScene].scrollHeight) {
+      enterNewScene = true;
       setCurScene(curScene + 1);
       //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
     }
 
     if (yOffset < prevScollHeight) {
+      enterNewScene = true;
       if (curScene === 0) return; //브라우저 바운스 효과로 인해 마이너스가 되는 것을 방지(모바일)
       setCurScene(curScene - 1);
       //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
     }
+
+    if (enterNewScene) return;
+
+    playAnimation();
   };
 
-  //const calcValues = (values) => {};
+  const calcValues = (values, curYOffset) => {
+    let rv;
+    let scrollRatio = curYOffset / sceneInfo[curScene].scrollHeight;
 
-  /*
-  const playAnimation = () => {
-    const objs = curScene[curScene].objs;
-    const values = curScene[curScene].values.messageA_opacity;
+    rv = scrollRatio * (values[1] - values[0]) + values[0];
+
+    return rv;
+  };
+
+  const playAnimation = (prevScollHeight) => {
+    const objs = sceneInfo[curScene].objs;
+    const values = sceneInfo[curScene].values.messageA_opacity;
+    const curYOffset = yOffset - prevScollHeight;
 
     switch (curScene) {
       case 0:
-        let messageA_opacity_0 = values[0].values.messageA_opacity[0];
-        let messageA_opacity_1 = values[0].values.messageA_opacity[1];
+        let messageA_opacity_in = calcValues(values, curYOffset);
+        objs.messageA.style.opacity = messageA_opacity_in;
         break;
       case 1:
-        break; 
+        break;
       case 2:
         break;
       case 3:
         break;
     }
   };
-  */
+
+  // useEffect(() => {
+
+  // }, []);
 
   useEffect(() => {
-      const handleResize = () => {
-        setWindowHeightSize(window.innerHeight);
-      };
-
-      setLayout();
-
-      window.addEventListener("resize", handleResize);
-      return () => {
-        window.removeEventListener("resize", handleResize);
+    if (!!sceneInfo.objs) {
+      setSceneInfo([
+        {
+          //0
+          id: 0,
+          type: "sticky",
+          heightNum: 5, //브라우저 높이의 5배로 scrollHeight 세팅
+          scrollHeight: 0,
+          objs: {
+            container: sectionRef.current[0],
+            messageA: messageRef.current[0],
+            messageB: messageRef.current[1],
+            messageC: messageRef.current[2],
+            messageD: messageRef.current[3],
+          },
+          values: {
+            messageA_opacity: [0, 1],
+          },
+        },
+        {
+          //1
+          id: 1,
+          type: "normal",
+          heightNum: 5,
+          scrollHeight: 0,
+        },
+        {
+          //2
+          id: 2,
+          type: "sticky",
+          heightNum: 5,
+          scrollHeight: 0,
+        },
+        {
+          //3
+          id: 3,
+          type: "sticky",
+          heightNum: 5,
+          scrollHeight: 0,
+        },
+      ]);
     }
+
+    const handleResize = () => {
+      setWindowHeightSize(window.innerHeight);
+    };
+
+    setLayout();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [windowHeightSize]);
 
   useEffect(() => {
@@ -146,7 +211,7 @@ const Home = () => {
     }
 
     scrollLoop(prevScrollHeight);
-  }, [yOffset])
+  }, [yOffset]);
 
   return (
     <div>
