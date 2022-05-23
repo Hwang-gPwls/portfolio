@@ -49,7 +49,11 @@ const Home = () => {
           messageD: messageRef.current[3],
         },
         values: {
-          messageA_opacity: [0, 1],
+          messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
+          messageA_translateY_in: [20, 0, { start: 0.1, end: 0.2 }],
+          messageA_opacity_out: [1, 0, { start: 0.25, end: 0.3 }],
+          messageA_translateY_out: [20, 0, { start: 0.25, end: 0.3 }],
+          messageB_opacity_in: [20, 0, { start: 0.3, end: 0.4 }],
         },
       },
       {
@@ -58,6 +62,9 @@ const Home = () => {
         type: "normal",
         heightNum: 5,
         scrollHeight: 0,
+        objs: {
+          container: sectionRef.current[1],
+        },
       },
       {
         //2
@@ -151,22 +158,71 @@ const Home = () => {
 
   const calcValues = (values, curYOffset) => {
     let rv;
-    let scrollRatio = curYOffset / sceneInfo[curScene].scrollHeight;
+    //현재 씬(스크롤섹션)에서 스크롤된 범위를 비율로 구하기
+    const scrollHeight = sceneInfo[curScene].scrollHeight;
+    let scrollRatio = isNaN(curYOffset / sceneInfo[curScene].scrollHeight)
+      ? 0
+      : curYOffset / sceneInfo[curScene].scrollHeight;
 
-    rv = scrollRatio * (values[1] - values[0]) + values[0];
+    if (values.length === 3) {
+      // start ~ end 사이에 애니메이션 실행
+      const partScrollStart = values[2].start * scrollHeight;
+      const partScrollEnd = values[2].end * scrollHeight;
+      const partScrollHeight = partScrollEnd - partScrollStart;
 
+      if (curYOffset >= partScrollStart && curYOffset <= partScrollEnd) {
+        rv =
+          ((curYOffset - partScrollStart) / partScrollHeight) *
+            (values[1] - values[0]) +
+          values[0];
+      } else if (curYOffset < partScrollStart) {
+        rv = values[0];
+      } else if (curYOffset > partScrollEnd) {
+        rv = values[1];
+      }
+    } else {
+      rv = scrollRatio * (values[1] - values[0]) + values[0];
+    }
     return rv;
   };
 
   const playAnimation = (prevScollHeight) => {
     const objs = sceneInfo[curScene].objs;
-    const values = sceneInfo[curScene].values.messageA_opacity;
+    const values = sceneInfo[curScene].values;
     const curYOffset = yOffset - prevScollHeight;
+    const scrollRatio = isNaN((yOffset - prevScollHeight) / curYOffset)
+      ? 0
+      : (yOffset - prevScollHeight) / curYOffset;
 
     switch (curScene) {
       case 0:
-        let messageA_opacity_in = calcValues(values, curYOffset);
-        objs.messageA.style.opacity = messageA_opacity_in;
+        const messageA_opacity_in = calcValues(
+          values.messageA_opacity_in,
+          curYOffset
+        );
+
+        const messageA_opacity_out = calcValues(
+          values.messageA_opacity_out,
+          curYOffset
+        );
+
+        const messageA_translateY_in = calcValues(
+          values.messageA_translateY_in,
+          curYOffset
+        );
+
+        const messageA_translateY_out = calcValues(
+          values.messageA_translateY_out,
+          curYOffset
+        );
+
+        if (scrollRatio <= 0.22) {
+          objs.messageA.style.opacity = messageA_opacity_in;
+          objs.messageA.style.transform = `translateY(${messageA_translateY_in}%)`;
+        } else {
+          objs.messageA.style.opacity = messageA_opacity_out;
+          objs.messageA.style.transform = `translateY(${messageA_translateY_out}%)`;
+        }
         break;
       case 1:
         break;
