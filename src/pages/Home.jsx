@@ -184,7 +184,7 @@ const Home = () => {
   };
 
   const scrollLoop = (prevScollHeight) => {
-    enterNewScene = false;
+    let enterNewScene = false;
 
     if (yOffset > prevScollHeight + sceneInfo[curScene].scrollHeight) {
       enterNewScene = true;
@@ -238,9 +238,8 @@ const Home = () => {
     const objs = sceneInfo[curScene].objs;
     const values = sceneInfo[curScene].values;
     const curYOffset = yOffset - prevScollHeight;
-    const scrollRatio = isNaN((yOffset - prevScollHeight) / curYOffset)
-      ? 0
-      : (yOffset - prevScollHeight) / curYOffset;
+    const scrollHeight = sceneInfo[curScene].scrollHeight;
+    const scrollRatio = curYOffset / scrollHeight;
 
     switch (curScene) {
       case 0:
@@ -331,8 +330,8 @@ const Home = () => {
             curYOffset
           )}%, 0)`;
         }
-
         break;
+
       case 2:
         if (scrollRatio <= 0.5) {
           // in
