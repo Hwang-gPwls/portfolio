@@ -471,14 +471,14 @@ const Home = () => {
             ref={(el) => (sectionRef.current[0] = el)}
             //height={`${sceneInfo[0].scrollHeight}px`}
           >
-            <h1>AirMug Pro</h1>
+            <h1>HI, I'M HYEJIN HWANG</h1>
             <div
               className="sticky-elem main-message main-message-a"
               ref={(el) => (messageRef.current[0] = el)}
             >
               <p>
-                온전히 빠져들게 하는 <br />
-                최고급 세라믹
+                ACTUALLY, I'M A WEBSITE
+                <br />I WAS BUILT BY HYEJIN HWANG
               </p>
             </div>
             <div
