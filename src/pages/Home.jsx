@@ -23,6 +23,7 @@ useScroll = () => {
 const Home = () => {
   const sectionRef = useRef([]);
   const messageRef = useRef([]);
+  const divRef = useRef(null);
 
   const yOffset = useScroll();
   const [windowHeightSize, setWindowHeightSize] = useState(window.innerHeight);
@@ -124,9 +125,21 @@ const Home = () => {
     ]);
   }, [sceneInfo]);
 
+  //load 이벤트 수정
   useEffect(() => {
     if (sceneInfo.length < 1) {
-      return;
+      window.addEventListener("load", () => {
+        divRef.className.remove("before-load");
+      });
+      return () => {
+        window.removeEventListener("load", () => {});
+      };
+
+      document
+        .querySelector(".loading")
+        .addEventListener("transitionend", (e) => {
+          document.body.removeChild(e.current);
+        });
     }
 
     const handleResize = () => {
@@ -435,8 +448,13 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="before-load" ref={divRef}>
       <div id={`show-scene-${curScene}`}>
+        <div className="loading">
+          <svg className="loading-circle">
+            <circle cx="50%" cy="50%" r="25"></circle>
+          </svg>
+        </div>
         <div className="container">
           <nav className="global-nav">
             <div className="global-nav-links">
