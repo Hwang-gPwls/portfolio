@@ -129,7 +129,7 @@ const Home = () => {
   useEffect(() => {
     if (sceneInfo.length < 1) {
       window.addEventListener("load", () => {
-        divRef.className.remove("before-load");
+        console.log("로드징");
       });
       return () => {
         window.removeEventListener("load", () => {});
@@ -448,13 +448,21 @@ const Home = () => {
   };
 
   return (
-    <div className="before-load" ref={divRef}>
+    <div
+      className="before-load"
+      ref={divRef}
+      onLoad={() => {
+        document
+          .getElementsByClassName("before-load")
+          .className.remove("before-load");
+      }}
+    >
       <div id={`show-scene-${curScene}`}>
-        <div className="loading">
+        {/* <div className="loading">
           <svg className="loading-circle">
             <circle cx="50%" cy="50%" r="25"></circle>
           </svg>
-        </div>
+        </div> */}
         <div className="container">
           <nav className="global-nav">
             <div className="global-nav-links">
@@ -470,16 +478,6 @@ const Home = () => {
               <a href="#" className="global-nav-item">
                 Contact
               </a>
-            </div>
-          </nav>
-          <nav className="local-nav">
-            <div className="local-nav-links">
-              <a href="" className="product-name">
-                AirMug Pro
-              </a>
-              <a href="">개요</a>
-              <a href="">제품사양</a>
-              <a href="">구입하기</a>
             </div>
           </nav>
 
