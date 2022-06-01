@@ -501,10 +501,7 @@ const Home = () => {
               className="sticky-elem main-message main-message-b"
               ref={(el) => (messageRef.current[1] = el)}
             >
-              <p>
-                주변 맛을 느끼게 해주는 <br />
-                주변 맛 허용 모드
-              </p>
+              <p>HyeJin Hwang</p>
             </div>
             <div
               className="sticky-elem main-message main-message-c"
@@ -529,20 +526,41 @@ const Home = () => {
             ref={(el) => (sectionRef.current[1] = el)}
             //height={`${sceneInfo[1].scrollHeight}px`}
           >
-            <p className="description">
-              <strong>보통 스크롤 영역</strong>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque quibusdam aspernatur ratione eos ipsam quasi explicabo
-              sunt, labore dolorum recusandae odit, mollitia odio. Perspiciatis
-              rem eaque rerum et blanditiis porro! Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Doloremque quibusdam aspernatur
-              ratione eos ipsam quasi explicabo sunt, labore dolorum recusandae
-              odit, mollitia odio. Perspiciatis rem eaque rerum et blanditiis
-              porro! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque quibusdam aspernatur ratione eos ipsam quasi explicabo
-              sunt, labore dolorum recusandae odit, mollitia odio. Perspiciatis
-              rem eaque rerum et blanditiis porro!
-            </p>
+            <div className="description">
+              <div id="flip">
+                <div>
+                  <div>HyeJin Hwang</div>
+                </div>
+                <div>
+                  <div>Frontend Developer</div>
+                </div>
+                <div>
+                  <div>Backend Developer</div>
+                </div>
+              </div>
+
+              <p className="sub">
+                지속적으로 좋은 방법을 생각하고, 발전하는 개발자 황혜진 입니다.
+              </p>
+
+              <p>
+                사람들에게 편의와 긍정적인 영향을 줄 수 있는 좋은 서비스를
+                개발하고 발전시키는 데에 관심이 많습니다. 주로 웹 서비스
+                개발을 담당하였으며 회사에서 자체적으로
+                개발한 프레임워크인 Qrame 기능 확장 및 유지보수에 참여하여
+                해당 프레임워크를 고도화하고 다른 프로젝트에 접목해 사용한
+                경험이 있습니다.
+              </p>
+
+              <p>
+                기획부터 개발, 운영까지 프로젝트 전반적인 과정에 참여하고 경험을
+                쌓고 있으며, 개발 완료로 끝나는 것이 아닌, 지속할 수 있는 개발을
+                지향합니다. 건강한 협업 문화를 만드는 일을
+                좋아합니다. 스케쥴과 이슈 관리가 되지 않는 점이 있어, 팀
+                구성원들과 위클리 회의 문화를 제안해 개발 상황과 이슈에 대한
+                원활한 소통문화를 만들어 나간 경험이 있습니다.
+              </p>
+            </div>
           </section>
 
           <section
@@ -554,15 +572,14 @@ const Home = () => {
             <div className="sticky-elem main-message">
               <p>
                 <small>편안한 촉감</small>
-                입과 하나 되다
+                skills
               </p>
             </div>
             <div className="sticky-elem desc-messae">
               <p>
-                편안함 목넘김을 완성하는 디테일한 여러 구성 요소로, 우리는 이를
-                하나하나 새롭게 살피고 재구성하는 과정을 거쳐 새로운 수준의
-                머그, AirMug Pro를 만들었습니다. 입에 뭔가 댔다는 감각은 어느새
-                사라지고 오롯이 음료만 남게 되죠.
+                ## Frontend - HTML, CSS, JS(ES6) - Qrame - React - Visual Studio
+                Code, Visual Studio ## **Backend** - .Net Core - Qrame ## Devops
+                - MySQL, SQL Server - Git
               </p>
               <div className="pin"></div>
             </div>
@@ -579,7 +596,7 @@ const Home = () => {
             //height={`${sceneInfo[3].scrollHeight}px`}
           >
             <p className="mid-message">
-              <strong>textText</strong>
+              <strong>in my career</strong>
               <br />
               아이디어를 광활하게 펼칠
               <br />
