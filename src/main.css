@@ -28,7 +28,9 @@ a {
   margin: 0 auto;
   padding: 2rem 1rem;
   border-style: solid;
-  border-width: 0.7px;
+  border-width: 1px;
+  border-color: #7d97b8;
+  /*background-color: #a9b4b9*/
 }
 
 .global-nav-links {
@@ -56,6 +58,12 @@ a {
 
 .scroll-section {
   padding-top: 15vh;
+}
+
+.section-0-frame {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #7d97b8;
 }
 
 .main-message {
