@@ -487,7 +487,9 @@ const Home = () => {
             ref={(el) => (sectionRef.current[0] = el)}
             //height={`${sceneInfo[0].scrollHeight}px`}
           >
-            <h1>HI, I'M HYEJIN HWANG</h1>
+            <div className="section-0-frame">
+              <h1>HI, I'M HYEJIN HWANG</h1>
+            </div>
             <div
               className="sticky-elem main-message main-message-a"
               ref={(el) => (messageRef.current[0] = el)}
