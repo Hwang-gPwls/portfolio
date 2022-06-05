@@ -1,5 +1,7 @@
 import React from "react";
 import { useCallback, useState, useEffect, useRef, useScroll } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "../main.css";
 
 useScroll = () => {
@@ -33,6 +35,10 @@ const Home = () => {
   let enterNewScene = false; //새로운 scene이 시작된 순간 true
 
   const [sceneInfo, setSceneInfo] = useState([]);
+
+  useEffect(() => {
+    AOS.init();
+  });
 
   const setValue = useCallback(() => {
     setSceneInfo(() => [
@@ -510,15 +516,16 @@ const Home = () => {
               ref={(el) => (messageRef.current[2] = el)}
             >
               <p>
-                온종일 편안한 <br />
-                맞춤형 손잡이
+                FRONTEND
+                <br />
+                DEVELOPER
               </p>
             </div>
             <div
               className="sticky-elem main-message main-message-d"
               ref={(el) => (messageRef.current[3] = el)}
             >
-              <p>새롭게 입가를 찾아온 매혹</p>
+              <p>WEB DEVELOPER</p>
             </div>
           </section>
 
@@ -528,40 +535,42 @@ const Home = () => {
             ref={(el) => (sectionRef.current[1] = el)}
             //height={`${sceneInfo[1].scrollHeight}px`}
           >
-            <div className="description">
-              <div id="flip">
-                <div>
-                  <div>HyeJin Hwang</div>
+            <div className="section-0-frame">
+              <div className="description">
+                <div id="flip">
+                  <div>
+                    <div>HyeJin Hwang</div>
+                  </div>
+                  <div>
+                    <div>Frontend Developer</div>
+                  </div>
+                  <div>
+                    <div>Backend Developer</div>
+                  </div>
                 </div>
-                <div>
-                  <div>Frontend Developer</div>
-                </div>
-                <div>
-                  <div>Backend Developer</div>
-                </div>
+                <p className="sub">
+                  지속적으로 좋은 방법을 생각하고, 발전하는 개발자 황혜진
+                  입니다.
+                </p>
+
+                <p>
+                  사람들에게 편의와 긍정적인 영향을 줄 수 있는 좋은 서비스를
+                  개발하고 발전시키는 데에 관심이 많습니다. 주로 웹 서비스
+                  개발을 담당하였으며 회사에서 자체적으로
+                  개발한 프레임워크인 Qrame 기능 확장 및 유지보수에 참여하여
+                  해당 프레임워크를 고도화하고 다른 프로젝트에 접목해 사용한
+                  경험이 있습니다.
+                </p>
+
+                <p>
+                  기획부터 개발, 운영까지 프로젝트 전반적인 과정에 참여하고
+                  경험을 쌓고 있으며, 개발 완료로 끝나는 것이 아닌, 지속할 수
+                  있는 개발을 지향합니다. 건강한 협업 문화를 만드는 일을
+                  좋아합니다. 스케쥴과 이슈 관리가 되지 않는 점이 있어, 팀
+                  구성원들과 위클리 회의 문화를 제안해 개발 상황과 이슈에 대한
+                  원활한 소통문화를 만들어 나간 경험이 있습니다.
+                </p>
               </div>
-
-              <p className="sub">
-                지속적으로 좋은 방법을 생각하고, 발전하는 개발자 황혜진 입니다.
-              </p>
-
-              <p>
-                사람들에게 편의와 긍정적인 영향을 줄 수 있는 좋은 서비스를
-                개발하고 발전시키는 데에 관심이 많습니다. 주로 웹 서비스
-                개발을 담당하였으며 회사에서 자체적으로
-                개발한 프레임워크인 Qrame 기능 확장 및 유지보수에 참여하여
-                해당 프레임워크를 고도화하고 다른 프로젝트에 접목해 사용한
-                경험이 있습니다.
-              </p>
-
-              <p>
-                기획부터 개발, 운영까지 프로젝트 전반적인 과정에 참여하고 경험을
-                쌓고 있으며, 개발 완료로 끝나는 것이 아닌, 지속할 수 있는 개발을
-                지향합니다. 건강한 협업 문화를 만드는 일을
-                좋아합니다. 스케쥴과 이슈 관리가 되지 않는 점이 있어, 팀
-                구성원들과 위클리 회의 문화를 제안해 개발 상황과 이슈에 대한
-                원활한 소통문화를 만들어 나간 경험이 있습니다.
-              </p>
             </div>
           </section>
 
@@ -571,23 +580,15 @@ const Home = () => {
             ref={(el) => (sectionRef.current[2] = el)}
             //height={`${sceneInfo[2].scrollHeight}px`}
           >
-            <div className="sticky-elem main-message">
-              <p>
-                <small>편안한 촉감</small>
-                skills
-              </p>
+            <div className="description">
+              <p>skills</p>
             </div>
-            <div className="sticky-elem desc-messae">
+            <div className="description">
               <p>
                 ## Frontend - HTML, CSS, JS(ES6) - Qrame - React - Visual Studio
                 Code, Visual Studio ## **Backend** - .Net Core - Qrame ## Devops
                 - MySQL, SQL Server - Git
               </p>
-              <div className="pin"></div>
-            </div>
-            <div className="sticky-elem desc-messae">
-              <p>디자인 앤 퀄리티 오브 스웨덴, 메이드 인 차이나</p>
-              <div className="pin"></div>
             </div>
           </section>
 
@@ -597,26 +598,79 @@ const Home = () => {
             ref={(el) => (sectionRef.current[3] = el)}
             //height={`${sceneInfo[3].scrollHeight}px`}
           >
-            <p className="mid-message">
-              <strong>in my career</strong>
-              <br />
-              아이디어를 광활하게 펼칠
-              <br />
-              아름답고 부드러운 음료 공간
-            </p>
-            <p className="canvas-caption">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque quibusdam aspernatur ratione eos ipsam quasi explicabo
-              sunt, labore dolorum recusandae odit, mollitia odio. Perspiciatis
-              rem eaque rerum et blanditiis porro! Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Doloremque quibusdam aspernatur
-              ratione eos ipsam quasi explicabo sunt, labore dolorum recusandae
-              odit, mollitia odio. Perspiciatis rem eaque rerum et blanditiis
-              porro! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque quibusdam aspernatur ratione eos ipsam quasi explicabo
-              sunt, labore dolorum recusandae odit, mollitia odio. Perspiciatis
-              rem eaque rerum et blanditiis porro!
-            </p>
+            <div className="section-0-frame">
+              <p className="stripe">in my career</p>
+            </div>
+            <div className="careerContents">
+              <div className="box-wrapper">
+                <div id="box" data-aos="fade-down-right">
+                  <h1 className="heading">Mojito 쇼핑몰 솔루션 개발</h1>
+                  <div className="data">
+                    <span className="date">2021-10-21</span>
+                  </div>
+                  <p className="texts">
+                    ASP .Net Core를 이용한 웹페이지 개발
+                    <br />
+                    모듈화를 통해 요구사항별로 필요한 화면만을 사용할 수 있도록
+                    개발
+                    <br />
+                    서버와의 연동을 위한 API개발 및 쿼리 작성
+                  </p>
+                </div>
+              </div>
+              <div id="box" data-aos="fade-down-left">
+                <h1 className="heading">EasyWork ERP 프로그램 개발</h1>
+                <div className="data">
+                  <span className="date">2021-10-21</span>
+                </div>
+                <p className="texts">
+                  ERP 프로그램 스키마 설계 및 쿼리 작성
+                  <br />
+                  기획 / 설계 단계부터 참여
+                  <br />
+                  사내 프레임워크인 Qrame을 사용한 화면 개발
+                  <br />
+                  Qrame 컨트롤 이슈 파악 및 기능 개선
+                </p>
+              </div>
+              <div className="box-wrapper">
+                <div id="box" data-aos="fade-down-right">
+                  <h1 className="heading">
+                    윤선생 Wooyoung(우리동네 영어교실) 개발 및 운영
+                  </h1>
+                  <div className="data">
+                    <span className="date">2021-10-21</span>
+                  </div>
+                  <p className="texts">
+                    회원, 지점관리 및 교재 주문 서비스 개선을 위한 관리자 웹
+                    페이지 개발 및 운영
+                    <br />
+                    Qrame 오픈소스 오류 개선 및 컴포넌트 고도화
+                    <br />
+                    사내 프레임워크인 Qrame을 사용한 화면 개발
+                  </p>
+                </div>
+              </div>
+              <div id="box" data-aos="fade-down-left">
+                <h1 className="heading">
+                  Collabic (생산자 구매자 섬유산업 서비스 플랫폼)
+                </h1>
+                <div className="data">
+                  <span className="date">2021-10-21</span>
+                </div>
+                <p className="texts">
+                  원단 판매 사업의 판매 프로세스 개선을 위한 원단 추천 AI
+                  프로젝트
+                  <br />
+                  vue.js를 사용하여 AI기반 구매자 추천 소재 제안 알고리즘 시현을
+                  위한 데모 화면 개발
+                  <br />
+                  사내 프레임워크인 Qrame을 사용한 AI Admin 페이지 개발
+                  <br />
+                  ML.NET을 이용한 AI 테스트용 API 개발
+                </p>
+              </div>
+            </div>
           </section>
 
           <footer className="footer">by Hyejin</footer>
