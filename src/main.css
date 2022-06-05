@@ -154,14 +154,6 @@ a {
   color: rgb(29, 29, 31);
 }
 
-.canvas-caption {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  font-size: 1.2rem;
-  color: #888;
-}
-
 .footer {
   display: flex;
   align-items: center;
@@ -222,6 +214,7 @@ a {
     stroke-dashoffset: -157;
   }
 }
+
 .loading-circle {
   width: 54px;
   height: 54px;
@@ -296,6 +289,95 @@ a {
   100% {
     margin-top: -270px;
   }
+}
+
+.stripe {
+  color: #ffffff;
+  font-size: 5rem;
+  -webkit-text-stroke: 1.5px #7d97b8;
+  line-height: 1;
+  position: relative;
+  display: block;
+  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.stripe:after {
+  height: 20vh;
+  content: "in my career";
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 1;
+  display: block;
+  color: #7d97b8;
+  opacity: 0.7;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: 2s ease-out width;
+}
+
+.stripe:hover:after {
+  width: 100%;
+}
+
+.careerContents {
+  margin-top: 1rem;
+  padding: 8rem 8rem 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-wrapper {
+  width: 100%;
+  display: inline-block;
+}
+
+#box {
+  width: 40vw;
+  border-style: solid;
+  border-width: 0.7px;
+  border-color: #7d97b8;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem 0;
+  transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+  float: right;
+}
+
+#box:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: translateY(-10px);
+}
+
+#box * {
+  padding: 10px;
+}
+
+#box .heading {
+  font-size: 3vh;
+}
+
+#box .data {
+  display: flex;
+  flex-direction: column;
+  font-size: 2vh;
+  color: #666;
+}
+
+#box .data span {
+  padding: 0;
+}
+
+#box .data .date {
+  margin-bottom: 2px;
+}
+
+#box .texts {
+  font-size: 1.7vh;
+  line-height: 18px;
 }
 
 /** /description animation */
