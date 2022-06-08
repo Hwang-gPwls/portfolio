@@ -22,14 +22,13 @@ a {
 
 .global-nav {
   position: fixed;
-  width: 100%;
+  width: 95%;
   height: 44px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem 2rem;
   border-style: solid;
   border-width: 1px;
   border-color: #7d97b8;
-  background-color: rgba(125, 151, 184, 0.45);
 }
 
 .global-nav-links {
@@ -39,6 +38,46 @@ a {
   height: 100%;
   margin: 0 auto;
   justify-content: space-between;
+}
+
+.global-nav-item {
+  font-size: 1.1rem;
+  color: #7d97b8;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+}
+
+a:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #7d97b8;
+  transition: all 0.5s;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #7d97b8;
+  transition: all 0.5s;
+}
+
+a:hover:after {
+  width: 50%;
+}
+
+a:hover:before {
+  width: 50%;
 }
 
 .bg {
@@ -53,7 +92,6 @@ a {
     url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
   background-repeat: repeat;
   animation: bg-animation 0.2s infinite;
-  opacity: 0.9;
   visibility: visible;
 }
 
