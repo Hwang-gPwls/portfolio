@@ -259,7 +259,6 @@ const Home = () => {
     const curYOffset = yOffset - prevScollHeight;
     const scrollHeight = sceneInfo[curScene].scrollHeight;
     const scrollRatio = curYOffset / scrollHeight;
-
     switch (curScene) {
       case 0:
         if (scrollRatio <= 0.22) {
@@ -470,9 +469,9 @@ const Home = () => {
             <circle cx="50%" cy="50%" r="25"></circle>
           </svg>
         </div> */}
-        <div className="bg"></div>
         <div className="container">
-          <nav className="global-nav">
+          <div className="bg"></div>
+          <div className="global-nav">
             <div className="global-nav-links">
               <a href="#" className="global-nav-item">
                 Home
@@ -481,13 +480,16 @@ const Home = () => {
                 About
               </a>
               <a href="#" className="global-nav-item">
+                Strength
+              </a>
+              <a href="#" className="global-nav-item">
                 Projects
               </a>
               <a href="#" className="global-nav-item">
                 Contact
               </a>
             </div>
-          </nav>
+          </div>
 
           <section
             className="scroll-section"
