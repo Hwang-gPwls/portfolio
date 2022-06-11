@@ -1,5 +1,7 @@
 import React from "react";
 import { useCallback, useState, useEffect, useRef, useScroll } from "react";
+import { Timeline, Tween } from "react-gsap";
+import { gsap, Power2, TimelineLite } from "gsap";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../main.css";
@@ -25,7 +27,9 @@ useScroll = () => {
 const Home = () => {
   const sectionRef = useRef([]);
   const messageRef = useRef([]);
+  const textRef = useRef(null);
   const divRef = useRef(null);
+  const strengthRef = useRef(null);
 
   const yOffset = useScroll();
   const [windowHeightSize, setWindowHeightSize] = useState(window.innerHeight);
@@ -39,6 +43,18 @@ const Home = () => {
   useEffect(() => {
     AOS.init();
   });
+
+  const onMouseOver = (e) => {
+    console.log(String(e.target.tagName).toLocaleLowerCase());
+    if (String(e.target.tagName).toLocaleLowerCase() === "h1") {
+      // strengthRef.current.innerText = `테스트`;
+
+      // var trg = event.target;
+      var tl = new TimelineLite();
+      tl.to(e.target, 1, { yPercent: -40, ease: Power2.easeInOut });
+      tl.to(e.target, 1, { yPercent: 0, ease: Power2.easeInOut });
+    }
+  };
 
   const setValue = useCallback(() => {
     setSceneInfo(() => [
@@ -470,7 +486,6 @@ const Home = () => {
           </svg>
         </div> */}
         <div className="container">
-          <div className="bg"></div>
           <div className="global-nav">
             <div className="global-nav-links">
               <a href="#" className="global-nav-item">
@@ -497,8 +512,26 @@ const Home = () => {
             ref={(el) => (sectionRef.current[0] = el)}
             //height={`${sceneInfo[0].scrollHeight}px`}
           >
-            <div className="section-0-frame">
-              <h1 className="title">HI, I'M HYEJIN HWANG</h1>
+            <div className="section-0-frame greeting-wrapper">
+              <Timeline
+                target={
+                  <div className="content">
+                    <h3>HI, I'M HYEJIN HWANG</h3>
+                    <h3>HI, I'M HYEJIN HWANG</h3>
+                  </div>
+                }
+              >
+                <Tween
+                  from={{
+                    opacity: 0,
+                    delay: 1,
+                    stagger: {
+                      amount: 0.3,
+                    },
+                  }}
+                  to={{ opacity: 1 }}
+                />
+              </Timeline>
             </div>
             <div
               className="sticky-elem main-message main-message-a"
@@ -592,84 +625,35 @@ const Home = () => {
                 </h2>
               </div>
             </div>
-            <div className="section-0-frame">
-              <div className="description">
-                <div className="skill">
-                  <h1>React</h1>
-                  <div className="skill-content">
-                    ToyProject 일기장을 개발 했습니다.
-                    <br />
-                    Portfolio 프로젝트를 개발 했습니다.
-                    <br />
-                    공식문서 및 강의를 통한 체계적인 학습을 했습니다.
+            <div className="strength-wrapper">
+              <ul>
+                <li onMouseOver={onMouseOver}>
+                  <div id="react" className="skill">
+                    <h1>React</h1>
                   </div>
-                </div>
-                <div className="skill">
-                  <h1>HTML/CSS</h1>
-                  <div className="skill-content">
-                    HTNL5 기본 문법을 준수하고 웹표준을 지키려고 노력 합니다.
-                    <br />
-                    웹페이지에 사용할 컨트롤 오픈소스 및 CSS 라이브러리를
-                    사용하여 개발할 수 있습니다.
-                    <br />
-                    크로스 브라우징에 대응할 수 있습니다.
+                  <div id="html" className="skill">
+                    <h1>HTML/CSS</h1>
                   </div>
-                </div>
-                <div className="skill">
-                  <h1>Javascript</h1>
-                  <div className="skill-content">
-                    ES6+ 문법에 익숙합니다.
-                    <br />
-                    webpack등의 번들러 사용경험이 있습니다.
-                    <br />
-                    VanillaJS를 이용해 웹페이지를 개발할 수 있습니다.
+                  <div id="javascript" className="skill">
+                    <h1>Javascript</h1>
                   </div>
-                </div>
-                <div className="skill">
-                  <h1>Qrame</h1>
-                  <div className="skill-content">
-                    사내 프레임워크로 ES6+를 고도화 한 함수 및 기능등을
-                    제공합니다.
-                    <br />
-                    프론트엔드 개발에 필요한 컨트롤 고도화 및 함수 고도화에 참여
-                    하였습니다.
-                    <br />
-                    컨트롤 성능 최적화 경험이 있습니다.
-                    <br />
-                    Qrame을 이용하여 ERP솔루션 및 관리자 페이지 개발 경험이
-                    있습니다.
+                  <div id="qrame" className="skill">
+                    <h1>Qrame</h1>
                   </div>
-                </div>
-                <div className="skill">
-                  <h1>.Net Core</h1>
-                  <div className="skill-content">
-                    .Net Core를 이용한 API 개발 경험이 있습니다.
+                  <div id="net" className="skill">
+                    <h1>.Net Core</h1>
                   </div>
-                </div>
-                <div className="skill">
-                  <h1>MySQL</h1>
-                  <div className="skill-content">
-                    스키마 설계 및 ERD작성 경험이 있습니다.
-                    <br />
-                    MySQL 문법을 준수하여 SQL을 작성 합니다.
-                    <br />
-                    서버리스 프로젝트의 쿼리를 담당하여, 백엔드에서 처리해야 할
-                    기능을 쿼리를 통해 구현한 경험이 있습니다.
-                    <br />
-                    쿼리 성능 튜닝 경험이 있습니다.
+                  <div id="mysql" className="skill">
+                    <h1>MySQL</h1>
                   </div>
-                </div>
-                <div className="skill">
-                  <h1>SQL Server</h1>
-                  SQL Server 문법을 준수하여 SQL을 작성 합니다.
-                </div>
-                <div className="skill">
-                  <h1>Git / SVN</h1>
-                  <div className="skill-content">
-                    형상관리 툴을 사용해 협업을 해 왔습니다.
+                  <div id="sql" className="skill">
+                    <h1>SQL Server</h1>
                   </div>
-                </div>
-              </div>
+                </li>
+                <li>
+                  <div ref={strengthRef} className=""></div>
+                </li>
+              </ul>
             </div>
           </section>
 
