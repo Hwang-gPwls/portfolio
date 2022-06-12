@@ -340,6 +340,11 @@ a:hover:before {
   margin-block-start: 0;
 }
 
+.skill h1:hover {
+  color: rgba(125, 151, 184, 0.59);
+  -webkit-text-stroke: 1px #ffffff;
+}
+
 .mid-message {
   max-width: 1000px;
   margin: 0 auto;
