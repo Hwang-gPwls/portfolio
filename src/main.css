@@ -357,14 +357,6 @@ a:hover:before {
   color: rgb(29, 29, 31);
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 7rem;
-  background-color: #fff000;
-}
-
 .sticky-elem {
   display: none;
   position: fixed;
@@ -641,6 +633,53 @@ a:hover:before {
   font-size: 1.7vh;
   line-height: 18px;
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8rem;
+  padding: 1rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #7d97b8;
+}
+
+.contact-text {
+  width: 70%;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #ffffff;
+  -webkit-text-stroke: 1.5px #7d97b8;
+  text-shadow: #2a3d4e 1px 1px, #2a3d4e -0px 0px, #2a3d4e -1px 1px,
+    #2a3d4e -2px 2px, #2a3d4e -3px 3px, #2a3d4e -4px 4px, #2a3d4e -5px 5px,
+    #2a3d4e -6px 6px, #2a3d4e -7px 7px, #2a3d4e -8px 8px, #919191 -9px 9px;
+
+  position: relative;
+  -webkit-animation: scroll 20s infinite linear;
+  -moz-animation: scroll 20s infinite linear;
+  -o-animation: scroll 20s infinite linear;
+  animation: scroll 20s infinite linear;
+}
+
+@keyframes scroll {
+  0% {
+    left: 500px;
+  }
+  100% {
+    left: -950px;
+  }
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    left: 500px;
+  }
+  100% {
+    left: -950px;
+  }
+}
+
 /** /description animation */
 
 @media (min-width: 1024px) {
