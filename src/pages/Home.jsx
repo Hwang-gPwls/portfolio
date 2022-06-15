@@ -2,6 +2,8 @@ import React from "react";
 import { useCallback, useState, useEffect, useRef, useScroll } from "react";
 import { Timeline, Tween } from "react-gsap";
 import { gsap, Power2, TimelineLite } from "gsap";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../main.css";
@@ -785,8 +787,18 @@ const Home = () => {
               </div>
             </div>
           </section>
-
-          <footer className="footer">by Hyejin</footer>
+          <footer className="footer">
+            <span className="contact-text">
+              Let's work together! Contact me!
+            </span>
+            <span>
+              <button>h960502hhj@gmail.com</button>
+              <button>
+                <FontAwesomeIcon icon={faCamera} />
+                github
+              </button>
+            </span>
+          </footer>
         </div>
       </div>
     </div>
