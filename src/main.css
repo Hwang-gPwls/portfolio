@@ -6,8 +6,6 @@ html {
 }
 
 #body {
-  overflow-x: hidden;
-  color: rgb(29, 29, 31);
   letter-spacing: -0.05em;
 }
 
@@ -33,6 +31,32 @@ ul li {
   margin: 0;
 }
 
+.button {
+  font-size: 15px;
+  width: 43px;
+  margin: 0 0 0 70rem;
+  cursor: pointer;
+
+  --b: 0.1em;
+  --c: #7d97b8;
+
+  color: #0000;
+  padding-block: var(--b);
+  background: linear-gradient(var(--c) 50%, #000 0) 0%
+      calc(100% - var(--_p, 0%)) / 100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
+      no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.3s var(--_s, 0s) linear,
+    background-size 0.3s calc(0.3s - var(--_s, 0s));
+}
+
+.button:hover {
+  --_p: 100%;
+  --_s: 0.3s;
+}
+
 .global-nav {
   position: fixed;
   width: 95%;
@@ -42,6 +66,7 @@ ul li {
   border-style: solid;
   border-width: 1px;
   border-color: #7d97b8;
+  background-color: #ffffff;
   opacity: 100;
 }
 
@@ -145,6 +170,95 @@ a:hover:before {
   }
 }
 
+svg {
+  position: absolute;
+  width: 100%;
+  height: 12rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+text {
+  font-size: 8rem;
+  font-weight: bold;
+  stroke: #7d97b8;
+  stroke-width: 1.5px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  fill: transparent;
+  animation: dash 5s ease-out alternate infinite;
+  text-anchor: middle;
+  alignment-baseline: middle;
+  transform: translate(50%, 0.5rem);
+}
+
+.header-section {
+  width: 100%;
+  height: 15%;
+  border-bottom: solid;
+  border-width: 0.7px;
+  border-color: #7d97b8;
+}
+
+.header-section-1 {
+  width: 14rem;
+  height: 100%;
+  border-right: solid;
+  border-width: 0.7px;
+  border-color: #7d97b8;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffffff,
+    #ffffff 9px,
+    #7d97b8 5px,
+    #7d97b8 12px
+  );
+}
+
+.header-section2 {
+  width: 14rem;
+  height: 85%;
+  border-right: solid;
+  border-width: 0.7px;
+  border-color: #7d97b8;
+}
+
+.header-section2-1 {
+  width: 100%;
+  height: 70%;
+}
+
+.header-section2-2 {
+  padding-left: 10%;
+  text-align: left;
+  color: #7d97b8;
+  font-size: 17px;
+}
+
+.header-section2-3 {
+  padding: 4% 10%;
+  text-align: left;
+  color: #7d97b8;
+  font-size: 14px;
+}
+
+.header-section2-4 {
+  padding-left: 10%;
+  text-align: left;
+  color: #7d97b3;
+  font-size: 11px;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .local-nav-links .product-name {
   margin-right: auto;
   font-size: 1.4rem;
@@ -214,6 +328,18 @@ a:hover:before {
 
 /*scroll-section-1*/
 
+.wrapper-sub {
+  margin-top: 30px;
+}
+
+.wrapper-sub p {
+  font-size: 1.1rem;
+}
+
+.wrapper-description {
+  padding: 20px;
+}
+
 .description {
   max-width: 1000px;
   margin: 0 auto;
@@ -224,15 +350,15 @@ a:hover:before {
 
 .description .sub {
   margin: 0.5 auto;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-style: bold;
   color: #000000;
 }
 
-.description strong {
-  margin: 0em 0.2em;
-  font-size: 3rem;
-  color: #000000;
+.hightlight {
+  background-color: #7d97b8;
+  padding: 1px 4px;
+  color: #ffffff;
 }
 
 #scroll-section-2 .main-message {
@@ -333,6 +459,31 @@ a:hover:before {
   border-color: #7d97b8;
 }
 
+.skill-1 {
+  border-top-style: solid;
+  border-width: 0.7px;
+  border-color: #7d97b8;
+}
+
+.skill-content {
+  width: 100%;
+  height: 86.1%;
+  text-align: center;
+  border-bottom-style: solid;
+  border-right-style: solid;
+  border-top-style: solid;
+  border-width: 0.7px;
+  border-color: #7d97b8;
+  display: table;
+}
+
+.skill-content div {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
 .skill h1 {
   color: #ffffff;
   font-size: 4rem;
@@ -362,6 +513,10 @@ a:hover:before {
   position: fixed;
   left: 0;
   width: 100%;
+}
+
+.sticky-elem p {
+  color: #7d97b8;
 }
 
 #show-scene-0 #scroll-section-0 .sticky-elem,
@@ -437,8 +592,9 @@ a:hover:before {
 }
 
 #flip > div > div {
-  color: #000000;
-  padding: 4px 12px;
+  color: #7d97b8;
+  font-weight: bold;
+  padding: 10px 12px;
   height: 45px;
   margin-bottom: 45px;
   display: inline-block;
@@ -448,16 +604,6 @@ a:hover:before {
 #flip div:first-child {
   animation: show 5s linear infinite;
 }
-
-/* #flip div div {
-  background: #42c58a;
-}
-#flip div:first-child div {
-  background: #4ec7f3;
-}
-#flip div:last-child div {
-  background: #dc143c;
-} */
 
 @keyframes show {
   0% {
@@ -486,52 +632,12 @@ a:hover:before {
   }
 }
 
-.content h3 {
-  color: #fff;
-  font-size: 8em;
-  width: 100%;
+.content {
   position: absolute;
-}
-
-.content h3:nth-child(1) {
   color: transparent;
-  -webkit-text-stroke: 2px rgba(125, 151, 184, 0.99);
-}
-
-.content h3:nth-child(2) {
-  color: rgba(125, 151, 184, 0.59);
-  animation: animate 4s ease-in-out infinite;
-}
-
-@keyframes animate {
-  0%,
-  100% {
-    clip-path: polygon(
-      0% 45%,
-      16% 44%,
-      33% 40%,
-      54% 60%,
-      70% 61%,
-      84% 59%,
-      100% 52%,
-      100% 100%,
-      0% 100%
-    );
-  }
-
-  50% {
-    clip-path: polygon(
-      0% 60%,
-      15% 65%,
-      34% 66%,
-      51% 62%,
-      67% 50%,
-      84% 45%,
-      100% 46%,
-      100% 100%,
-      0% 100%
-    );
-  }
+  font-size: 10em;
+  font-weight: 900;
+  -webkit-text-stroke: 1.5px #7d97b8;
 }
 
 .title {
@@ -544,36 +650,24 @@ a:hover:before {
   text-shadow: 10px 8px 0px rgba(125, 151, 184, 0.99);
 }
 
-.stripe {
-  color: #ffffff;
-  font-size: 5rem;
-  -webkit-text-stroke: 1.5px #7d97b8;
-  line-height: 1;
+.wrapper-career {
   position: relative;
-  display: block;
+  display: flex;
+  height: 4rem;
   font-weight: bold;
-  white-space: nowrap;
-  cursor: pointer;
+  font-size: 5rem;
+  text-shadow: 6px 5px 0px rgba(125, 151, 184, 0.99),
+    7px 6px 0px rgba(125, 151, 184, 0.99), 7px 6px 0px rgba(125, 151, 184, 0.99);
 }
 
-.stripe:after {
-  height: 20vh;
-  content: "in my career";
+.wrapper-career::after {
+  margin-left: 3rem;
+  content: "in my career.";
   position: absolute;
-  left: 0;
-  top: 0;
-  line-height: 1;
-  display: block;
-  color: #7d97b8;
-  opacity: 0.7;
-  width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  transition: 2s ease-out width;
-}
-
-.stripe:hover:after {
-  width: 100%;
+  color: transparent;
+  -webkit-text-stroke: 0.1rem #000000;
+  top: -0.4rem;
+  left: -0.4rem;
 }
 
 .careerContents {
@@ -611,6 +705,9 @@ a:hover:before {
 }
 
 #box .heading {
+  color: rgba(125, 151, 184, 0.99);
+  font-weight: bold;
+  text-decoration: underline;
   font-size: 3vh;
 }
 
@@ -621,63 +718,78 @@ a:hover:before {
   color: #666;
 }
 
-#box .data span {
-  padding: 0;
-}
-
-#box .data .date {
-  margin-bottom: 2px;
-}
-
 #box .texts {
   font-size: 1.7vh;
   line-height: 18px;
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.contact {
+  display: inline-block;
+  align-items: right;
   height: 8rem;
   padding: 1rem;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #7d97b8;
+}
+
+.contact-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 70%;
+  background-color: #7d97b8;
+  text-align: center;
+  line-height: 150px;
+  margin: 0 0 0 60rem;
 }
 
 .contact-text {
-  width: 70%;
-  font-size: 5rem;
-  font-weight: bold;
+  font-size: 1rem;
   color: #ffffff;
-  -webkit-text-stroke: 1.5px #7d97b8;
-  text-shadow: #2a3d4e 1px 1px, #2a3d4e -0px 0px, #2a3d4e -1px 1px,
-    #2a3d4e -2px 2px, #2a3d4e -3px 3px, #2a3d4e -4px 4px, #2a3d4e -5px 5px,
-    #2a3d4e -6px 6px, #2a3d4e -7px 7px, #2a3d4e -8px 8px, #919191 -9px 9px;
+  cursor: pointer;
+}
 
+.arrow {
   position: relative;
-  -webkit-animation: scroll 20s infinite linear;
-  -moz-animation: scroll 20s infinite linear;
-  -o-animation: scroll 20s infinite linear;
-  animation: scroll 20s infinite linear;
+  margin-left: 60rem;
+  width: 0.1rem;
 }
 
-@keyframes scroll {
-  0% {
-    left: 500px;
-  }
-  100% {
-    left: -950px;
-  }
+.arrow .curve {
+  border: 2px solid #7d97b8;
+  border-color: transparent transparent transparent #7d97b8;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 230px 0 0 150px;
 }
 
-@-webkit-keyframes scroll {
-  0% {
-    left: 500px;
-  }
-  100% {
-    left: -950px;
-  }
+.arrow .point {
+  position: absolute;
+  left: 1.1rem;
+  top: 8.7rem;
+}
+
+.arrow .point:before,
+.arrow .point:after {
+  border: 1px solid #7d97b8;
+  height: 25px;
+  content: "";
+  position: absolute;
+}
+
+.arrow .point:before {
+  top: -11px;
+  left: -11px;
+  transform: rotate(-74deg);
+  -webkit-transform: rotate(-74deg);
+  -moz-transform: rotate(-74deg);
+  -ms-transform: rotate(-74deg);
+}
+
+.arrow .point:after {
+  top: -20px;
+  left: 5px;
+  transform: rotate(12deg);
+  -webkit-transform: rotate(12deg);
+  -moz-transform: rotate(12deg);
+  -ms-transform: rotate(12deg);
 }
 
 /** /description animation */
