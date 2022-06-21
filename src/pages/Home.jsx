@@ -86,7 +86,7 @@ const Home = () => {
 
   const moveLocation = (e) => {
     if (e.target.id === "github") {
-      window.open("https://github.com/Hwang-gPwls/Hwang-gPwls");
+      window.open("https://github.com/Hwang-gPwls");
     }
 
     if (e.target.id === "contact") {
@@ -616,8 +616,8 @@ const Home = () => {
                       까지 프로젝트 전반적인 과정에 참여하고 경험을 쌓고 있으며,
                       <br />
                       개발 완료로 끝나는 것이 아닌, 
-                      <span className="hightlight">지속할 수 있는 개발</span>을
-                      지향합니다.
+                      <span className="hightlight">지속할 수 있는 개발</span>
+                      을 지향합니다.
                       <br />
                       <span className="hightlight">건강한 협업 문화</span>를
                       만드는 일을 좋아합니다.
@@ -717,7 +717,7 @@ const Home = () => {
                   <div id="box" data-aos="fade-up-right">
                     <h1 className="heading">Mojito 쇼핑몰 솔루션 개발</h1>
                     <div className="data">
-                      <span className="date">2021.10-2021.12</span>
+                      <span className="date">2021.10 - 2021.12</span>
                     </div>
                     <p className="texts">
                       ASP .Net Core를 이용한 웹페이지 개발
@@ -734,7 +734,9 @@ const Home = () => {
                     EasyWork ERP 프로그램 개발 및 운영
                   </h1>
                   <div className="data">
-                    <span className="date">2021.03-2021.10 / 2022.01-현재</span>
+                    <span className="date">
+                      2021.03 - 2021.10 / 2022.01 - 현재
+                    </span>
                   </div>
                   <p className="texts">
                     ERP 프로그램 스키마 설계 및 쿼리 작성
@@ -753,7 +755,7 @@ const Home = () => {
                     </h1>
                     <div className="data">
                       <span className="date">
-                        2020.10- 2020.12 / 2021.01- 2021.03
+                        2020.10 - 2020.12 / 2021.01 - 2021.03
                       </span>
                     </div>
                     <p className="texts">
@@ -771,7 +773,7 @@ const Home = () => {
                     Collabic (생산자 구매자 섬유산업 서비스 플랫폼)
                   </h1>
                   <div className="data">
-                    <span className="date">2019.10-2019.12</span>
+                    <span className="date">2019.10 - 2019.12</span>
                   </div>
                   <p className="texts">
                     원단 판매 사업의 판매 프로세스 개선을 위한 원단 추천 AI
