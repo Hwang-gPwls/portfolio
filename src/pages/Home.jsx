@@ -53,16 +53,18 @@ const Home = () => {
         Portfolio 프로젝트를 개발 했습니다.
         공식문서 및 강의를 통한 체계적인 학습을 했습니다.`;
       } else if (e.target.id === "html") {
-        strengthRef.current.innerText = ` HTNL5 기본 문법을 준수하고 웹표준을 지키려고 노력 합니다.
+        strengthRef.current.innerText = ` HTML5 기본 문법을 준수하고 웹표준을 지키려고 노력 합니다.
         웹페이지에 사용할 컨트롤 오픈소스 및 CSS 라이브러리를 사용하여 개발할 수 있습니다.
         크로스 브라우징에 대응할 수 있습니다.`;
       } else if (e.target.id === "javascript") {
         strengthRef.current.innerText = ` ES6+ 문법에 익숙합니다.
+        회사 내 자체 프레임워크 개발에 참여해 ES6+ 함수를 고도화 하여 적용시킨 경험이 있습니다.
         webpack등의 번들러 사용경험이 있습니다.
         VanillaJS를 이용해 웹페이지를 개발할 수 있습니다.`;
       } else if (e.target.id === "qrame") {
         strengthRef.current.innerText = `사내 프레임워크로 ES6+를 고도화 한 함수 및 기능등을 제공합니다.
         프론트엔드 개발에 필요한 컨트롤 고도화 및 함수 고도화에 참여 하였습니다.
+        다양한 오픈소스를 활용하고, 접목시킨 경험이 있습니다.
         컨트롤 성능 최적화 경험이 있습니다.
         Qrame을 이용하여 ERP솔루션 및 관리자 페이지 개발 경험이 있습니다.`;
       } else if (e.target.id === "net") {
