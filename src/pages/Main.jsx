@@ -1,10 +1,33 @@
 import React from "react";
 import { useCallback, useState, useEffect, useRef, useScroll } from "react";
-import { Timeline, Tween } from "react-gsap";
-import { gsap, Power2, TimelineLite } from "gsap";
+import { Power2, TimelineLite } from "gsap";
 import AOS from "aos";
+import Home from "../components/home/Home";
 import "aos/dist/aos.css";
 import "../main.css";
+
+const menuItems = [
+  {
+    key: "home",
+    title: "Home",
+    link: "scroll-section-0",
+  },
+  {
+    key: "about",
+    title: "About",
+    link: "scroll-section-1",
+  },
+  {
+    key: "strenth",
+    title: "Strength",
+    link: "scroll-section-2",
+  },
+  {
+    key: "projects",
+    title: "Projects",
+    link: "scroll-section-3",
+  },
+];
 
 useScroll = () => {
   // 스크롤 X, Y 좌표를 객체로 저장
@@ -24,7 +47,7 @@ useScroll = () => {
   return yOffset;
 };
 
-const Home = () => {
+const Main = () => {
   const sectionRef = useRef([]);
   const messageRef = useRef([]);
   const divRef = useRef(null);
@@ -283,6 +306,7 @@ const Home = () => {
     const curYOffset = yOffset - prevScollHeight;
     const scrollHeight = sceneInfo[curScene].scrollHeight;
     const scrollRatio = curYOffset / scrollHeight;
+
     switch (curScene) {
       case 0:
         if (scrollRatio <= 0.22) {
@@ -496,18 +520,15 @@ const Home = () => {
         <div className="container">
           <div className="global-nav">
             <div className="global-nav-links">
-              <a href="#scroll-section-0" className="global-nav-item">
-                Home
-              </a>
-              <a href="#scroll-section-1" className="global-nav-item">
-                About
-              </a>
-              <a href="#scroll-section-2" className="global-nav-item">
-                Strength
-              </a>
-              <a href="#scroll-section-3" className="global-nav-item">
-                Projects
-              </a>
+              {menuItems.map((item) => (
+                <a
+                  key={item.key}
+                  href={`#${item.link}`}
+                  className="global-nav-item"
+                >
+                  {item.title}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -517,60 +538,7 @@ const Home = () => {
             ref={(el) => (sectionRef.current[0] = el)}
             //height={`${sceneInfo[0].scrollHeight}px`}
           >
-            <div className="section-0-frame greeting-wrapper">
-              <div>
-                <svg>
-                  <text x="89" y="90">
-                    HI, I'M HYEJIN HWANG
-                  </text>
-                </svg>
-              </div>
-              <div className="header-section">
-                <div className="header-section-1"></div>
-              </div>
-              <div className="header-section2">
-                <div className="header-section2-1"></div>
-                <div className="header-section2-2">Hyejin Hwang</div>
-                <div className="header-section2-3">Portfolio</div>
-                <div className="header-section2-4">
-                  새로운 도전을 두려워하지 않고,
-                </div>
-                <div className="header-section2-4">
-                  경험을 통해 성장하는 황혜진 입니다.
-                </div>
-              </div>
-            </div>
-            <div
-              className="sticky-elem main-message main-message-a"
-              ref={(el) => (messageRef.current[0] = el)}
-            >
-              <p>
-                ACTUALLY, I'M A WEBSITE
-                <br />I WAS BUILT BY HYEJIN HWANG
-              </p>
-            </div>
-            <div
-              className="sticky-elem main-message main-message-b"
-              ref={(el) => (messageRef.current[1] = el)}
-            >
-              <p>HyeJin Hwang</p>
-            </div>
-            <div
-              className="sticky-elem main-message main-message-c"
-              ref={(el) => (messageRef.current[2] = el)}
-            >
-              <p>
-                FRONTEND
-                <br />
-                DEVELOPER
-              </p>
-            </div>
-            <div
-              className="sticky-elem main-message main-message-d"
-              ref={(el) => (messageRef.current[3] = el)}
-            >
-              <p>WEB DEVELOPER</p>
-            </div>
+            <Home ref={messageRef} />
           </section>
 
           <section
@@ -798,4 +766,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Main;
