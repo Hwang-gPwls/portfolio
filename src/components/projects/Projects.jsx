@@ -1,3 +1,5 @@
+import "../projects/Projects.css";
+
 const Projects = () => {
   return (
     <>

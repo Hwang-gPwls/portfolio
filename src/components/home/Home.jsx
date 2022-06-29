@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import "../home/Home.css";
 
 const Home = ({}, ref) => {
   return (

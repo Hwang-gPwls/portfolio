@@ -1,5 +1,6 @@
 import React from "react";
 import { Power2, TimelineLite } from "gsap";
+import "../about/About.css";
 
 const moveLocation = (e) => {
   if (e.target.id === "github") {

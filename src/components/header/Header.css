@@ -1,0 +1,64 @@
+/*Header Css*/
+
+.global-nav {
+  position: fixed;
+  width: 94.85vw;
+  height: 44px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #7d97b8;
+  background-color: #ffffff;
+  opacity: 100;
+  z-index: 10000000;
+}
+
+.global-nav-links {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.global-nav-item {
+  font-size: 1.1rem;
+  color: #7d97b8;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+}
+
+a:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #7d97b8;
+  transition: all 0.5s;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #7d97b8;
+  transition: all 0.5s;
+}
+
+a:hover:after {
+  width: 50%;
+}
+
+a:hover:before {
+  width: 50%;
+}

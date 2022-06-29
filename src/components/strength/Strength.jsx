@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Power2, TimelineLite } from "gsap";
+import "../strength/Strength.css";
 
 const Strength = () => {
   const strengthRef = useRef(null);

@@ -1,0 +1,175 @@
+/*About Css*/
+
+/*scroll-section-1*/
+.wrapper-sub {
+  margin-top: 30px;
+}
+
+.wrapper-sub p {
+  font-size: 1.1rem;
+}
+
+.description {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.description .sub {
+  margin: 0.5 auto;
+  font-size: 1.5rem;
+  font-style: bold;
+  color: #000000;
+}
+
+.hightlight {
+  background-color: #7d97b8;
+  padding: 1px 4px;
+  color: #ffffff;
+}
+
+/*Arrow*/
+.arrow {
+  position: relative;
+  margin-left: 60rem;
+  width: 0.1rem;
+}
+
+.arrow .curve {
+  border: 2px solid #7d97b8;
+  border-color: transparent transparent transparent #7d97b8;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 230px 0 0 150px;
+}
+
+.arrow .point {
+  position: absolute;
+  left: 1.1rem;
+  top: 8.7rem;
+}
+
+.arrow .point:before,
+.arrow .point:after {
+  border: 1px solid #7d97b8;
+  height: 25px;
+  content: "";
+  position: absolute;
+}
+
+.arrow .point:before {
+  top: -11px;
+  left: -11px;
+  transform: rotate(-74deg);
+  -webkit-transform: rotate(-74deg);
+  -moz-transform: rotate(-74deg);
+  -ms-transform: rotate(-74deg);
+}
+
+.arrow .point:after {
+  top: -20px;
+  left: 5px;
+  transform: rotate(12deg);
+  -webkit-transform: rotate(12deg);
+  -moz-transform: rotate(12deg);
+  -ms-transform: rotate(12deg);
+}
+
+/*Contact Circle*/
+.contact {
+  display: inline-block;
+  align-items: right;
+  height: 8rem;
+  padding: 1rem;
+}
+
+.contact-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 70%;
+  background-color: #7d97b8;
+  text-align: center;
+  line-height: 150px;
+  margin: 0 0 0 60rem;
+}
+
+.contact-text {
+  font-size: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.button {
+  font-size: 15px;
+  width: 43px;
+  margin: 0 0 0 70rem;
+  cursor: pointer;
+
+  --b: 0.1em;
+  --c: #7d97b8;
+
+  color: #0000;
+  padding-block: var(--b);
+  background: linear-gradient(var(--c) 50%, #000 0) 0%
+      calc(100% - var(--_p, 0%)) / 100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
+      no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.3s var(--_s, 0s) linear,
+    background-size 0.3s calc(0.3s - var(--_s, 0s));
+}
+
+.button:hover {
+  --_p: 100%;
+  --_s: 0.3s;
+}
+
+/** description animation */
+#flip {
+  height: 80px;
+  overflow: hidden;
+}
+
+#flip > div > div {
+  color: #7d97b8;
+  font-weight: bold;
+  padding: 10px 12px;
+  height: 45px;
+  margin-bottom: 45px;
+  display: inline-block;
+  font-size: 3rem;
+}
+
+#flip div:first-child {
+  animation: show 5s linear infinite;
+}
+
+@keyframes show {
+  0% {
+    margin-top: -270px;
+  }
+  5% {
+    margin-top: -140px;
+  }
+  33% {
+    margin-top: -140px;
+  }
+  38% {
+    margin-top: -70px;
+  }
+  66% {
+    margin-top: -70px;
+  }
+  71% {
+    margin-top: -3px;
+  }
+  99.99% {
+    margin-top: -3px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}

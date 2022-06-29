@@ -1,4 +1,5 @@
 import React from "react";
+import "../header/Header.css";
 
 const menuItems = [
   {
