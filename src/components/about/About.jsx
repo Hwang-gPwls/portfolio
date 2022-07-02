@@ -1,6 +1,6 @@
 import React from "react";
-import { Power2, TimelineLite } from "gsap";
-import "../about/About.css";
+import gsap from "gsap";
+import "./About.css";
 
 const moveLocation = (e) => {
   if (e.target.id === "github") {
@@ -12,9 +12,9 @@ const moveLocation = (e) => {
 };
 
 const onMouseOver = (e) => {
-  let tl = new TimelineLite();
-  tl.to(e.target, 1, { yPercent: -40, ease: Power2.easeInOut });
-  tl.to(e.target, 1, { yPercent: 0, ease: Power2.easeInOut });
+  let tl = gsap.timeline();
+  tl.to(e.target, { y: -40, duration: 0.5 });
+  tl.to(e.target, { y: 0, duration: 3 });
 };
 
 const About = () => {
