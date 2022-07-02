@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Power2, TimelineLite } from "gsap";
+import gsap from "gsap";
 import "../strength/Strength.css";
 
 const Strength = () => {
@@ -39,9 +39,9 @@ const Strength = () => {
           SQL Server 문법을 준수하여 SQL을 작성 합니다.`;
       }
 
-      let tl = new TimelineLite();
-      tl.to(e.target, 1, { yPercent: -44, ease: Power2.easeInOut });
-      tl.to(e.target, 1, { yPercent: 0, ease: Power2.easeInOut });
+      let tl = gsap.timeline();
+      tl.to(e.target, { y: -40, duration: 0.5 });
+      tl.to(e.target, { y: 0, duration: 1 });
     }
   };
 
