@@ -22,6 +22,6 @@ $ npm start
 # 프로세스 삭제 명령어
 $ pm2 delete [process id]
 
-# 프로세스 확인 명령ㅇ
+# 프로세스 확인 명령
 $ pm2 ls
 ```
