@@ -4,8 +4,6 @@
 
 ## 접근 URI
 
----
-
 ## 사용 기술
 
 - Frontend
@@ -14,9 +12,7 @@
 - DevOps
   - AWS(EC2)
   - Git, GitHub
-
----
-
+  
 ## 실행/중지 명령어
 
 ```bash
