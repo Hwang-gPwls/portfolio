@@ -1,3 +1,4 @@
+@charset 'utf-8';
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;900&family=Yeon+Sung&display=swap");
 
 html {
@@ -10,77 +11,12 @@ html {
   letter-spacing: -0.05em;
 }
 
+.container {
+  overflow-x: hidden;
+}
+
 p {
   line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-}
-
-ul li {
-  width: 50%;
-  height: 100%;
-  list-style: none;
-  float: left;
-  margin: 0;
-}
-
-.bg {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200vh;
-  background: transparent
-    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
-  background-repeat: repeat;
-  animation: bg-animation 0.2s infinite;
-  visibility: visible;
-}
-
-@keyframes bg-animation {
-  0% {
-    transform: translate(0, 0);
-  }
-  10% {
-    transform: translate(-5%, -5%);
-  }
-  20% {
-    transform: translate(-10%, 5%);
-  }
-  30% {
-    transform: translate(5%, -10%);
-  }
-  40% {
-    transform: translate(-5%, 15%);
-  }
-  50% {
-    transform: translate(-10%, 5%);
-  }
-  60% {
-    transform: translate(15%, 0);
-  }
-  70% {
-    transform: translate(0, 10%);
-  }
-  80% {
-    transform: translate(-15%, 0);
-  }
-  90% {
-    transform: translate(10%, 5%);
-  }
-  100% {
-    transform: translate(5%, 0);
-  }
 }
 
 /*
@@ -159,6 +95,15 @@ ul li {
   display: block;
 }
 
+.content {
+  position: absolute;
+  color: transparent;
+  font-size: 10em;
+  font-weight: 900;
+  -webkit-text-stroke: 1.5px #7d97b8;
+}
+
+/*loading*/
 .loading {
   display: flex;
   align-items: center;
@@ -216,14 +161,6 @@ ul li {
 
 .loading-circle:hover circle {
   stroke-dashoffset: -157;
-}
-
-.content {
-  position: absolute;
-  color: transparent;
-  font-size: 10em;
-  font-weight: 900;
-  -webkit-text-stroke: 1.5px #7d97b8;
 }
 
 @media (min-width: 1024px) {

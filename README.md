@@ -12,7 +12,7 @@
 - DevOps
   - AWS(EC2)
   - Git, GitHub
-
+  
 ## 실행/중지 명령어
 
 ```bash

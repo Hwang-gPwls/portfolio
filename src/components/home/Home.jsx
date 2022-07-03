@@ -5,13 +5,6 @@ const Home = ({}, ref) => {
   return (
     <>
       <div className="section-0-frame greeting-wrapper">
-        {/* <div>
-          <svg>
-            <text x="89" y="90">
-              HI, I'M HYEJIN HWANG
-            </text>
-          </svg>
-        </div> */}
         <div className="header-section">
           <div className="header-section-1" />
           <div className="header-section-1-1" />
@@ -30,7 +23,7 @@ const Home = ({}, ref) => {
           </div>
           <div className="header-section2-2">
             <svg>
-              <text x="89" y="90">
+              <text x="50%" y="50%">
                 HI, I'M HYEJIN HWANG
               </text>
             </svg>
