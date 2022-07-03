@@ -1,5 +1,22 @@
 # Hyejin Portfolio
 
+개발자로써 프로젝트를 돌아보고, 나를 알리기 위한 프로젝트 입니다.
+
+## 접근 URI
+
+---
+
+## 사용 기술
+
+- Frontend
+  - Javascript(ES6) / Html / CSS
+  - React
+- DevOps
+  - AWS(EC2)
+  - Git, GitHub
+
+---
+
 ## 실행/중지 명령어
 
 ```bash
