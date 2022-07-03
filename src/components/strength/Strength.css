@@ -1,4 +1,22 @@
 /*Strength Css*/
+a {
+  text-decoration: none;
+}
+
+ul {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+ul li {
+  width: 50%;
+  height: 100%;
+  list-style: none;
+  float: left;
+  margin: 0;
+}
+
 .description {
   max-width: 1000px;
   margin: 0 auto;
@@ -119,7 +137,6 @@
   height: 86.1%;
   text-align: center;
   border-bottom-style: solid;
-  border-right-style: solid;
   border-top-style: solid;
   border-width: 0.7px;
   border-color: #7d97b8;
@@ -128,9 +145,13 @@
 
 .skill-content div {
   height: 100%;
+  width: 100%;
   display: table-cell;
+  border-right-style: solid;
+  border-width: 0.7px;
+  border-color: #7d97b8;
   vertical-align: middle;
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 
 .skill h1 {

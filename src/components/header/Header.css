@@ -2,16 +2,18 @@
 
 .global-nav {
   position: fixed;
-  width: 94.85vw;
   height: 44px;
-  margin: 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 1rem 2rem;
+  margin: 8px;
+  z-index: 10000;
   border-style: solid;
   border-width: 1px;
   border-color: #7d97b8;
   background-color: #f9f0e0;
   opacity: 100;
-  z-index: 10000000;
 }
 
 .global-nav-links {
@@ -29,6 +31,7 @@
 }
 
 a {
+  text-decoration: none;
   display: inline-block;
   position: relative;
 }
