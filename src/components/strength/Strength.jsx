@@ -2,6 +2,38 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import "../strength/Strength.css";
 
+const skills = [
+  {
+    key: "react",
+    skillName: "React",
+  },
+  {
+    key: "html",
+    skillName: "Html",
+  },
+  {
+    key: "javascript",
+    skillName: "Javascript",
+  },
+  {
+    key: "qrame",
+    skillName: "Qrame",
+  },
+  {
+    key: "net",
+    skillName: ".Net Core",
+  },
+  {
+    key: "mysql",
+    skillName: "MySql",
+  },
+  {
+    key: "sql",
+    skillName: "SQL Server",
+  },
+];
+
+
 const Strength = () => {
   const strengthRef = useRef(null);
 
@@ -58,27 +90,11 @@ const Strength = () => {
       <div className="strength-wrapper">
         <ul>
           <li onMouseOver={onMouseOver}>
-            <div className="skill skill-1">
-              <h1 id="react">React</h1>
-            </div>
-            <div id="html" className="skill">
-              <h1 id="html">HTML/CSS</h1>
-            </div>
-            <div id="javascript" className="skill">
-              <h1 id="javascript">Javascript</h1>
-            </div>
-            <div id="qrame" className="skill">
-              <h1 id="qrame">Qrame</h1>
-            </div>
-            <div id="net" className="skill">
-              <h1 id="net">.Net Core</h1>
-            </div>
-            <div id="mysql" className="skill">
-              <h1 id="mysql">MySQL</h1>
-            </div>
-            <div id="sql" className="skill">
-              <h1 id="sql">SQL Server</h1>
-            </div>
+        {skills.map((item) => (
+          <div id={item.key} key={item.key} className={item.key === "react" ? "skill skill-1" : "skill"}>
+            <h1 id={item.key}>{item.skillName}</h1>
+          </div>
+        ))}
           </li>
           <li>
             <div className="skill-content">
@@ -90,4 +106,4 @@ const Strength = () => {
     </>
   );
 };
-export default Strength;
+export default React.memo(Strength);
