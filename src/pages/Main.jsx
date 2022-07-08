@@ -1,5 +1,7 @@
 import React from "react";
 import { useCallback, useState, useEffect, useRef, useScroll } from "react";
+import {createStore} from 'redux';
+import {Provider, useSelector, useDispatch, connect} from 'react-redux';
 
 import AOS from "aos";
 import Home from "../components/home/Home";

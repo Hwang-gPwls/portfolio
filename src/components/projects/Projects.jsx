@@ -1,3 +1,4 @@
+import React from "react";
 import "../projects/Projects.css";
 
 const Projects = () => {
@@ -80,4 +81,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default React.memo(Projects);
