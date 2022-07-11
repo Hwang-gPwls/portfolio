@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+
 const Contact = () => {
   const moveLocation = (e) => {
     if (e.target.id === "github") {
@@ -6,6 +7,7 @@ const Contact = () => {
     }
 
     if (e.target.id === "contact") {
+      window.open("mailto:h960502hhj@gmail.com");
     }
   };
 
