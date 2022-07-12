@@ -35,6 +35,11 @@ p {
 }
 */
 
+.section-0-frame {
+  /*border: 1.5px solid #3D4856;*/
+  border: 1px solid #7d97b8;
+}
+
 .scroll-section {
   padding-top: 10vh;
 }
@@ -93,14 +98,6 @@ p {
 #show-scene-2 #scroll-section-2 .sticky-elem,
 #show-scene-3 #scroll-section-3 .sticky-elem {
   display: block;
-}
-
-.content {
-  position: absolute;
-  color: transparent;
-  font-size: 10em;
-  font-weight: 900;
-  -webkit-text-stroke: 1.5px #7d97b8;
 }
 
 /*loading*/

@@ -8,7 +8,7 @@ import Home from "../components/home/Home";
 import Header from "../components/header/Header";
 import About from "../components/about";
 import Strength from "../components/strength";
-import Projects from "../components/projects/Projects";
+import Scene4 from "../components/Scene4";
 import "aos/dist/aos.css";
 import "../main.css";
 
@@ -476,7 +476,7 @@ const Main = () => {
             id="scroll-section-3"
             ref={(el) => (sectionRef.current[3] = el)}
           >
-            <Projects />
+            <Scene4 />
           </section>
         </div>
       </div>

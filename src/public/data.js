@@ -59,10 +59,9 @@ export const skills = [
   export const projects = [
     {
       title: "EasyWork ERP 프로그램 운영",
-      date: "2021.03 - 현재",
+      date: "2022.03 - 현재",
       skills: ["Qrame", "Javascript", "MySQL"],
-      about:
-        "클라이언트별 추가기능 개발 및 쿼리, 컨트롤 기능 개선을 위한 EasyWork 운영",
+      about: "클라이언트별 추가기능 개발 및 쿼리, 컨트롤 기능 개선을 위한 EasyWork 운영",
       contents: [
         "Qrame 컨트롤 이슈 파악 및 기능 개선",
         "기존 테스트 DB의 스키마 및 일부 운영 데이터 운영 DB로 마이그레이션",
@@ -91,8 +90,7 @@ export const skills = [
       title: "EasyWork ERP 프로그램 개발",
       date: "2021.03 - 2021.10",
       skills: ["Qrame", "Javascript", "MySQL"],
-      about:
-        "근태, 결재, 게시판 등 모듈화를 통해 클라이언트가 원하는 기능만을 선택구매할 수 있는 ERP솔루션 개발",
+      about: "근태, 결재, 게시판 등 모듈화를 통해 클라이언트가 원하는 기능만을 선택구매할 수 있는 ERP솔루션 개발",
       contents: [
         "ERP 프로그램 스키마 설계 및 쿼리 작성",
         "기획 / 설계 단계부터 참여",
@@ -104,7 +102,7 @@ export const skills = [
     {
       title: "윤선생 Wooyoung(우리동네 영어교실) 개발 및 운영",
       date: "2020.10 - 2020.12 / 2021.01 - 2021.03",
-      skills: ["Qrame", "Javascript"],
+      skills: ["Qrame", "Javascript", "grunt"],
       about: "윤선생 Wooyoung 관리자 웹페이지 개발",
       contents: [
         "회원, 지점관리 및 교재 주문 서비스 개선을 위한 Admin 웹 페이지 개발 및 운영",
@@ -114,9 +112,23 @@ export const skills = [
       ],
     },
     {
+      title: "Qrame Solution 고도화 및 오류 수정",
+      date: "2020.01 - 현재",
+      skills: ["Javascript", ".Net Core"],
+      about: "사내 프레임워크인 Qrame Solution의 테스트 및 오류수정, 고도화",
+      contents: [
+        "Qrame Frontend 컨트롤 및 함수 테스트",
+        "Qrame Frontend 기술 공유를 위한 사내 세미나 진행",
+        "Qrame Frontend 오류 개선 및 컴포넌트 고도화",
+        "Qrame Control 디자인 작업에 참여",
+        "인수인계 및 교육을 위한 Qrame Frontend 데모 페이지 개발",
+        "Qrame 오픈소스화를 위한 깃허브 구성 및 commit message conveltion 문서 작성"
+      ],
+    },
+    {
       title: "Collabic (생산자 구매자 섬유산업 서비스 플랫폼)",
       date: "2019.10 - 2019.12",
-      skills: ["Vue", "Qrame", "Javascript", "SQLServer", "BabelEdit"],
+      skills: ["Vue", "Qrame", "Javascript", "SQLServer"],
       about: "원단 판매 사업의 판매 프로세스 개선을 위한 원단 추천 AI 프로젝트",
       contents: [
         "vue.js를 사용하여 AI기반 구매자 추천 소재 제안 알고리즘 시현을 위한 데모 화면 개발",

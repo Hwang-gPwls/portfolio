@@ -27,12 +27,6 @@ text {
   }
 }
 
-.section-0-frame {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #7d97b8;
-}
-
 .header-section {
   display: flex;
   flex-direction: row;
