@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
-import "../home/Home.css";
+import "./Home.css";
 
-const Home = ({}, ref) => {
+const Scene1 = ({}, ref) => {
   return (
     <>
       <div className="section-0-frame greeting-wrapper">
@@ -65,4 +65,4 @@ const Home = ({}, ref) => {
   );
 };
 
-export default forwardRef(Home);
+export default forwardRef(Scene1);

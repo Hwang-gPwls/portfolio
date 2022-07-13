@@ -3,13 +3,12 @@ import { useCallback, useState, useEffect, useRef, useScroll } from "react";
 import {createStore} from 'redux';
 import {Provider, useSelector, useDispatch, connect} from 'react-redux';
 
-import AOS from "aos";
-import Home from "../components/home/Home";
 import Header from "../components/header/Header";
-import About from "../components/about";
-import Strength from "../components/strength";
+import Scene1 from "../components/Scene1/Home";
+import Scene2 from "../components/Scene2";
+import Scene3 from "../components/Scene3";
 import Scene4 from "../components/Scene4";
-import "aos/dist/aos.css";
+
 import "../main.css";
 
 useScroll = () => {
@@ -38,12 +37,9 @@ const Main = () => {
   const yOffset = useScroll();
   const [windowHeightSize, setWindowHeightSize] = useState(window.innerHeight);
 
+  const [isScene1, setIsScene1] = useState(true);
   const [curScene, setCurScene] = useState(0);
   const [sceneInfo, setSceneInfo] = useState([]);
-
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   const setValue = useCallback(() => {
     setSceneInfo(() => [
@@ -151,29 +147,25 @@ const Main = () => {
     // 각 스크롤 섹션의 높이 셋팅
 
     for (let i = 0; i < sceneInfo.length; i++) {
-      if (sceneInfo[i].type === "sticky") {
-        sceneInfo[i].scrollHeight = sceneInfo[i].heightNum * window.innerHright;
-      } else if (sceneInfo[i].type === "normal") {
-        sceneInfo[i].scrollHeight = sceneInfo[i].objs.container.offsetHeight;
-      }
+      sceneInfo[0].scrollHeight = sceneInfo[0].heightNum * window.innerHright;
 
-      sceneInfo[i] = {
-        ...sceneInfo[i],
-        scrollHeight: sceneInfo[i].heightNum * windowHeightSize,
+      sceneInfo[0] = {
+        ...sceneInfo[0],
+        scrollHeight: sceneInfo[0].heightNum * windowHeightSize,
       };
 
-      sectionRef.current[i].style.height = `${sceneInfo[i].scrollHeight}px`;
+      sectionRef.current[0].style.height = `${sceneInfo[0].scrollHeight}px`;
     }
 
     //현재 스크롤 위치보다 토탈 스크롤 위치가 커지면 break => 새로고침시에
-    let totalScrollHeight = 0;
-    for (let i = 0; i < sceneInfo.length; i++) {
-      totalScrollHeight += sceneInfo[i].scrollHeight;
-      if (totalScrollHeight >= yOffset) {
-        setCurScene(i);
-        break;
-      }
-    }
+    //let totalScrollHeight = 0;
+    //for (let i = 0; i < sceneInfo.length; i++) {
+    //  totalScrollHeight += sceneInfo[i].scrollHeight;
+    //  if (totalScrollHeight >= yOffset) {
+    //    setCurScene(i);
+    //    break;
+    //  }
+    //}
   };
 
   const scrollLoop = (prevScollHeight) => {
@@ -182,14 +174,12 @@ const Main = () => {
     if (yOffset > prevScollHeight + sceneInfo[curScene].scrollHeight) {
       enterNewScene = true;
       setCurScene(curScene + 1);
-      //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
     }
 
     if (yOffset < prevScollHeight) {
       enterNewScene = true;
       if (curScene === 0) return; //브라우저 바운스 효과로 인해 마이너스가 되는 것을 방지(모바일)
       setCurScene(curScene - 1);
-      //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
     }
 
     if (enterNewScene) return;
@@ -324,106 +314,6 @@ const Main = () => {
           )}%, 0)`;
         }
         break;
-
-      case 2:
-        if (scrollRatio <= 0.5) {
-          // in
-          objs.canvas.style.opacity = calcValues(
-            values.canvas_opacity_in,
-            curYOffset
-          );
-        } else {
-          // out
-          objs.canvas.style.opacity = calcValues(
-            values.canvas_opacity_out,
-            curYOffset
-          );
-        }
-
-        if (scrollRatio <= 0.25) {
-          // in
-          objs.messageA.style.opacity = calcValues(
-            values.messageA_opacity_in,
-            curYOffset
-          );
-          objs.messageA.style.transform = `translate3d(0, ${calcValues(
-            values.messageA_translateY_in,
-            curYOffset
-          )}%, 0)`;
-        } else {
-          // out
-          objs.messageA.style.opacity = calcValues(
-            values.messageA_opacity_out,
-            curYOffset
-          );
-          objs.messageA.style.transform = `translate3d(0, ${calcValues(
-            values.messageA_translateY_out,
-            curYOffset
-          )}%, 0)`;
-        }
-
-        if (scrollRatio <= 0.57) {
-          // in
-          objs.messageB.style.transform = `translate3d(0, ${calcValues(
-            values.messageB_translateY_in,
-            curYOffset
-          )}%, 0)`;
-          objs.messageB.style.opacity = calcValues(
-            values.messageB_opacity_in,
-            curYOffset
-          );
-          objs.pinB.style.transform = `scaleY(${calcValues(
-            values.pinB_scaleY,
-            curYOffset
-          )})`;
-        } else {
-          // out
-          objs.messageB.style.transform = `translate3d(0, ${calcValues(
-            values.messageB_translateY_out,
-            curYOffset
-          )}%, 0)`;
-          objs.messageB.style.opacity = calcValues(
-            values.messageB_opacity_out,
-            curYOffset
-          );
-          objs.pinB.style.transform = `scaleY(${calcValues(
-            values.pinB_scaleY,
-            curYOffset
-          )})`;
-        }
-
-        if (scrollRatio <= 0.83) {
-          // in
-          objs.messageC.style.transform = `translate3d(0, ${calcValues(
-            values.messageC_translateY_in,
-            curYOffset
-          )}%, 0)`;
-          objs.messageC.style.opacity = calcValues(
-            values.messageC_opacity_in,
-            curYOffset
-          );
-          objs.pinC.style.transform = `scaleY(${calcValues(
-            values.pinC_scaleY,
-            curYOffset
-          )})`;
-        } else {
-          // out
-          objs.messageC.style.transform = `translate3d(0, ${calcValues(
-            values.messageC_translateY_out,
-            curYOffset
-          )}%, 0)`;
-          objs.messageC.style.opacity = calcValues(
-            values.messageC_opacity_out,
-            curYOffset
-          );
-          objs.pinC.style.transform = `scaleY(${calcValues(
-            values.pinC_scaleY,
-            curYOffset
-          )})`;
-        }
-        break;
-      case 3:
-        break;
     }
   };
 
@@ -452,7 +342,7 @@ const Main = () => {
             id="scroll-section-0"
             ref={(el) => (sectionRef.current[0] = el)}
           >
-            <Home ref={messageRef} />
+            <Scene1 ref={messageRef} />
           </section>
 
           <section
@@ -460,7 +350,7 @@ const Main = () => {
             id="scroll-section-1"
             ref={(el) => (sectionRef.current[1] = el)}
           >
-            <About />
+            <Scene2 />
           </section>
 
           <section
@@ -468,7 +358,7 @@ const Main = () => {
             id="scroll-section-2"
             ref={(el) => (sectionRef.current[2] = el)}
           >
-            <Strength />
+            <Scene3 />
           </section>
 
           <section
