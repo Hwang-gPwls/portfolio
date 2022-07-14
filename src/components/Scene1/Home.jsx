@@ -1,6 +1,10 @@
-const Home = () => {
+import React, { forwardRef } from "react";
+import "./Home.css";
+
+const Home = ({}, ref) => {
   return (
-    <div className="section-0-frame greeting-wrapper">
+    <>
+      <div className="section-0-frame greeting-wrapper">
         <div className="header-section">
           <div className="header-section-1" />
           <div className="header-section-1-1" />
@@ -29,4 +33,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default forwardRef(Home);

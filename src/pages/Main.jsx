@@ -7,6 +7,8 @@ import Scene1 from "../components/Scene1";
 import Scene2 from "../components/Scene2";
 import Scene3 from "../components/Scene3";
 import Scene4 from "../components/Scene4";
+import {createStore} from 'redux';
+import {Provider, useSelector, useDispatch, connect} from 'react-redux';
 import "../main.css";
 
 useScroll = () => {
@@ -116,7 +118,7 @@ const Main = () => {
 
   const setLayout = () => {
       sceneInfo[0].scrollHeight = sceneInfo[0].heightNum * window.innerHright;
-
+    
       sceneInfo[0] = {
         ...sceneInfo[0],
         scrollHeight: sceneInfo[0].heightNum * windowHeightSize,
@@ -140,6 +142,16 @@ const Main = () => {
     if(!isScene1) return;
 
     playAnimation(prevScollHeight);
+
+    //현재 스크롤 위치보다 토탈 스크롤 위치가 커지면 break => 새로고침시에
+    //let totalScrollHeight = 0;
+    //for (let i = 0; i < sceneInfo.length; i++) {
+    //  totalScrollHeight += sceneInfo[i].scrollHeight;
+    //  if (totalScrollHeight >= yOffset) {
+    //    setCurScene(i);
+    //    break;
+    //  }
+    //}
   };
 
   const calcValues = (values, curYOffset) => {
