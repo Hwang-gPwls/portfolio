@@ -6,7 +6,7 @@ const Projects = ({project, idx}) => {
   return (
     <div className="box-wrapper">
         <div id="box" className={isEven ? "box-right" : "box-left"} data-aos={isEven ? "fade-down-right" : "fade-down-left"}>
-          <h1 className="heading">{project.title}</h1>
+          <div className="heading">{project.title}</div>
           <div className="date">
             <span className="date">{project.date}</span>
           </div>

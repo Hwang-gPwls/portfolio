@@ -12,6 +12,7 @@
   border-style: solid;
   border-width: 1px;
   border-color: #7d97b8;
+  background-image: url("../../asset/images/noisy-texture.png");
   background-color: #f9f0e0;
   opacity: 100;
 }
