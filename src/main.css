@@ -4,6 +4,7 @@
 html {
   font-family: "Noto Sans KR";
   font-size: 14px;
+  background-image: url("./asset/images/noisy-texture.png");
   background-color: #f9f0e0;
 }
 

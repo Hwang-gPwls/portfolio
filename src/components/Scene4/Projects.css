@@ -58,7 +58,6 @@
 
 #box {
   width: 45rem;
-  /*margin-bottom: 3rem;*/
   background-color: #FFF;
   border: 0.7px solid #3D4856;
   border-radius: 0.8rem;
@@ -76,17 +75,20 @@
 }
 
 #box .heading {
-  position: relative;
-  left:3rem;
-  font-size: 4vh;
+  margin:2rem 1rem;
+  width:max-content;
+  font-size: 3.5vh;
   font-weight: bold;
   color: #3D4856;
+  background-color: #f9f0e0;
+  border: 1.3px solid #3D4856;
+  border-radius: 1.7rem;
 }
 
 #box .date {
   display: flex;
   flex-direction: column;
-  font-size: 2vh;
+  font-size: 2.5vh;
 }
 
 #box .contents {
@@ -112,9 +114,18 @@
   margin-left: 0.5rem;
 }
 
+#box .about{
+  margin: 0 0.7rem;
+}
+
 #box .contents{
   /*background-color: #F0E9E1;*/
 }
+
+#box .contents{
+  font-size: 2vh;
+}
+
 /*
 .textDecoration {
   position: relative;
