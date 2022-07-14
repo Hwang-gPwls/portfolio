@@ -1,15 +1,12 @@
 import React from "react";
 import { useCallback, useState, useEffect, useRef, useScroll } from "react";
-import {createStore} from 'redux';
-import {Provider, useSelector, useDispatch, connect} from 'react-redux';
-
-import AOS from "aos";
-import Home from "../components/home/Home";
+import { configurestore } from 'redux';
+import { Provider, useSelector, useDispatch, connect} from 'react-redux';
 import Header from "../components/header/Header";
-import About from "../components/about";
-import Strength from "../components/strength";
+import Scene1 from "../components/Scene1";
+import Scene2 from "../components/Scene2";
+import Scene3 from "../components/Scene3";
 import Scene4 from "../components/Scene4";
-import "aos/dist/aos.css";
 import "../main.css";
 
 useScroll = () => {
@@ -31,19 +28,14 @@ useScroll = () => {
 };
 
 const Main = () => {
-  const sectionRef = useRef([]);
+  const sectionRef = useRef(null);
   const messageRef = useRef([]);
-  const divRef = useRef(null);
 
   const yOffset = useScroll();
   const [windowHeightSize, setWindowHeightSize] = useState(window.innerHeight);
 
-  const [curScene, setCurScene] = useState(0);
+  const [isScene1, setIsScene1] = useState(true);
   const [sceneInfo, setSceneInfo] = useState([]);
-
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   const setValue = useCallback(() => {
     setSceneInfo(() => [
@@ -54,7 +46,7 @@ const Main = () => {
         heightNum: 5, //브라우저 높이의 5배로 scrollHeight 세팅
         scrollHeight: 0,
         objs: {
-          container: sectionRef.current[0],
+          container: sectionRef.current,
           messageA: messageRef.current[0],
           messageB: messageRef.current[1],
           messageC: messageRef.current[2],
@@ -80,33 +72,6 @@ const Main = () => {
           messageD_translateY_in: [20, 0, { start: 0.7, end: 0.8 }],
           messageD_opacity_out: [1, 0, { start: 0.85, end: 0.9 }],
           messageD_translateY_out: [0, -20, { start: 0.85, end: 0.9 }],
-        },
-      },
-      {
-        //1
-        id: 1,
-        type: "normal",
-        scrollHeight: 0,
-        objs: {
-          container: sectionRef.current[1],
-        },
-      },
-      {
-        //2
-        id: 2,
-        type: "normal",
-        scrollHeight: 0,
-        objs: {
-          container: sectionRef.current[2],
-        },
-      },
-      {
-        //3
-        id: 3,
-        type: "normal",
-        scrollHeight: 0,
-        objs: {
-          container: sectionRef.current[3],
         },
       },
     ]);
@@ -139,8 +104,10 @@ const Main = () => {
     } else {
       let prevScrollHeight = 0;
 
-      for (let i = 0; i < curScene; i++) {
-        prevScrollHeight = prevScrollHeight + sceneInfo[i].scrollHeight;
+      if(yOffset > sceneInfo[0].scrollHeight){
+        prevScrollHeight = yOffset;
+      }else {
+        prevScrollHeight = 0;
       }
 
       scrollLoop(prevScrollHeight);
@@ -148,51 +115,29 @@ const Main = () => {
   }, [yOffset, setValue]);
 
   const setLayout = () => {
-    // 각 스크롤 섹션의 높이 셋팅
+      sceneInfo[0].scrollHeight = sceneInfo[0].heightNum * window.innerHright;
 
-    for (let i = 0; i < sceneInfo.length; i++) {
-      if (sceneInfo[i].type === "sticky") {
-        sceneInfo[i].scrollHeight = sceneInfo[i].heightNum * window.innerHright;
-      } else if (sceneInfo[i].type === "normal") {
-        sceneInfo[i].scrollHeight = sceneInfo[i].objs.container.offsetHeight;
-      }
-
-      sceneInfo[i] = {
-        ...sceneInfo[i],
-        scrollHeight: sceneInfo[i].heightNum * windowHeightSize,
+      sceneInfo[0] = {
+        ...sceneInfo[0],
+        scrollHeight: sceneInfo[0].heightNum * windowHeightSize,
       };
 
-      sectionRef.current[i].style.height = `${sceneInfo[i].scrollHeight}px`;
-    }
+      sectionRef.current.style.height = `${sceneInfo[0].scrollHeight}px`;
 
-    //현재 스크롤 위치보다 토탈 스크롤 위치가 커지면 break => 새로고침시에
-    let totalScrollHeight = 0;
-    for (let i = 0; i < sceneInfo.length; i++) {
-      totalScrollHeight += sceneInfo[i].scrollHeight;
+    let totalScrollHeight = sceneInfo[0].scrollHeight;
       if (totalScrollHeight >= yOffset) {
-        setCurScene(i);
-        break;
+        setIsScene1(true);
       }
-    }
   };
 
   const scrollLoop = (prevScollHeight) => {
-    let enterNewScene = false;
-
-    if (yOffset > prevScollHeight + sceneInfo[curScene].scrollHeight) {
-      enterNewScene = true;
-      setCurScene(curScene + 1);
-      //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
+    if(yOffset < prevScollHeight + sceneInfo[0].scrollHeight){
+      setIsScene1(true);
+    } else {
+      setIsScene1(false);
     }
 
-    if (yOffset < prevScollHeight) {
-      enterNewScene = true;
-      if (curScene === 0) return; //브라우저 바운스 효과로 인해 마이너스가 되는 것을 방지(모바일)
-      setCurScene(curScene - 1);
-      //sectionbodyRef.current.setAttribute("id", `show-scene-${curScene}`);
-    }
-
-    if (enterNewScene) return;
+    if(!isScene1) return;
 
     playAnimation(prevScollHeight);
   };
@@ -200,10 +145,10 @@ const Main = () => {
   const calcValues = (values, curYOffset) => {
     let rv;
     //현재 씬(스크롤섹션)에서 스크롤된 범위를 비율로 구하기
-    const scrollHeight = sceneInfo[curScene].scrollHeight;
-    let scrollRatio = isNaN(curYOffset / sceneInfo[curScene].scrollHeight)
+    const scrollHeight = sceneInfo[0].scrollHeight;
+    let scrollRatio = isNaN(curYOffset / sceneInfo[0].scrollHeight)
       ? 0
-      : curYOffset / sceneInfo[curScene].scrollHeight;
+      : curYOffset / sceneInfo[0].scrollHeight;
 
     if (values.length === 3) {
       // start ~ end 사이에 애니메이션 실행
@@ -228,14 +173,12 @@ const Main = () => {
   };
 
   const playAnimation = (prevScollHeight) => {
-    const objs = sceneInfo[curScene].objs;
-    const values = sceneInfo[curScene].values;
+    const objs = sceneInfo[0].objs;
+    const values = sceneInfo[0].values;
     const curYOffset = yOffset - prevScollHeight;
-    const scrollHeight = sceneInfo[curScene].scrollHeight;
+    const scrollHeight = sceneInfo[0].scrollHeight;
     const scrollRatio = curYOffset / scrollHeight;
 
-    switch (curScene) {
-      case 0:
         if (scrollRatio <= 0.22) {
           objs.messageA.style.opacity = calcValues(
             values.messageA_opacity_in,
@@ -323,122 +266,19 @@ const Main = () => {
             curYOffset
           )}%, 0)`;
         }
-        break;
-
-      case 2:
-        if (scrollRatio <= 0.5) {
-          // in
-          objs.canvas.style.opacity = calcValues(
-            values.canvas_opacity_in,
-            curYOffset
-          );
-        } else {
-          // out
-          objs.canvas.style.opacity = calcValues(
-            values.canvas_opacity_out,
-            curYOffset
-          );
-        }
-
-        if (scrollRatio <= 0.25) {
-          // in
-          objs.messageA.style.opacity = calcValues(
-            values.messageA_opacity_in,
-            curYOffset
-          );
-          objs.messageA.style.transform = `translate3d(0, ${calcValues(
-            values.messageA_translateY_in,
-            curYOffset
-          )}%, 0)`;
-        } else {
-          // out
-          objs.messageA.style.opacity = calcValues(
-            values.messageA_opacity_out,
-            curYOffset
-          );
-          objs.messageA.style.transform = `translate3d(0, ${calcValues(
-            values.messageA_translateY_out,
-            curYOffset
-          )}%, 0)`;
-        }
-
-        if (scrollRatio <= 0.57) {
-          // in
-          objs.messageB.style.transform = `translate3d(0, ${calcValues(
-            values.messageB_translateY_in,
-            curYOffset
-          )}%, 0)`;
-          objs.messageB.style.opacity = calcValues(
-            values.messageB_opacity_in,
-            curYOffset
-          );
-          objs.pinB.style.transform = `scaleY(${calcValues(
-            values.pinB_scaleY,
-            curYOffset
-          )})`;
-        } else {
-          // out
-          objs.messageB.style.transform = `translate3d(0, ${calcValues(
-            values.messageB_translateY_out,
-            curYOffset
-          )}%, 0)`;
-          objs.messageB.style.opacity = calcValues(
-            values.messageB_opacity_out,
-            curYOffset
-          );
-          objs.pinB.style.transform = `scaleY(${calcValues(
-            values.pinB_scaleY,
-            curYOffset
-          )})`;
-        }
-
-        if (scrollRatio <= 0.83) {
-          // in
-          objs.messageC.style.transform = `translate3d(0, ${calcValues(
-            values.messageC_translateY_in,
-            curYOffset
-          )}%, 0)`;
-          objs.messageC.style.opacity = calcValues(
-            values.messageC_opacity_in,
-            curYOffset
-          );
-          objs.pinC.style.transform = `scaleY(${calcValues(
-            values.pinC_scaleY,
-            curYOffset
-          )})`;
-        } else {
-          // out
-          objs.messageC.style.transform = `translate3d(0, ${calcValues(
-            values.messageC_translateY_out,
-            curYOffset
-          )}%, 0)`;
-          objs.messageC.style.opacity = calcValues(
-            values.messageC_opacity_out,
-            curYOffset
-          );
-          objs.pinC.style.transform = `scaleY(${calcValues(
-            values.pinC_scaleY,
-            curYOffset
-          )})`;
-        }
-        break;
-      case 3:
-        break;
-    }
   };
 
   return (
     <div
       id="body"
       className="before-load"
-      ref={divRef}
       onLoad={() => {
         document
           .getElementsByClassName("before-load")
           .className.remove("before-load");
       }}
     >
-      <div id={`show-scene-${curScene}`}>
+      <div id="show-scene-0">
         {/* <div className="loading">
           <svg className="loading-circle">
             <circle cx="50%" cy="50%" r="25"></circle>
@@ -450,31 +290,28 @@ const Main = () => {
           <section
             className="scroll-section"
             id="scroll-section-0"
-            ref={(el) => (sectionRef.current[0] = el)}
+            ref={(el) => (sectionRef.current = el)}
           >
-            <Home ref={messageRef} />
+            <Scene1 ref={messageRef} />
           </section>
 
           <section
             className="scroll-section"
             id="scroll-section-1"
-            ref={(el) => (sectionRef.current[1] = el)}
           >
-            <About />
+            <Scene2 />
           </section>
 
           <section
             className="scroll-section"
             id="scroll-section-2"
-            ref={(el) => (sectionRef.current[2] = el)}
           >
-            <Strength />
+            <Scene3 />
           </section>
 
           <section
             className="scroll-section"
             id="scroll-section-3"
-            ref={(el) => (sectionRef.current[3] = el)}
           >
             <Scene4 />
           </section>

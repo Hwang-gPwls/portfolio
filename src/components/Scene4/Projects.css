@@ -57,7 +57,7 @@
 }
 
 #box {
-  min-width: 45rem;
+  width: 45rem;
   /*margin-bottom: 3rem;*/
   background-color: #FFF;
   border: 0.7px solid #3D4856;
@@ -76,10 +76,11 @@
 }
 
 #box .heading {
-  color: #3D4856;
-  font-weight: bold;
-  font-size: 4vh;
   position: relative;
+  left:3rem;
+  font-size: 4vh;
+  font-weight: bold;
+  color: #3D4856;
 }
 
 #box .date {
@@ -114,6 +115,27 @@
 #box .contents{
   /*background-color: #F0E9E1;*/
 }
+/*
+.textDecoration {
+  position: relative;
+  top: 5.5rem;
+  left: 1.2rem;
+  width: 3vw;
+  height: 5.5vh;
+  background-color: #7C89B1;
+  opacity: 0.7;
+  transform:rotate(30deg);
+}
+
+.textDecoration_small {
+  position: relative;
+  top: 3.5rem;
+  left: 3.5rem;
+  width: 1.4vw;
+  height: 3.5vh;
+  opacity: 0.7;
+  background-color: #8079A6;
+}*/
 
 /*
 .dot {

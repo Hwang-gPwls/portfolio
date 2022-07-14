@@ -11,14 +11,14 @@ const Projects = ({project, idx}) => {
             <span className="date">{project.date}</span>
           </div>
           <div className="skills">
-            {project.skills.map((skill) => (
-              <div className="skill">{skill}</div>
+            {project.skills.map((skill, idx) => (
+              <div className="skill" key={idx.toString()}>{skill}</div>
             ))}
           </div>
           <div className="about">{project.about}</div>
           <div className="contents">
-            {project.contents.map((content) => (
-              <div className="content">{content}</div>
+            {project.contents.map((content, idx) => (
+              <div className="content" key={idx.toString()}>{content}</div>
           ))}
         </div>
       </div>
