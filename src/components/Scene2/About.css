@@ -1,33 +1,50 @@
 /*About Css*/
 
 /*scroll-section-1*/
-.wrapper-sub {
-  margin-top: 30px;
-}
-
-.wrapper-sub p {
-  font-size: 1.1rem;
-}
-
-.description {
+.container-scene2 {
   max-width: 1000px;
-  margin: 0 auto;
   padding: 0 1rem;
-  font-size: 1rem;
+  margin: 0 auto;
   color: #000000;
 }
 
-.description .sub {
+.wrapper-description {
+  margin-top: 3rem;
+  white-space: pre-line;
+  font-size: 1.1rem;
+  line-height: 230%;
+}
+
+.heading {
   margin: 0.5 auto;
   font-size: 1.5rem;
   font-style: bold;
   color: #000000;
 }
 
-.hightlight {
-  background-color: #7d97b8;
-  padding: 1px 4px;
-  color: #ffffff;
+.highlight-container, .highlight {
+  position: relative;
+}
+
+.highlight-container {
+  display: inline-block;
+}
+
+.highlight-container:before {
+  content: " ";
+  display: block;
+  height: 90%;
+  width: 100%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #8079A6;
+  opacity: 0.3;
+  transform: rotate(2deg);
+  top: -1px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 7px 3px 3px 6px;
 }
 
 /*Arrow*/
@@ -128,48 +145,30 @@
 }
 
 /** description animation */
-#flip {
-  height: 80px;
-  overflow: hidden;
+.waviy-wrapper {
+  height: 100%;
 }
 
-#flip > div > div {
-  color: #7d97b8;
+.waviy {
+  position: relative;
+  font-size: 7vh;
   font-weight: bold;
-  padding: 10px 12px;
-  height: 45px;
-  margin-bottom: 45px;
+}
+
+.waviy span {
+  position: relative;
   display: inline-block;
-  font-size: 3rem;
+  color: #856997;
+  animation: waviy 2s infinite;
+  animation-delay: calc(.1s * var(--i));
+  
 }
 
-#flip div:first-child {
-  animation: show 5s linear infinite;
-}
-
-@keyframes show {
-  0% {
-    margin-top: -270px;
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
   }
-  5% {
-    margin-top: -140px;
-  }
-  33% {
-    margin-top: -140px;
-  }
-  38% {
-    margin-top: -70px;
-  }
-  66% {
-    margin-top: -70px;
-  }
-  71% {
-    margin-top: -3px;
-  }
-  99.99% {
-    margin-top: -3px;
-  }
-  100% {
-    margin-top: -270px;
+  20% {
+    transform: translateY(-20px)
   }
 }
