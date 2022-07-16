@@ -8,7 +8,7 @@ const Strength = ({ skills }) => {
     ))
   );
 
-  const setHovalItem = (e) => {
+  const setHovalItem = useCallback((e) => {
     let tl = gsap.timeline();
     tl.to(e.target, { y: -40, duration: 0.5 });
     tl.to(e.target, { y: 0, duration: 1 });
@@ -18,7 +18,7 @@ const Strength = ({ skills }) => {
     setContent(
       contents.map((content, idx) => <div key={idx.toString()}>{content}</div>)
     );
-  };
+  });
 
   return (
     <>
