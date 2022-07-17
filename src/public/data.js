@@ -58,6 +58,7 @@ export const skills = [
 
 export const projects = [
   {
+    key: "easywork",
     title: "EasyWork ERP 프로그램 운영",
     date: "2022.03 - 현재",
     skills: ["Qrame", "Javascript", "MySQL"],
@@ -73,6 +74,7 @@ export const projects = [
     ],
   },
   {
+    key: "mojito",
     title: "Mojito 쇼핑몰 솔루션 개발",
     date: "2021.10 - 2021.12",
     skills: ["ASP.NET Core", "Javascript", "MySQL"],
@@ -88,6 +90,7 @@ export const projects = [
     ],
   },
   {
+    key: "easywork_develop",
     title: "EasyWork ERP 프로그램 개발",
     date: "2021.03 - 2021.10",
     skills: ["Qrame", "Javascript", "MySQL"],
@@ -102,6 +105,7 @@ export const projects = [
     ],
   },
   {
+    key: "wooyoung",
     title: "윤선생 Wooyoung(우리동네 영어교실) 개발 및 운영",
     date: "2020.10 - 2020.12 / 2021.01 - 2021.03",
     skills: ["Qrame", "Javascript", "grunt"],
@@ -114,6 +118,7 @@ export const projects = [
     ],
   },
   {
+    key: "qrame",
     title: "Qrame Solution 고도화 및 오류 수정",
     date: "2020.01 - 현재",
     skills: ["Javascript", ".Net Core"],
@@ -128,6 +133,7 @@ export const projects = [
     ],
   },
   {
+    key: "collabic",
     title: "Collabic (생산자 구매자 섬유산업 서비스 플랫폼)",
     date: "2019.10 - 2019.12",
     skills: ["Vue", "Qrame", "Javascript", "SQLServer"],

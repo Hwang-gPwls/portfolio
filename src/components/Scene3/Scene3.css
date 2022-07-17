@@ -1,0 +1,103 @@
+/*Strength Css*/
+.header-strength {
+  position: relative;
+  display: flex;
+  height: 4rem;
+  font-weight: bold;
+  font-size: 5rem;
+  text-shadow: 6px 5px 0px rgba(125, 151, 184, 0.99),
+    7px 6px 0px rgba(125, 151, 184, 0.99), 7px 6px 0px rgba(125, 151, 184, 0.99);
+}
+
+.header-strength::after {
+  margin-left: 3rem;
+  content: "Strength.";
+  position: absolute;
+  color: transparent;
+  -webkit-text-stroke: 0.1rem #000000;
+  top: 1rem;
+  left: -0.4rem;
+}
+
+.container-strengths {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin-top: 2rem;
+  border: 1px solid #7d97b8;
+}
+
+.strengths {
+  width: inherit;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper-strength {
+  width: inherit;
+  padding: 1rem;
+}
+
+.strength {
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#card {
+  width: 45rem;
+  background-color: #fff;
+  border: 0.7px solid #3d4856;
+  border-radius: 0.8rem;
+  transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.card-right {
+  margin-left: 30rem;
+}
+
+.card-left {
+  margin-right: 30rem;
+}
+
+#card:hover {
+  box-shadow: 10px 14px 0 #3d4856, 10px 10px 0 #3d4856;
+  transform: translateY(-10px);
+}
+
+#card * {
+  padding: 10px;
+}
+
+#card .heading {
+  margin: 2rem 1rem;
+  width: 41rem;
+  font-size: 3vh;
+  font-weight: bold;
+  color: #3d4856;
+  text-align: center;
+  background-color: #f9f0e0;
+  border: 1.3px solid #3d4856;
+  border-radius: 1.7rem;
+}
+
+#card .contents {
+  font-size: 1.7vh;
+  line-height: 18px;
+}
+
+#card .contents {
+  font-size: 2vh;
+}
+
+#card .content {
+  display: flex;
+}
+
+FontAwesomeIcon {
+  font-size: 3vh;
+  width: 1rem;
+}

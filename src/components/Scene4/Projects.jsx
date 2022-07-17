@@ -1,29 +1,59 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
+import gsap from "gsap";
 
-const Projects = ({project, idx}) => {
-  const isEven = (idx + 1) % 2 === 0;
+const Projects = ({ projects }) => {
+  const [items, setItems] = useState();
+
+  const setProjectVal = (id) => {
+    const project = projects.filter((project) => project.key === id)[0];
+
+    const skills = project.skills.map((skill) => (
+      <div className="skill">{skill}</div>
+    ));
+
+    const contents = project.contents.map((content) => <div>{content}</div>);
+
+    setItems(
+      <div key={project.key} className="item">
+        <div className="date">{project.date}</div>
+        <div className="about">{project.about}</div>
+        <div className="skills">{skills}</div>
+        <div className="contents">{contents}</div>
+      </div>
+    );
+  };
+
+  const hovalTitle = useCallback((e) => {
+    let tl = gsap.timeline();
+    tl.to(e.target, { y: -40, duration: 0.5 });
+    tl.to(e.target, { y: 0, duration: 1 });
+
+    setProjectVal(e.target.id);
+  });
 
   return (
-    <div className="box-wrapper">
-        <div id="box" className={isEven ? "box-right" : "box-left"} data-aos={isEven ? "fade-down-right" : "fade-down-left"}>
-          <div className="heading">{project.title}</div>
-          <div className="date">
-            <span className="date">{project.date}</span>
-          </div>
-          <div className="skills">
-            {project.skills.map((skill, idx) => (
-              <div className="skill" key={idx.toString()}>{skill}</div>
+    <>
+      <div className="wrapper-project">
+        <ul>
+          <li>
+            {projects.map((project, idx) => (
+              <div key={idx.toString()} className="wrapper-title">
+                <div
+                  id={project.key}
+                  className="title"
+                  onMouseOver={hovalTitle}
+                >
+                  {project.title}
+                </div>
+              </div>
             ))}
-          </div>
-          <div className="about">{project.about}</div>
-          <div className="contents">
-            {project.contents.map((content, idx) => (
-              <div className="content" key={idx.toString()}>{content}</div>
-          ))}
-        </div>
+          </li>
+          <li>
+            <div className="items">{items}</div>
+          </li>
+        </ul>
       </div>
-    </div>
+    </>
   );
 };
-
 export default React.memo(Projects);

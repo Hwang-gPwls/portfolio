@@ -5,7 +5,7 @@ import { sceneInfo } from "../../public/data";
 import CheckIsInViewPort from "../../utils/CheckIsInViewPort";
 import Home from "./Home";
 import TextScroll from "./TextScroll";
-import "./Home.css";
+import "./Scene1.css";
 
 const Scene1 = () => {
   const [height, setHeight] = useState(5 * window.innerHeight);
@@ -28,6 +28,7 @@ const Scene1 = () => {
       setWindowHeightSize(window.innerHeight);
     };
 
+    setHeight(windowHeightSize * 5);
     setLayout();
 
     window.addEventListener("resize", handleResize);

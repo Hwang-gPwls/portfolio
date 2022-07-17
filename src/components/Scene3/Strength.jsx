@@ -1,44 +1,29 @@
-import React, { useState, useCallback } from "react";
-import gsap from "gsap";
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 
-const Strength = ({ skills }) => {
-  const [content, setContent] = useState(
-    skills[0].contents.map((content, idx) => (
-      <div key={idx.toString()}>{content}</div>
-    ))
-  );
-
-  const setHovalItem = useCallback((e) => {
-    let tl = gsap.timeline();
-    tl.to(e.target, { y: -40, duration: 0.5 });
-    tl.to(e.target, { y: 0, duration: 1 });
-
-    const contents = skills.filter((skill) => skill.key === e.target.id)[0]
-      .contents;
-    setContent(
-      contents.map((content, idx) => <div key={idx.toString()}>{content}</div>)
-    );
-  });
+const Projects = ({ skill, idx }) => {
+  const isEven = (idx + 1) % 2 === 0;
 
   return (
-    <>
-      <div className="strength-wrapper">
-        <ul>
-          <li className="skillList">
-            {skills.map((skill, idx) => (
-              <div id={skill.key} key={idx.toString()} className="skill">
-                <h1 id={skill.key} onMouseOver={setHovalItem}>
-                  {skill.title}
-                </h1>
-              </div>
-            ))}
-          </li>
-          <li>
-            <div className="skill-content">{content}</div>
-          </li>
-        </ul>
+    <div className="strenght">
+      <div
+        id="card"
+        className={isEven ? "card-right" : "card-left"}
+        data-aos={isEven ? "fade-down-right" : "fade-down-left"}
+      >
+        <div className="heading">{skill.title}</div>
+        <div className="contents">
+          {skill.contents.map((content, idx) => (
+            <div className="content" key={idx.toString()}>
+              <FontAwesomeIcon icon={faSquareCheck} style={{ width: 14 }} />
+              {content}
+            </div>
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
-export default React.memo(Strength);
+
+export default React.memo(Projects);

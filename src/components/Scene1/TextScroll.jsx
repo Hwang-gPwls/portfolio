@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef } from "react";
 
 const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
   const messageRef = useRef([]);
@@ -10,7 +10,7 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
     else prevScrollHeight = yOffset;
 
     scrollLoop(prevScrollHeight);
-  }, [yOffset]);
+  }, [yOffset, height]);
 
   const scrollLoop = (prevScollHeight) => {
     if (!isInViewPort) return;
