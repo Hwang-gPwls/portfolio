@@ -11,7 +11,9 @@ const Projects = ({ projects }) => {
       <div className="skill">{skill}</div>
     ));
 
-    const contents = project.contents.map((content) => <div>{content}</div>);
+    const contents = project.contents.map((content) => (
+      <div className="content">{content}</div>
+    ));
 
     setItems(
       <div key={project.key} className="item">

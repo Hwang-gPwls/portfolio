@@ -48,6 +48,9 @@
 }
 
 #card {
+  background-image: radial-gradient(currentColor 0.5px, transparent 0.5px);
+  background-size: calc(10 * 1px) calc(10 * 1px);
+
   width: 45rem;
   background-color: #fff;
   border: 0.7px solid #3d4856;
@@ -75,7 +78,7 @@
 #card .heading {
   margin: 2rem 1rem;
   width: 41rem;
-  font-size: 3vh;
+  font-size: 3.5vh;
   font-weight: bold;
   color: #3d4856;
   text-align: center;
