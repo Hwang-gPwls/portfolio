@@ -15,6 +15,14 @@
   line-height: 230%;
 }
 
+.dot {
+  background: #888;
+  background-image: radial-gradient(#444 20%, transparent 0),
+    radial-gradient(#444 20%, transparent 0);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
 .heading {
   margin: 0.5 auto;
   font-size: 1.5rem;
@@ -22,7 +30,8 @@
   color: #000000;
 }
 
-.highlight-container, .highlight {
+.highlight-container,
+.highlight {
   position: relative;
 }
 
@@ -38,7 +47,7 @@
   margin-left: -3px;
   margin-right: -3px;
   position: absolute;
-  background: #8079A6;
+  background: #8079a6;
   opacity: 0.3;
   transform: rotate(2deg);
   top: -1px;
@@ -160,15 +169,16 @@
   display: inline-block;
   color: #856997;
   animation: waviy 2s infinite;
-  animation-delay: calc(.1s * var(--i));
-  
+  animation-delay: calc(0.1s * var(--i));
 }
 
 @keyframes waviy {
-  0%,40%,100% {
-    transform: translateY(0)
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
   }
   20% {
-    transform: translateY(-20px)
+    transform: translateY(-20px);
   }
 }
