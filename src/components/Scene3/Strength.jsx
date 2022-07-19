@@ -15,9 +15,9 @@ const Projects = ({ skill, idx }) => {
         <div className="heading">{skill.title}</div>
         <div className="contents">
           {skill.contents.map((content, idx) => (
-            <div className="content" key={idx.toString()}>
-              <FontAwesomeIcon icon={faSquareCheck} style={{ width: 14 }} />
-              {content}
+            <div className="wrapper-content paper">
+              <FontAwesomeIcon icon={faSquareCheck} size="1.5x" fixedWidth/>
+              <div className="content" key={idx.toString()}>{content}</div>
             </div>
           ))}
         </div>

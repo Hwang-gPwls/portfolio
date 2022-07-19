@@ -18,6 +18,7 @@ const Projects = ({ projects }) => {
     setItems(
       <div key={project.key} className="item">
         <div className="date">{project.date}</div>
+        <div className="background-dot"></div>
         <div className="about">{project.about}</div>
         <div className="skills">{skills}</div>
         <div className="contents">{contents}</div>
@@ -36,8 +37,8 @@ const Projects = ({ projects }) => {
   return (
     <>
       <div className="wrapper-project">
-        <ul>
-          <li>
+        <div className="container-project">
+          <div className="projects">
             {projects.map((project, idx) => (
               <div key={idx.toString()} className="wrapper-title">
                 <div
@@ -49,11 +50,11 @@ const Projects = ({ projects }) => {
                 </div>
               </div>
             ))}
-          </li>
-          <li>
+          </div>
+          <div className="projects">
             <div className="items">{items}</div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </>
   );
