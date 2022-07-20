@@ -21,7 +21,7 @@ const Home = () => {
           </div>
         </div>
         <div className="header-section2-2">
-          <svg>
+          <svg className="main-text">
             <text x="50%" y="50%">
               HI, I'M HYEJIN HWANG
             </text>

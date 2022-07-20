@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import gsap from "gsap";
+import { CircleFill } from "react-bootstrap-icons";
 
 const Projects = ({ projects }) => {
   const [items, setItems] = useState();
@@ -18,6 +19,7 @@ const Projects = ({ projects }) => {
     setItems(
       <div key={project.key} className="item">
         <div className="date">{project.date}</div>
+        <div className="wrapper-pin"><CircleFill size= "11" color= "#E09F1F"/><div className="pin"/></div>
         <div className="about">{project.about}</div>
         <div className="skills">{skills}</div>
         <div className="contents">{contents}</div>
@@ -35,7 +37,7 @@ const Projects = ({ projects }) => {
 
   return (
     <>
-      <div className="wrapper-project">
+    <div className="wrapper-project">
         <div className="container-project">
           <div className="projects">
             {projects.map((project, idx) => (
@@ -54,7 +56,7 @@ const Projects = ({ projects }) => {
             <div className="items">{items}</div>
           </div>
         </div>
-      </div>
+        </div>
     </>
   );
 };

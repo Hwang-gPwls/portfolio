@@ -5,8 +5,8 @@
   height: 4rem;
   font-weight: bold;
   font-size: 5rem;
-  text-shadow: 6px 5px 0px rgba(125, 151, 184, 0.99),
-    7px 6px 0px rgba(125, 151, 184, 0.99), 7px 6px 0px rgba(125, 151, 184, 0.99);
+  text-shadow: 6px 5px 0px #7d97b8,
+    7px 6px 0px #7d97b8, 7px 6px 0px #7d97b8;
 }
 
 .header-strength::after {
