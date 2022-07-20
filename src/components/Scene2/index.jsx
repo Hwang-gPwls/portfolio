@@ -1,3 +1,4 @@
+import React from "react";
 import "./Scene2.css";
 import Contact from "./Contact";
 import TextWavy from "./TextWavy";
