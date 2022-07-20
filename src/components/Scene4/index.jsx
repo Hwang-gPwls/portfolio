@@ -11,7 +11,7 @@ const Scene4 = () => {
         <div className="section-0-frame grid-paper">
           <h2 className="header-project shadow">
             in My Career.
-           <Stars size= "30" color= "#E09F1F"/>
+            <Stars size="30" color="#E09F1F" />
           </h2>
         </div>
       </div>

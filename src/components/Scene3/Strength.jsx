@@ -16,8 +16,10 @@ const Projects = ({ skill, idx }) => {
         <div className="contents">
           {skill.contents.map((content, idx) => (
             <div className="wrapper-content paper">
-              <FontAwesomeIcon icon={faSquareCheck} size="1.5x" fixedWidth/>
-              <div className="content" key={idx.toString()}>{content}</div>
+              <FontAwesomeIcon icon={faSquareCheck} size="1.5x" fixedWidth />
+              <div className="content" key={idx.toString()}>
+                {content}
+              </div>
             </div>
           ))}
         </div>

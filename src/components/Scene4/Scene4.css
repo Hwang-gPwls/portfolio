@@ -1,5 +1,5 @@
 /*Project Css*/
-.container-scene4{
+.container-scene4 {
   width: 100%;
   height: 100%;
   margin-top: 90px;
@@ -85,17 +85,17 @@
 .header-project {
   font-size: 3rem;
   color: #ffffff;
-  -webkit-text-stroke: 1.5px #4A6483;
+  -webkit-text-stroke: 1.5px #4a6483;
   margin-left: 3rem;
 }
 
 .shadow {
-  text-shadow: 8px 5px 0px #4A6483;
+  text-shadow: 8px 5px 0px #4a6483;
 }
 
 /* projects 본문 */
 .wrapper-project {
-  height: 25.2rem;
+  height: 35.5rem;
   border-left: 1.5px solid #7d97b8;
   border-right: 1.5px solid #7d97b8;
   border-bottom: 1.5px solid #7d97b8;
@@ -117,7 +117,7 @@
 }
 
 .container-project .projects::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .container-project .projects:not(:last-child) {
@@ -142,11 +142,11 @@
   color: transparent;
   font-size: 2rem;
   font-weight: bolder;
-  -webkit-text-stroke: 1px #4A6483;
+  -webkit-text-stroke: 1px #4a6483;
 }
 
 .title:hover {
-  color: #4A6483;
+  color: #4a6483;
   -webkit-text-stroke: 1px #ffffff;
 }
 
@@ -158,13 +158,19 @@
 
 .item {
   padding: 3rem;
-  color:#4A6483;
+  color: #4a6483;
 }
 
 .date {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
   margin: 1rem 0;
+}
+
+.item h3 {
+  margin: 2rem 0 0 0;
+  text-align: left;
+  font-size: 1.3rem;
 }
 
 .wrapper-pin {
@@ -172,20 +178,21 @@
   display: flex;
 }
 
-.date .pin {
+.wrapper-pin .pin {
   width: 100%;
-  height: 1px;
-  margin: 1.5rem 0;
-  background-color: #4A6483;
+  height: 2px;
+  margin: 0.3rem 0.5rem;
+  background-color: #a0acbd;
 }
 
 .about {
-  margin: 3rem 0.7rem;
-  text-align: center;
+  margin: 1rem;
+  text-align: left;
+  font-size: 1.2rem;
 }
 
-.background-dot{
-  width:100%;
+.background-dot {
+  width: 100%;
   height: 3rem;
   background-image: radial-gradient(currentColor 0.5px, transparent 0.5px);
   background-size: calc(10 * 1px) calc(10 * 1px);
@@ -193,14 +200,14 @@
 
 .skills {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin: 1rem;
 }
 
 .skills .skill {
   height: 2rem;
   line-height: 2rem;
-  padding: 0.2rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   border: 1px solid #3d4856;
   border-radius: 0.5rem;
@@ -211,8 +218,15 @@
 }
 
 .contents {
+  border: 1.5px solid #7d97b8;
   white-space: pre-line;
+  padding: 1rem;
+  margin: 2rem 0 0 0;
   line-height: 230%;
   font-size: 1.1rem;
   text-align: left;
+}
+
+.content span {
+  margin-left: 1.2rem;
 }

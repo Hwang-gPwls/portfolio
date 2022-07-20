@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Header from "../components/header/Header";
 import Scene1 from "../components/Scene1";
 import Scene2 from "../components/Scene2";
@@ -27,7 +27,13 @@ const Main = () => {
             <Scene3 />
           </section>
           <div>
+<<<<<<< HEAD
+            <Link to="/career">
+              <input type="button" value={"Project"} />
+            </Link>
+=======
             <Link to="/career"><input type="button" value={"Project"}/></Link>
+>>>>>>> 808306d56da48f203d144c70e4dfd6f322a9b232
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import "./Scene1.css";
 
 const Home = () => {

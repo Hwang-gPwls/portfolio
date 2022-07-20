@@ -5,8 +5,7 @@
   height: 4rem;
   font-weight: bold;
   font-size: 5rem;
-  text-shadow: 6px 5px 0px #7d97b8,
-    7px 6px 0px #7d97b8, 7px 6px 0px #7d97b8;
+  text-shadow: 6px 5px 0px #7d97b8, 7px 6px 0px #7d97b8, 7px 6px 0px #7d97b8;
 }
 
 .header-strength::after {
@@ -88,12 +87,13 @@
   font-size: 1.1rem;
 }
 
-#card .wrapper-content{
+#card .wrapper-content {
   display: flex;
 }
 
 #card .content {
-  display:table-cell;vertical-align:middle;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .svg-inline--fa.fa-fw {
@@ -103,14 +103,44 @@
 
 .paper {
   position: relative;
-  border: 1px solid #B5B5B5;
+  border: 1px solid #b5b5b5;
   background: white;
-  background: -webkit-linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
-  background: -moz-linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
-  background: linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
+  background: -webkit-linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  background: -moz-linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  background: linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -ms-background-size: 100% 100%;
   background-size: 100% 100%;
 }
-.paper::after {content:''; position:absolute; width:0; top:0; left:3.5rem; bottom:0; border-left:1px solid #F8D3D3;}
+.paper::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  top: 0;
+  left: 3.5rem;
+  bottom: 0;
+  border-left: 1px solid #f8d3d3;
+}
+
+.paper {
+  position: relative;
+  border: 1px solid #b5b5b5;
+  background: white;
+  background: -webkit-linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  background: -moz-linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  background: linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -ms-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.paper::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  top: 0;
+  left: 3.5rem;
+  bottom: 0;
+  border-left: 1px solid #f8d3d3;
+}
