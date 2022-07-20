@@ -1,3 +1,5 @@
+import React from "react";
+
 const TextWavy = () => {
   return (
     <div className="waviy-wrapper">

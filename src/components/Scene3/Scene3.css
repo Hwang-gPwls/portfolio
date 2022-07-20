@@ -122,3 +122,25 @@
   bottom: 0;
   border-left: 1px solid #f8d3d3;
 }
+
+.paper {
+  position: relative;
+  border: 1px solid #b5b5b5;
+  background: white;
+  background: -webkit-linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  background: -moz-linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  background: linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -ms-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.paper::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  top: 0;
+  left: 3.5rem;
+  bottom: 0;
+  border-left: 1px solid #f8d3d3;
+}

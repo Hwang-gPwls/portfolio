@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { skills } from "../../public/data";
 import Strength from "./Strength";
 import AOS from "aos";

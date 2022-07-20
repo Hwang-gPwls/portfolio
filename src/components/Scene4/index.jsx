@@ -1,3 +1,4 @@
+import React from "react";
 import { projects } from "../../public/data";
 import { Stars } from "react-bootstrap-icons";
 import Projects from "./Projects";

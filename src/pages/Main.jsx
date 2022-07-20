@@ -27,9 +27,13 @@ const Main = () => {
             <Scene3 />
           </section>
           <div>
+<<<<<<< HEAD
             <Link to="/career">
               <input type="button" value={"Project"} />
             </Link>
+=======
+            <Link to="/career"><input type="button" value={"Project"}/></Link>
+>>>>>>> 808306d56da48f203d144c70e4dfd6f322a9b232
           </div>
         </div>
       </div>
