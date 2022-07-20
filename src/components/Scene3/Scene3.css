@@ -5,8 +5,7 @@
   height: 4rem;
   font-weight: bold;
   font-size: 5rem;
-  text-shadow: 6px 5px 0px rgba(125, 151, 184, 0.99),
-    7px 6px 0px rgba(125, 151, 184, 0.99), 7px 6px 0px rgba(125, 151, 184, 0.99);
+  text-shadow: 6px 5px 0px #7d97b8, 7px 6px 0px #7d97b8, 7px 6px 0px #7d97b8;
 }
 
 .header-strength::after {
@@ -23,7 +22,7 @@
   box-sizing: border-box;
   overflow-x: hidden;
   margin-top: 2rem;
-  border: 1px solid #7d97b8;
+  border: 1.5px solid #7d97b8;
 }
 
 .strengths {
@@ -48,9 +47,6 @@
 }
 
 #card {
-  background-image: radial-gradient(currentColor 0.5px, transparent 0.5px);
-  background-size: calc(10 * 1px) calc(10 * 1px);
-
   width: 45rem;
   background-color: #fff;
   border: 0.7px solid #3d4856;
@@ -88,19 +84,41 @@
 }
 
 #card .contents {
-  font-size: 1.7vh;
-  line-height: 18px;
+  font-size: 1.1rem;
 }
 
-#card .contents {
-  font-size: 2vh;
-}
-
-#card .content {
+#card .wrapper-content {
   display: flex;
 }
 
-FontAwesomeIcon {
-  font-size: 3vh;
-  width: 1rem;
+#card .content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+  margin-top: 0.6rem;
+}
+
+.paper {
+  position: relative;
+  border: 1px solid #b5b5b5;
+  background: white;
+  background: -webkit-linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  background: -moz-linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  background: linear-gradient(top, #dfe8ec 0%, white 8%) 0 57px;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -ms-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.paper::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  top: 0;
+  left: 3.5rem;
+  bottom: 0;
+  border-left: 1px solid #f8d3d3;
 }

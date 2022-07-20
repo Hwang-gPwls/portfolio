@@ -65,12 +65,6 @@ p {
   font-weight: bold;
 }
 
-.pin {
-  width: 20vw;
-  height: 1px;
-  background-color: rgb(29, 29, 31);
-}
-
 .mid-message {
   max-width: 1000px;
   margin: 0 auto;

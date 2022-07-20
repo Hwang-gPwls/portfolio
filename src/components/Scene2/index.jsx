@@ -6,7 +6,6 @@ const Scene2 = () => {
   return (
     <div className="section-0-frame">
       <div className="container-scene2">
-        <div className="dot"></div>
         <TextWavy />
         <div className="wrapper-description">
           <div className="heading">
