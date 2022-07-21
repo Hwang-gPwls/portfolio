@@ -45,19 +45,8 @@ p {
   padding-top: 10vh;
 }
 
-.greeting-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  height: 88vh;
-}
-
 .wrapper-description {
   padding: 20px;
-}
-
-#scroll-section-2 .main-message {
-  font-size: 3.5rem;
 }
 
 .desc-messae {

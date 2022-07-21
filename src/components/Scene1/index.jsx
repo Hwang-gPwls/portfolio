@@ -5,7 +5,6 @@ import { sceneInfo } from "../../public/data";
 import CheckIsInViewPort from "../../utils/CheckIsInViewPort";
 import Home from "./Home";
 import TextScroll from "./TextScroll";
-import "./Scene1.css";
 
 const Scene1 = () => {
   const [height, setHeight] = useState(5 * window.innerHeight);
