@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import styled from "styled-components";
 
 const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
   const messageRef = useRef([]);
@@ -16,16 +17,6 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
     if (!isInViewPort) return;
 
     playAnimation(prevScollHeight);
-
-    //현재 스크롤 위치보다 토탈 스크롤 위치가 커지면 break => 새로고침시에
-    //let totalScrollHeight = 0;
-    //for (let i = 0; i < sceneInfo.length; i++) {
-    //  totalScrollHeight += sceneInfo[i].scrollHeight;
-    //  if (totalScrollHeight >= yOffset) {
-    //    setCurScene(i);
-    //    break;
-    //  }
-    //}
   };
 
   const calcValues = (values, curYOffset) => {
@@ -152,12 +143,12 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
   };
 
   return (
-    <>
+    <Container>
       <div
         className="sticky-elem main-message main-message-a"
         ref={(el) => (messageRef.current[0] = el)}
       >
-        <p>
+        <p className="main-message_text">
           ACTUALLY, I'M A WEBSITE
           <br />I WAS BUILT BY HYEJIN HWANG
         </p>
@@ -166,13 +157,13 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
         className="sticky-elem main-message main-message-b"
         ref={(el) => (messageRef.current[1] = el)}
       >
-        <p>HyeJin Hwang</p>
+        <p className="main-message_text">HyeJin Hwang</p>
       </div>
       <div
         className="sticky-elem main-message main-message-c"
         ref={(el) => (messageRef.current[2] = el)}
       >
-        <p>
+        <p className="main-message_text">
           FRONTEND
           <br />
           DEVELOPER
@@ -182,10 +173,30 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
         className="sticky-elem main-message main-message-d"
         ref={(el) => (messageRef.current[3] = el)}
       >
-        <p>WEB DEVELOPER</p>
+        <p className="main-message_text">WEB DEVELOPER</p>
       </div>
-    </>
+    </Container>
   );
 };
+
+const Container = styled.div`
+.main-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 35vh;
+  margin-bottom: 5px;
+  height: 3em;
+  font-size: 2.5rem;
+  opacity: 0;
+
+  &_text{
+    text-align: center;
+    line-height: 1.2;
+  font-size: 3.5rem;
+  font-weight: bold;
+  }
+}
+`;
 
 export default TextScroll;

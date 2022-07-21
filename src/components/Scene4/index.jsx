@@ -1,23 +1,23 @@
 import React from "react";
+import styled from "styled-components";
 import { projects } from "../../public/data";
-import { Stars } from "react-bootstrap-icons";
 import Projects from "./Projects";
-import "./Scene4.css";
+import Header from "./Header";
+
 
 const Scene4 = () => {
   return (
-    <div className="container-scene4">
-      <div className="wrapper-header-project">
-        <div className="section-0-frame grid-paper">
-          <h2 className="header-project shadow">
-            in My Career.
-            <Stars size="30" color="#E09F1F" />
-          </h2>
-        </div>
-      </div>
+    <Container>
+      <Header/>
       <Projects projects={projects} />
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-top: 90px;
+`;
 
 export default Scene4;
