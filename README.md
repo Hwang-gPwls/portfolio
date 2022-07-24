@@ -7,7 +7,7 @@
 ## 사용 기술
 
 - Frontend
-  - Javascript(ES6) / Html / CSS
+  - Javascript(ES6) / Html / styled-components
   - React
 - DevOps
   - AWS(EC2)
