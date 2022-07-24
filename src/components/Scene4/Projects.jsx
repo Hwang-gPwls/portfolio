@@ -69,7 +69,7 @@ const Projects = ({ projects }) => {
 };
 
 const Container = styled.div`
-	height: 35.5rem;
+	height: 77vh;
 	border-left: 1.5px solid #7d97b8;
 	border-right: 1.5px solid #7d97b8;
 	border-bottom: 1.5px solid #7d97b8;

@@ -23,7 +23,7 @@ const Scene3 = () => {
 const Panel = styled.div`
 	width: 100%;
 	height: 100%;
-	margin-top: 70px;
+	margin-top: 9vh;
 `;
 
 const Header = styled.div`
