@@ -4,6 +4,7 @@ import { skills } from '../../public/data';
 import Strength from './Strength';
 
 const Scene3 = () => {
+	debugger;
 	return (
 		<Panel>
 			<Header text={'Strength.'} />

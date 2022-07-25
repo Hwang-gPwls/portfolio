@@ -5,7 +5,11 @@ import TextWavy from './TextWavy';
 
 const Scene2 = () => {
 	return (
-		<div className='section-0-frame'>
+		<>
+			<DividingLine>
+				<div className='pin' />
+				<span>About</span>
+			</DividingLine>
 			<Container>
 				<TextWavy />
 				<About>
@@ -37,28 +41,45 @@ const Scene2 = () => {
 				</About>
 				<Contact />
 			</Container>
-		</div>
+		</>
 	);
 };
 
 const Container = styled.div`
-	max-width: 1200px;
-	padding: 0 1rem;
-	margin: 0 auto;
+	width: 100%;
+`;
+
+const DividingLine = styled.div`
+	width: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 2rem;
+
+	.pin {
+		margin: 1.4rem 0.5rem 0 0;
+		width: 100%;
+		height: 1.5px;
+		margin-bottom: 1.5rem;
+		background-color: ${({ theme }) => theme.color.black};
+	}
 `;
 
 const About = styled.div`
 	white-space: pre-line;
+	padding: 2rem;
 	margin-top: 3rem;
 	font-size: 1.1rem;
 	line-height: 230%;
-	color: #4a6483;
+	border: 1px solid ${({ theme }) => theme.color.black};
+	border-radius: 30px;
+	color: ${({ theme }) => theme.color.black};
 
 	.heading {
 		margin: 1rem 0;
 		font-size: 1.5rem;
 		font-style: bold;
-		color: #4a6483;
+		color: ${({ theme }) => theme.color.black};
 	}
 `;
 
@@ -66,7 +87,7 @@ const Highlight = styled.span`
 	font-weight: 700;
 	font-size: 1.3rem;
 	margin-left: 0.3rem;
-	background-color: #b78897;
+	background-color: ${({ theme }) => theme.color.pink};
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;

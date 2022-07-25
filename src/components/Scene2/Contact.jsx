@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
+import { Github } from 'react-bootstrap-icons';
 
 const Contact = () => {
 	const moveLocation = (e) => {
@@ -21,6 +22,7 @@ const Contact = () => {
 
 	return (
 		<Container>
+			<Header>Contact :</Header>
 			<Arrow>
 				<div className='curve'></div>
 				<div className='point'></div>
@@ -31,11 +33,11 @@ const Contact = () => {
 					className='circle'
 					onMouseOver={onMouseOver}
 					onClick={moveLocation}>
-					<span className='circle_text'>h960502hhj@gmail.com</span>
+					<span className='circle_text'>E-MAIL</span>
 				</div>
-				<p id='github' className='github' onClick={moveLocation}>
-					github
-				</p>
+				<div id='github' className='github' onClick={moveLocation}>
+					<Github size='60' color='#A0ACBD' />
+				</div>
 			</ContactArea>
 		</Container>
 	);
@@ -46,34 +48,43 @@ const Container = styled.div`
 	padding: 2rem;
 `;
 
+const Header = styled.div`
+	font-size: 7.5vh;
+	font-weight: bold;
+	color: transparent;
+	-webkit-text-stroke: 1.5px ${({ theme }) => theme.color.black};
+`;
+
 const Arrow = styled.div`
 	position: relative;
-	margin-left: 60rem;
+	margin-left: 10rem;
 	width: 0.1rem;
 
 	.curve {
 		border: 2px solid #b78897;
-		border-color: transparent transparent transparent #b78897;
-		height: 10rem;
+		border-color: transparent transparent transparent
+			${({ theme }) => theme.color.pink};
+		height: 8rem;
 		width: 10rem;
 		border-radius: 230px 0 0 150px;
 	}
 
 	.point {
 		position: absolute;
-		left: 1.1rem;
-		top: 8.7rem;
+		left: 0.85rem;
+		top: 6.8rem;
 
 		::before,
 		::after {
-			border: 1px solid #b78897;
+			background-color: ${({ theme }) => theme.color.pink};
+			border: 1px solid ${({ theme }) => theme.color.pink};
 			height: 25px;
 			content: '';
 			position: absolute;
 		}
 
 		::before {
-			top: -11px;
+			top: -9px;
 			left: -11px;
 			transform: rotate(-74deg);
 			-webkit-transform: rotate(-74deg);
@@ -93,12 +104,11 @@ const Arrow = styled.div`
 `;
 
 const ContactArea = styled.div`
-	display: inline-block;
-	align-items: right;
-	height: 8rem;
+	width: 100%;
 	padding: 1rem;
 
 	.circle {
+		margin-right: 100rem;
 		width: 160px;
 		height: 160px;
 		border-radius: 70%;
@@ -119,25 +129,6 @@ const ContactArea = styled.div`
 		width: 43px;
 		margin: 0 0 0 70rem;
 		cursor: pointer;
-
-		--b: 0.1em;
-		--c: #7d97b8;
-
-		color: #0000;
-		padding-block: var(--b);
-		background: linear-gradient(var(--c) 50%, #000 0) 0%
-				calc(100% - var(--_p, 0%)) / 100% 200%,
-			linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
-				no-repeat;
-		-webkit-background-clip: text, padding-box;
-		background-clip: text, padding-box;
-		transition: 0.3s var(--_s, 0s) linear,
-			background-size 0.3s calc(0.3s - var(--_s, 0s));
-
-		::hover {
-			--_p: 100%;
-			--_s: 0.3s;
-		}
 	}
 `;
 

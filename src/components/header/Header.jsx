@@ -44,12 +44,8 @@ const Container = styled.div`
 	padding: 1rem 2rem;
 	margin: 8px;
 	z-index: 10000;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #7d97b8;
+	border: 1.5px solid ${({ theme }) => theme.color.blue};
 	background-image: url(${BackgroundImg});
-	background-color: #f9f0e0;
-	opacity: 100;
 
 	.nav {
 		display: flex;
@@ -66,7 +62,7 @@ const Menu = styled.span`
 	display: inline-block;
 	position: relative;
 	font-size: 1.1rem;
-	color: #7d97b8;
+	color: ${({ theme }) => theme.color.blue};
 
 	&:before {
 		content: '';
@@ -75,7 +71,7 @@ const Menu = styled.span`
 		bottom: 0;
 		width: 0;
 		height: 2px;
-		background-color: #7d97b8;
+		background-color: ${({ theme }) => theme.color.blue};
 		transition: all 0.5s;
 	}
 
