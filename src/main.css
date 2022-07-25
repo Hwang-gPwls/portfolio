@@ -1,23 +1,24 @@
 @charset 'utf-8';
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;900&family=Yeon+Sung&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;900&family=Yeon+Sung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Noto+Sans+KR&display=swap');
 
 html {
-  font-family: "Noto Sans KR";
-  font-size: 14px;
-  background-image: url("./asset/images/noisy-texture.png");
-  background-color: #f9f0e0;
+	font-family: 'Noto Sans KR';
+	font-size: 14px;
+	background-image: url('./asset/images/noisy-texture.png');
+	background-color: #f9f0e0;
 }
 
 #body {
-  letter-spacing: -0.05em;
+	letter-spacing: -0.05em;
 }
 
 .container {
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 p {
-  line-height: 1.6;
+	line-height: 1.6;
 }
 
 /*
@@ -37,156 +38,156 @@ p {
 */
 
 .section-0-frame {
-  /*border: 1.5px solid #3D4856;*/
-  border: 1.5px solid #7d97b8;
+	/*border: 1.5px solid #3D4856;*/
+	border: 1.5px solid #7d97b8;
 }
 
 .scroll-section {
-  padding-top: 10vh;
+	padding-top: 10vh;
 }
 
 .wrapper-description {
-  padding: 20px;
+	padding: 20px;
 }
 
 .desc-messae {
-  width: 50%;
-  font-weight: bold;
+	width: 50%;
+	font-weight: bold;
 }
 
 .mid-message {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  font-size: 2rem;
-  color: #888;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 1rem;
+	font-size: 2rem;
+	color: #888;
 }
 
 .mid-message strong {
-  color: rgb(29, 29, 31);
+	color: rgb(29, 29, 31);
 }
 
 .sticky-elem {
-  display: none;
-  position: fixed;
-  left: 0;
-  width: 100%;
+	display: none;
+	position: fixed;
+	left: 0;
+	width: 100%;
 }
 
 .sticky-elem p {
-  color: #7d97b8;
+	color: #7d97b8;
 }
 
 #show-scene-0 #scroll-section-0 .sticky-elem,
 #show-scene-1 #scroll-section-1 .sticky-elem,
 #show-scene-2 #scroll-section-2 .sticky-elem,
 #show-scene-3 #scroll-section-3 .sticky-elem {
-  display: block;
+	display: block;
 }
 
 /*loading*/
 .loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  background-color: #ffffff;
-  opacity: 1;
-  transition: 0.5s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	background-color: #ffffff;
+	opacity: 1;
+	transition: 0.5s;
 }
 
 .before-load .loading {
-  opacity: 1;
+	opacity: 1;
 }
 
 @keyframes loading-spin {
-  100% {
-    transform: rotate(360deg);
-  }
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 @keyframes loading-circle-ani {
-  0% {
-    stroke-dashoffset: 157;
-  }
+	0% {
+		stroke-dashoffset: 157;
+	}
 
-  75% {
-    stroke-dashoffset: -147;
-  }
+	75% {
+		stroke-dashoffset: -147;
+	}
 
-  100% {
-    stroke-dashoffset: -157;
-  }
+	100% {
+		stroke-dashoffset: -157;
+	}
 }
 
 .loading-circle {
-  width: 54px;
-  height: 54px;
-  animation: loading-spin 3s infinite;
+	width: 54px;
+	height: 54px;
+	animation: loading-spin 3s infinite;
 }
 
 .loading-circle circle {
-  stroke: #000000;
-  stroke-width: 4;
-  /* getTotalLength()로 stroke의 길이를 얻어올 수 있음*/
-  stroke-dasharray: 157;
-  stroke-dashoffset: 0;
-  fill: transparent;
-  animation: loading-circle-ani 1s infinite;
+	stroke: #000000;
+	stroke-width: 4;
+	/* getTotalLength()로 stroke의 길이를 얻어올 수 있음*/
+	stroke-dasharray: 157;
+	stroke-dashoffset: 0;
+	fill: transparent;
+	animation: loading-circle-ani 1s infinite;
 }
 
 .loading-circle:hover circle {
-  stroke-dashoffset: -157;
+	stroke-dashoffset: -157;
 }
 
 @media (min-width: 1024px) {
-  #scroll-section-0 h1 {
-    font-size: 9vw;
-  }
+	#scroll-section-0 h1 {
+		font-size: 9vw;
+	}
 
-  .main-message {
-    font-size: 4vw;
-  }
+	.main-message {
+		font-size: 4vw;
+	}
 
-  .description {
-    font-size: 2rem;
-  }
+	.description {
+		font-size: 2rem;
+	}
 
-  .description strong {
-    font-size: 6rem;
-  }
+	.description strong {
+		font-size: 6rem;
+	}
 
-  #scroll-section-2 .main-message {
-    font-size: 6vw;
-  }
+	#scroll-section-2 .main-message {
+		font-size: 6vw;
+	}
 
-  .main-message small {
-    font-size: 1.5vw;
-  }
+	.main-message small {
+		font-size: 1.5vw;
+	}
 
-  .desc-messae {
-    width: 20%;
-  }
+	.desc-messae {
+		width: 20%;
+	}
 
-  #scroll-section-2 .b {
-    top: 20%;
-    left: 53%;
-  }
+	#scroll-section-2 .b {
+		top: 20%;
+		left: 53%;
+	}
 
-  #scroll-section-2 .c {
-    left: 55%;
-  }
+	#scroll-section-2 .c {
+		left: 55%;
+	}
 
-  .mid-message {
-    font-size: 4vw;
-  }
+	.mid-message {
+		font-size: 4vw;
+	}
 
-  .canvas-caption {
-    font-size: 2rem;
-  }
+	.canvas-caption {
+		font-size: 2rem;
+	}
 }

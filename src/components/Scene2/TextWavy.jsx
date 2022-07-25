@@ -25,25 +25,20 @@ const TextWavy = () => {
 				<Char style={{ '--i': 17 }}>R</Char>
 				<Char style={{ '--i': 18 }}>.</Char>
 			</div>
-			<div className='pin' />
 		</Wavy>
 	);
 };
 
 const Wavy = styled.div`
+	width: 100%;
 	height: 100%;
+	text-align: center;
 
 	.waviy {
 		position: relative;
 		top: 1rem;
 		font-size: 7vh;
 		font-weight: bold;
-	}
-
-	.pin {
-		height: 1.5px;
-		margin-top: 1rem;
-		background-color: #4a6483;
 	}
 `;
 
@@ -61,8 +56,8 @@ const Waviy = keyframes`
 const Char = styled.span`
 	position: relative;
 	display: inline-block;
-	color: #bda5ac;
-	-webkit-text-stroke: 1.5px #b78897;
+	color: ${({ theme }) => theme.color.peach};
+	-webkit-text-stroke: 1.5px ${({ theme }) => theme.color.pink};
 	animation: ${Waviy} 2s infinite;
 	animation-delay: calc(0.1s * var(--i));
 `;

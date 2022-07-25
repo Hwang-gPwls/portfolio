@@ -19,7 +19,7 @@ const Home = () => {
 				<div className='section4'>
 					<TextAnimayion>
 						<text x='50%' y='50%'>
-							HI, I'M HYEJIN HWANG
+							Hi, I'M HYEJIN HWANG
 						</text>
 					</TextAnimayion>
 				</div>
@@ -32,8 +32,8 @@ const Container = styled.div`
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	height: 88vh;
-	border: 1.5px solid #7d97b8;
+	height: 83.5vh;
+	border: 1.5px solid ${({ theme }) => theme.color.blue};
 `;
 
 const Main = styled.div`
@@ -42,21 +42,21 @@ const Main = styled.div`
 	width: 100%;
 	height: 15%;
 	border-bottom: solid;
-	border-width: 0.7px;
-	border-color: #7d97b8;
+	border-width: 1.5px;
+	border-color: ${({ theme }) => theme.color.blue};
 
 	.section1 {
 		width: 16%;
 		height: 100%;
 		border-right: solid;
-		border-width: 0.7px;
-		border-color: #7d97b8;
+		border-width: 1.5px;
+		border-color: ${({ theme }) => theme.color.blue};
 		background: repeating-linear-gradient(
 			45deg,
 			#f9f0e0,
 			#f9f0e0 9px,
-			#7d97b8 5px,
-			#7d97b8 12px
+			${({ theme }) => theme.color.blue} 5px,
+			${({ theme }) => theme.color.blue} 12px
 		);
 	}
 
@@ -75,14 +75,14 @@ const MainText = styled.div`
 		width: 16%;
 		height: 100%;
 		border-right: solid;
-		border-width: 0.7px;
-		border-color: #7d97b8;
+		border-width: 1.5px;
+		border-color: ${({ theme }) => theme.color.blue};
 
 		&_info {
 			padding-left: 10%;
 			text-align: left;
-			color: #7d97b3;
-			font-size: 11px;
+			color: ${({ theme }) => theme.color.blue};
+			font-size: 0.6rem;
 		}
 
 		&_blank {
@@ -93,15 +93,15 @@ const MainText = styled.div`
 		&_name {
 			padding-left: 10%;
 			text-align: left;
-			color: #7d97b8;
-			font-size: 17px;
+			color: ${({ theme }) => theme.color.blue};
+			font-size: 1rem;
 		}
 
 		&_portfolio {
 			padding: 4% 10%;
 			text-align: left;
-			color: #7d97b8;
-			font-size: 14px;
+			color: ${({ theme }) => theme.color.blue};
+			font-size: 0.9rem;
 		}
 	}
 
@@ -122,9 +122,9 @@ to {
 const TextAnimayion = styled.svg`
 	width: 100%;
 	height: 100%;
-	font-size: 6rem;
+	font-size: 6vw;
 	font-weight: bold;
-	stroke: #7d97b8;
+	stroke: ${({ theme }) => theme.color.purple};
 	stroke-width: 1.5px;
 	stroke-dasharray: 1000;
 	stroke-dashoffset: 1000;
