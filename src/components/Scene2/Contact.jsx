@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-import { gsap } from 'gsap';
-import { Github } from 'react-bootstrap-icons';
+import styled, { keyframes } from 'styled-components';
+import { Github, Envelope } from 'react-bootstrap-icons';
 
 const Contact = () => {
 	const moveLocation = (e) => {
+		debugger;
 		if (e.target.id === 'github') {
 			window.open('https://github.com/Hwang-gPwls');
 		}
@@ -14,29 +14,29 @@ const Contact = () => {
 		}
 	};
 
-	const onMouseOver = (e) => {
-		let tl = gsap.timeline();
-		tl.to(e.target, { y: -40, duration: 0.5 });
-		tl.to(e.target, { y: 0, duration: 3 });
-	};
-
 	return (
 		<Container>
 			<Header>Contact :</Header>
-			<Arrow>
-				<div className='curve'></div>
-				<div className='point'></div>
-			</Arrow>
 			<ContactArea>
-				<div
-					id='contact'
-					className='circle'
-					onMouseOver={onMouseOver}
-					onClick={moveLocation}>
-					<span className='circle_text'>E-MAIL</span>
+				<div className='wrapper'>
+					<Envelope size='25' color='#b78897' />
+					<input
+						type='button'
+						id='contact'
+						className='contact'
+						onClick={moveLocation}
+						value='h960502hhj@gmail.com'
+					/>
 				</div>
-				<div id='github' className='github' onClick={moveLocation}>
-					<Github size='60' color='#A0ACBD' />
+				<div className='wrapper'>
+					<Github size='25' color='#b78897' />
+					<input
+						type='button'
+						id='github'
+						className='contact'
+						onClick={moveLocation}
+						value='Hwang-gPwls'
+					/>
 				</div>
 			</ContactArea>
 		</Container>
@@ -45,90 +45,62 @@ const Contact = () => {
 
 const Container = styled.div`
 	width: 100%;
-	padding: 2rem;
+	height: 6.7vh;
+	display: flex;
+	flex-direction: row;
 `;
 
 const Header = styled.div`
-	font-size: 7.5vh;
+	width: 90vw;
+	margin: 1.5rem 0 0 58rem;
+	text-align: right;
+	margin-top: 2rem;
+	font-size: 2.5vw;
 	font-weight: bold;
 	color: transparent;
-	-webkit-text-stroke: 1.5px ${({ theme }) => theme.color.black};
+	-webkit-text-stroke: 1.4px ${({ theme }) => theme.color.blue};
 `;
 
-const Arrow = styled.div`
-	position: relative;
-	margin-left: 10rem;
-	width: 0.1rem;
+const Jelly = keyframes`
+25% {
+  transform: scale(0.9, 1.1);
+}
 
-	.curve {
-		border: 2px solid #b78897;
-		border-color: transparent transparent transparent
-			${({ theme }) => theme.color.pink};
-		height: 8rem;
-		width: 10rem;
-		border-radius: 230px 0 0 150px;
-	}
+50% {
+  transform: scale(1.1, 0.9);
+}
 
-	.point {
-		position: absolute;
-		left: 0.85rem;
-		top: 6.8rem;
-
-		::before,
-		::after {
-			background-color: ${({ theme }) => theme.color.pink};
-			border: 1px solid ${({ theme }) => theme.color.pink};
-			height: 25px;
-			content: '';
-			position: absolute;
-		}
-
-		::before {
-			top: -9px;
-			left: -11px;
-			transform: rotate(-74deg);
-			-webkit-transform: rotate(-74deg);
-			-moz-transform: rotate(-74deg);
-			-ms-transform: rotate(-74deg);
-		}
-
-		::after {
-			top: -20px;
-			left: 5px;
-			transform: rotate(12deg);
-			-webkit-transform: rotate(12deg);
-			-moz-transform: rotate(12deg);
-			-ms-transform: rotate(12deg);
-		}
-	}
+75% {
+  transform: scale(0.95, 1.05);
+}
 `;
 
 const ContactArea = styled.div`
 	width: 100%;
-	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	margin: 1.5rem 0 0 0.7rem;
 
-	.circle {
-		margin-right: 100rem;
-		width: 160px;
-		height: 160px;
-		border-radius: 70%;
-		background-color: #b78897;
-		text-align: center;
-		line-height: 150px;
-		margin: 0 0 0 60rem;
-
-		&_text {
-			font-size: 1rem;
-			color: #ffffff;
-			cursor: pointer;
-		}
+	.wrapper {
+		display: flex;
 	}
 
-	.github {
-		font-size: 15px;
-		width: 43px;
-		margin: 0 0 0 70rem;
+	.contact {
+		width: 13vw;
 		cursor: pointer;
+		z-index: 10000;
+		margin: 0 0 0.5rem 0.4rem;
+		padding: 0.4rem;
+
+		text-align: center;
+		color: ${({ theme }) => theme.color.white};
+		background-color: ${({ theme }) => theme.color.peach};
+		border: 0.7px solid ${({ theme }) => theme.color.pink};
+		border-radius: 5px;
+
+		&:hover {
+			animation: ${Jelly} 0.5s;
+		}
 	}
 `;
 

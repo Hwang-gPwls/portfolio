@@ -40,13 +40,14 @@ const Container = styled.div`
 
 	.card {
 		width: 45rem;
-		background-color: #fff;
-		border: 0.7px solid #3d4856;
+		background-color: ${({ theme }) => theme.color.white};
+		border: 0.7px solid ${({ theme }) => theme.color.black};
 		border-radius: 0.8rem;
 		transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 
 		::hover {
-			box-shadow: 10px 14px 0 #3d4856, 10px 10px 0 #3d4856;
+			box-shadow: 10px 14px 0 #3d4856,
+				10px 10px 0 ${({ theme }) => theme.color.black};
 			transform: translateY(-10px);
 		}
 
@@ -55,7 +56,7 @@ const Container = styled.div`
 			width: 41rem;
 			font-size: 3.5vh;
 			font-weight: bold;
-			color: #3d4856;
+			color: ${({ theme }) => theme.color.black};
 			text-align: center;
 			background-color: #f9f0e0;
 			border: 1.3px solid #3d4856;

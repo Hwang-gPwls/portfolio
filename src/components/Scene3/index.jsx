@@ -4,7 +4,6 @@ import { skills } from '../../public/data';
 import Strength from './Strength';
 
 const Scene3 = () => {
-	debugger;
 	return (
 		<Panel>
 			<Header text={'Strength.'} />
@@ -33,7 +32,9 @@ const Header = styled.div`
 	height: 4rem;
 	font-weight: bold;
 	font-size: 5rem;
-	text-shadow: 6px 5px 0px #7d97b8, 7px 6px 0px #7d97b8, 7px 6px 0px #7d97b8;
+	text-shadow: 6px 5px 0px ${({ theme }) => theme.color.blue},
+		7px 6px 0px ${({ theme }) => theme.color.blue},
+		7px 6px 0px ${({ theme }) => theme.color.blue};
 
 	::after {
 		position: absolute;
@@ -50,7 +51,7 @@ const Container = styled.div`
 	box-sizing: border-box;
 	overflow-x: hidden;
 	margin-top: 2rem;
-	border: 1.5px solid #7d97b8;
+	border: 1.5px solid ${({ theme }) => theme.color.blue};
 
 	.wrapper {
 		width: inherit;

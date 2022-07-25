@@ -59,21 +59,21 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
 				values.messageA_opacity_in,
 				curYOffset,
 			);
-
 			messageRef.current[0].transform = `translateY(${calcValues(
 				values.messageA_translateY_in,
 				curYOffset,
 			)}%)`;
+			messageRef.current[0].style.zIndex = 100;
 		} else {
 			messageRef.current[0].style.opacity = calcValues(
 				values.messageA_opacity_out,
 				curYOffset,
 			);
-
 			messageRef.current[0].style.transform = `translateY(${calcValues(
 				values.messageA_translateY_out,
 				curYOffset,
 			)}%)`;
+			messageRef.current[0].style.zIndex = -1;
 		}
 
 		if (scrollRatio <= 0.42) {
@@ -86,6 +86,7 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
 				values.messageB_translateY_in,
 				curYOffset,
 			)}%, 0)`;
+			messageRef.current[1].style.zIndex = 100;
 		} else {
 			// out
 			messageRef.current[1].style.opacity = calcValues(
@@ -96,6 +97,7 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
 				values.messageB_translateY_out,
 				curYOffset,
 			)}%, 0)`;
+			messageRef.current[1].style.zIndex = -1;
 		}
 
 		if (scrollRatio <= 0.62) {
@@ -108,6 +110,7 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
 				values.messageC_translateY_in,
 				curYOffset,
 			)}%, 0)`;
+			messageRef.current[2].style.zIndex = 100;
 		} else {
 			// out
 			messageRef.current[2].style.opacity = calcValues(
@@ -118,6 +121,7 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
 				values.messageC_translateY_out,
 				curYOffset,
 			)}%, 0)`;
+			messageRef.current[2].style.zIndex = -1;
 		}
 
 		if (scrollRatio <= 0.82) {
@@ -130,6 +134,7 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
 				values.messageD_translateY_in,
 				curYOffset,
 			)}%, 0)`;
+			messageRef.current[3].style.zIndex = 100;
 		} else {
 			// out
 			messageRef.current[3].style.opacity = calcValues(
@@ -140,6 +145,7 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
 				values.messageD_translateY_out,
 				curYOffset,
 			)}%, 0)`;
+			messageRef.current[3].style.zIndex = -1;
 		}
 	};
 

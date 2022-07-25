@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Contact from './Contact';
 import TextWavy from './TextWavy';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Scene2 = () => {
+	useEffect(() => {
+		AOS.init();
+	}, []);
+
 	return (
 		<>
 			<DividingLine>
@@ -12,7 +18,12 @@ const Scene2 = () => {
 			</DividingLine>
 			<Container>
 				<TextWavy />
+				<Contact />
 				<About>
+					<Arrow>
+						<div className='curve'></div>
+						<div className='point'></div>
+					</Arrow>
 					<div className='heading'>
 						경험을 통해 성장하고, 새로운 도전을 두려워 하지 않는 개발자 황혜진 입니다.
 					</div>
@@ -39,7 +50,6 @@ const Scene2 = () => {
 						있습니다.
 					</div>
 				</About>
-				<Contact />
 			</Container>
 		</>
 	);
@@ -55,6 +65,7 @@ const DividingLine = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-bottom: 2rem;
+	font-size: 1.2rem;
 
 	.pin {
 		margin: 1.4rem 0.5rem 0 0;
@@ -62,6 +73,56 @@ const DividingLine = styled.div`
 		height: 1.5px;
 		margin-bottom: 1.5rem;
 		background-color: ${({ theme }) => theme.color.black};
+	}
+`;
+
+const Arrow = styled.div`
+	position: relative;
+	width: 0.1rem;
+
+	.curve {
+		position: absolute;
+		top: -8rem;
+		left: 7.1rem;
+		height: 8rem;
+		width: 10rem;
+		border: 4px solid ${({ theme }) => theme.color.pink};
+		border-color: transparent transparent transparent
+			${({ theme }) => theme.color.pink};
+		border-radius: 230px 0 0 150px;
+	}
+
+	.point {
+		position: absolute;
+		left: 8rem;
+		top: -1rem;
+
+		::before,
+		::after {
+			background-color: ${({ theme }) => theme.color.pink};
+			border: 2px solid ${({ theme }) => theme.color.pink};
+			height: 25px;
+			content: '';
+			position: absolute;
+		}
+
+		::before {
+			top: -9px;
+			left: -11px;
+			transform: rotate(-74deg);
+			-webkit-transform: rotate(-74deg);
+			-moz-transform: rotate(-74deg);
+			-ms-transform: rotate(-74deg);
+		}
+
+		::after {
+			top: -20px;
+			left: 5px;
+			transform: rotate(12deg);
+			-webkit-transform: rotate(12deg);
+			-moz-transform: rotate(12deg);
+			-ms-transform: rotate(12deg);
+		}
 	}
 `;
 
@@ -86,7 +147,7 @@ const About = styled.div`
 const Highlight = styled.span`
 	font-weight: 700;
 	font-size: 1.3rem;
-	margin-left: 0.3rem;
+	margin: 0 0.3rem;
 	background-color: ${({ theme }) => theme.color.pink};
 	background-clip: text;
 	-webkit-background-clip: text;

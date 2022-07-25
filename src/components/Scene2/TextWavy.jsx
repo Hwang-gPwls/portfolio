@@ -37,7 +37,7 @@ const Wavy = styled.div`
 	.waviy {
 		position: relative;
 		top: 1rem;
-		font-size: 7vh;
+		font-size: 3vw;
 		font-weight: bold;
 	}
 `;

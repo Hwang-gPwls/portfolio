@@ -82,7 +82,7 @@ const MainText = styled.div`
 			padding-left: 10%;
 			text-align: left;
 			color: ${({ theme }) => theme.color.blue};
-			font-size: 0.6rem;
+			font-size: 0.85vw;
 		}
 
 		&_blank {
@@ -94,14 +94,14 @@ const MainText = styled.div`
 			padding-left: 10%;
 			text-align: left;
 			color: ${({ theme }) => theme.color.blue};
-			font-size: 1rem;
+			font-size: 1.5vw;
 		}
 
 		&_portfolio {
 			padding: 4% 10%;
 			text-align: left;
 			color: ${({ theme }) => theme.color.blue};
-			font-size: 0.9rem;
+			font-size: 1vw;
 		}
 	}
 
