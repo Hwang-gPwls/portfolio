@@ -24,10 +24,10 @@ const Scene2 = () => {
 						<div className='curve'></div>
 						<div className='point'></div>
 					</Arrow>
-					<div className='heading'>
+					<div className='heading' data-aos='fade-right'>
 						경험을 통해 성장하고, 새로운 도전을 두려워 하지 않는 개발자 황혜진 입니다.
 					</div>
-					<div>
+					<div data-aos='fade-right'>
 						주로 웹 서비스 개발을 담당하였으며, 사람들에게 편의와 긍정적인 영향을 줄
 						수 있는 좋은 서비스를 개발하고 발전시키는 데에 관심이 많습니다.
 						{'\n'}
