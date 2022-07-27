@@ -5,14 +5,14 @@
  */
 
 module.exports = {
-	printWidth: 80,
-	tabWidth: 1,
-	useTabs: true,
-	semi: true,
-	singleQuote: true,
-	jsxSingleQuote: true,
-	trailingComma: 'all',
-	jsxBracketSameLine: true,
-	bracketSpacing: true,
-	arrowParens: 'always',
+  printWidth: 80,
+  tabWidth: 2,
+  useTabs: false,
+  semi: true,
+  singleQuote: false,
+  jsxSingleQuote: false,
+  trailingComma: "all",
+  jsxBracketSameLine: true,
+  bracketSpacing: true,
+  arrowParens: "always",
 };

@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import backgroundImg from '../asset/images/noisy-texture.png';
+import { createGlobalStyle } from "styled-components";
+import backgroundImg from "../asset/images/noisy-texture.png";
 
 export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar { 
