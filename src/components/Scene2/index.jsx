@@ -130,14 +130,14 @@ const Arrow = styled.div`
 `;
 
 const About = styled.div`
-  white-space: pre-line;
-  padding: 2rem;
-  margin-top: 3rem;
-  font-size: 1.1rem;
-  line-height: 230%;
-  border: 1px solid ${({ theme }) => theme.color.black};
-  border-radius: 30px;
-  color: ${({ theme }) => theme.color.black};
+	white-space: pre-line;
+	padding: 2rem;
+	margin-top: 4.2rem;
+	font-size: 1.1rem;
+	line-height: 230%;
+	border: 1px solid ${({ theme }) => theme.color.black};
+	border-radius: 30px;
+	color: ${({ theme }) => theme.color.black};
 
   .heading {
     margin: 1rem 0;

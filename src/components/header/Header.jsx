@@ -75,16 +75,16 @@ const Menu = styled.span`
     transition: all 0.5s;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: #7d97b8;
-    transition: all 0.5s;
-  }
+	&:after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		width: 0;
+		height: 2px;
+		background-color: ${({ theme }) => theme.color.blue};
+		transition: all 0.5s;
+	}
 
   &:hover&:before {
     width: 50%;
