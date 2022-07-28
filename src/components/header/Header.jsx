@@ -82,7 +82,7 @@ const Menu = styled.span`
 		bottom: 0;
 		width: 0;
 		height: 2px;
-		background-color: #7d97b8;
+		background-color: ${({ theme }) => theme.color.blue};
 		transition: all 0.5s;
 	}
 

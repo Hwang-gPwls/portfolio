@@ -129,7 +129,7 @@ const Arrow = styled.div`
 const About = styled.div`
 	white-space: pre-line;
 	padding: 2rem;
-	margin-top: 3rem;
+	margin-top: 4.2rem;
 	font-size: 1.1rem;
 	line-height: 230%;
 	border: 1px solid ${({ theme }) => theme.color.black};

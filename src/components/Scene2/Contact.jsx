@@ -48,14 +48,16 @@ const Container = styled.div`
 	height: 6.7vh;
 	display: flex;
 	flex-direction: row;
+	margin-top: 2vh;
 `;
 
 const Header = styled.div`
-	width: 90vw;
-	margin: 1.5rem 0 0 58rem;
+	width: 40vw;
+	height: 100%;
 	text-align: right;
 	margin-top: 2rem;
-	font-size: 2.5vw;
+	margin-left: 48rem;
+	font-size: 2.3vw;
 	font-weight: bold;
 	color: transparent;
 	-webkit-text-stroke: 1.4px ${({ theme }) => theme.color.blue};
@@ -77,6 +79,7 @@ const Jelly = keyframes`
 
 const ContactArea = styled.div`
 	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	margin: 1.5rem 0 0 0.7rem;
@@ -86,9 +89,8 @@ const ContactArea = styled.div`
 	}
 
 	.contact {
-		width: 13vw;
+		width: 15vw;
 		cursor: pointer;
-		z-index: 10000;
 		margin: 0 0 0.5rem 0.4rem;
 		padding: 0.4rem;
 
