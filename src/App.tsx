@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { theme } from "./styles/theme";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles/globalStyles";
+import { theme } from "./styles/theme";
+
 import Main from "./pages/Main";
 import Career from "./pages/Career";
 import Strength from "./pages/Strength";

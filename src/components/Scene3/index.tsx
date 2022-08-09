@@ -26,7 +26,7 @@ const Panel = styled.div`
   margin-top: 9vh;
 `;
 
-const Header = styled.div`
+const Header = styled.div<{ text: string }>`
   position: relative;
   display: flex;
   height: 4rem;
