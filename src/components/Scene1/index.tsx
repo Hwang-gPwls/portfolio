@@ -1,22 +1,24 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { sceneInfo } from "../../public/data";
+
 import styled from "styled-components";
 import useResize from "../../hooks/useResize";
 import useScroll from "../../hooks/useScroll";
 import CheckIsInViewPort from "../../utils/CheckIsInViewPort";
+
 import Home from "./Home";
 import TextScroll from "./TextScroll";
 
 const Scene1 = () => {
   const [height, setHeight] = useState(5.5 * window.innerHeight);
-  const [isInViewPort, setIsInViewPort] = useState(null);
+  const [isInViewPort, setIsInViewPort] = useState(false);
   const [yOffset, setYOffset] = useState(0);
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<null | HTMLDivElement>(null);
 
   const onScroll = useCallback(() => {
     setYOffset(window.pageYOffset);
     setIsInViewPort(CheckIsInViewPort(sectionRef.current));
-  });
+  }, [window.pageYOffset, sectionRef.current]);
 
   const handleResize = () => {
     setHeight(5.5 * window.innerHeight);
@@ -25,12 +27,8 @@ const Scene1 = () => {
   useScroll(onScroll);
   useResize(handleResize);
 
-  useEffect(() => {
-    sectionRef.current.style.height = `${height}px`;
-  }, [height]);
-
   return (
-    <Container ref={(el) => (sectionRef.current = el)}>
+    <Container ref={(el) => (sectionRef.current = el)} height={height}>
       <Home />
       <TextScroll
         yOffset={yOffset}
@@ -42,8 +40,9 @@ const Scene1 = () => {
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ height: number }>`
   width: 100%;
+  height: "${({ height }) => `${height}px`}";
   margin-top: 3vh;
 `;
 

@@ -1,9 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { Stars } from "react-bootstrap-icons";
 
 const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
-  const messageRef = useRef([]);
+  const messageRef = useRef<null | HTMLDivElement[]>([]);
+
+  useLayoutEffect(() => {
+    console.log(messageRef); //
+  });
 
   useEffect(() => {
     let prevScrollHeight = 0;
