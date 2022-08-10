@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { skills } from "../../public/data";
 import Strength from "./Strength";

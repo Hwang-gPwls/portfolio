@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Github, Envelope } from "react-bootstrap-icons";
 
@@ -51,15 +50,15 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-	width: 40vw;
-	height: 100%;
-	text-align: right;
-	margin-top: 2rem;
-	margin-left: 48rem;
-	font-size: 2.3vw;
-	font-weight: bold;
-	color: transparent;
-	-webkit-text-stroke: 1.4px ${({ theme }) => theme.color.blue};
+  width: 40vw;
+  height: 100%;
+  text-align: right;
+  margin-top: 2rem;
+  margin-left: 48rem;
+  font-size: 2.3vw;
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1.4px ${({ theme }) => theme.color.blue};
 `;
 
 const Jelly = keyframes`
@@ -77,21 +76,21 @@ const Jelly = keyframes`
 `;
 
 const ContactArea = styled.div`
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	margin: 1.5rem 0 0 0.7rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0 0 0.7rem;
 
   .wrapper {
     display: flex;
   }
 
-	.contact {
-		width: 15vw;
-		cursor: pointer;
-		margin: 0 0 0.5rem 0.4rem;
-		padding: 0.4rem;
+  .contact {
+    width: 15vw;
+    cursor: pointer;
+    margin: 0 0 0.5rem 0.4rem;
+    padding: 0.4rem;
 
     text-align: center;
     color: ${({ theme }) => theme.color.white};

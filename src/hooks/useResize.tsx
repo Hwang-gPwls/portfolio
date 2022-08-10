@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 
-const useResize = (listener) => {
+const useResize = (listener: {
+  (): void;
+  (this: Window, ev: UIEvent): any;
+  (this: Window, ev: UIEvent): any;
+}) => {
   useEffect(() => {
     window.addEventListener("resize", listener);
     return () => {

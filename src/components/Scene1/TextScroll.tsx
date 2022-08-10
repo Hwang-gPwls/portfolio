@@ -1,13 +1,9 @@
-import React, { useEffect, useRef, useLayoutEffect } from "react";
+import { useEffect, useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { Stars } from "react-bootstrap-icons";
 
 const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
   const messageRef = useRef<null | HTMLDivElement[]>([]);
-
-  useLayoutEffect(() => {
-    console.log(messageRef); //
-  });
 
   useEffect(() => {
     let prevScrollHeight = 0;
@@ -57,99 +53,100 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
     const curYOffset = yOffset - prevScollHeight;
     const scrollHeight = height;
     const scrollRatio = curYOffset / scrollHeight;
+    if (messageRef.current !== null) {
+      if (scrollRatio <= 0.22) {
+        messageRef[0].current.style.opacity = calcValues(
+          values.messageA_opacity_in,
+          curYOffset,
+        );
+        messageRef[0].current.style.transform = `translateY(${calcValues(
+          values.messageA_translateY_in,
+          curYOffset,
+        )}%)`;
+        messageRef[0].current.style.zIndex = "100";
+      } else {
+        messageRef[0].current.style.opacity = calcValues(
+          values.messageA_opacity_out,
+          curYOffset,
+        );
+        messageRef[0].current.style.transform = `translateY(${calcValues(
+          values.messageA_translateY_out,
+          curYOffset,
+        )}%)`;
+        messageRef[0].current.style.zIndex = "-1";
+      }
 
-    if (scrollRatio <= 0.22) {
-      messageRef.current[0].style.opacity = calcValues(
-        values.messageA_opacity_in,
-        curYOffset,
-      );
-      messageRef.current[0].transform = `translateY(${calcValues(
-        values.messageA_translateY_in,
-        curYOffset,
-      )}%)`;
-      messageRef.current[0].style.zIndex = 100;
-    } else {
-      messageRef.current[0].style.opacity = calcValues(
-        values.messageA_opacity_out,
-        curYOffset,
-      );
-      messageRef.current[0].style.transform = `translateY(${calcValues(
-        values.messageA_translateY_out,
-        curYOffset,
-      )}%)`;
-      messageRef.current[0].style.zIndex = -1;
-    }
+      if (scrollRatio <= 0.42) {
+        // in
+        messageRef[1].current.style.opacity = calcValues(
+          values.messageB_opacity_in,
+          curYOffset,
+        );
+        messageRef[1].current.style.transform = `translate3d(0, ${calcValues(
+          values.messageB_translateY_in,
+          curYOffset,
+        )}%, 0)`;
+        messageRef[1].current.style.zIndex = "100";
+      } else {
+        // out
+        messageRef[1].current.style.opacity = calcValues(
+          values.messageB_opacity_out,
+          curYOffset,
+        );
+        messageRef[1].current.style.transform = `translate3d(0, ${calcValues(
+          values.messageB_translateY_out,
+          curYOffset,
+        )}%, 0)`;
+        messageRef[1].current.style.zIndex = "-1";
+      }
 
-    if (scrollRatio <= 0.42) {
-      // in
-      messageRef.current[1].style.opacity = calcValues(
-        values.messageB_opacity_in,
-        curYOffset,
-      );
-      messageRef.current[1].style.transform = `translate3d(0, ${calcValues(
-        values.messageB_translateY_in,
-        curYOffset,
-      )}%, 0)`;
-      messageRef.current[1].style.zIndex = 100;
-    } else {
-      // out
-      messageRef.current[1].style.opacity = calcValues(
-        values.messageB_opacity_out,
-        curYOffset,
-      );
-      messageRef.current[1].style.transform = `translate3d(0, ${calcValues(
-        values.messageB_translateY_out,
-        curYOffset,
-      )}%, 0)`;
-      messageRef.current[1].style.zIndex = -1;
-    }
+      if (scrollRatio <= 0.62) {
+        // in
+        messageRef[2].current.style.opacity = calcValues(
+          values.messageC_opacity_in,
+          curYOffset,
+        );
+        messageRef[2].current.style.transform = `translate3d(0, ${calcValues(
+          values.messageC_translateY_in,
+          curYOffset,
+        )}%, 0)`;
+        messageRef[2].current.style.zIndex = "100";
+      } else {
+        // out
+        messageRef[2].current.style.opacity = calcValues(
+          values.messageC_opacity_out,
+          curYOffset,
+        );
+        messageRef[2].current.style.transform = `translate3d(0, ${calcValues(
+          values.messageC_translateY_out,
+          curYOffset,
+        )}%, 0)`;
+        messageRef[2].current.style.zIndex = "-1";
+      }
 
-    if (scrollRatio <= 0.62) {
-      // in
-      messageRef.current[2].style.opacity = calcValues(
-        values.messageC_opacity_in,
-        curYOffset,
-      );
-      messageRef.current[2].style.transform = `translate3d(0, ${calcValues(
-        values.messageC_translateY_in,
-        curYOffset,
-      )}%, 0)`;
-      messageRef.current[2].style.zIndex = 100;
-    } else {
-      // out
-      messageRef.current[2].style.opacity = calcValues(
-        values.messageC_opacity_out,
-        curYOffset,
-      );
-      messageRef.current[2].style.transform = `translate3d(0, ${calcValues(
-        values.messageC_translateY_out,
-        curYOffset,
-      )}%, 0)`;
-      messageRef.current[2].style.zIndex = -1;
-    }
-
-    if (scrollRatio <= 0.82) {
-      // in
-      messageRef.current[3].style.opacity = calcValues(
-        values.messageD_opacity_in,
-        curYOffset,
-      );
-      messageRef.current[3].style.transform = `translate3d(0, ${calcValues(
-        values.messageD_translateY_in,
-        curYOffset,
-      )}%, 0)`;
-      messageRef.current[3].style.zIndex = 100;
-    } else {
-      // out
-      messageRef.current[3].style.opacity = calcValues(
-        values.messageD_opacity_out,
-        curYOffset,
-      );
-      messageRef.current[3].style.transform = `translate3d(0, ${calcValues(
-        values.messageD_translateY_out,
-        curYOffset,
-      )}%, 0)`;
-      messageRef.current[3].style.zIndex = -1;
+      if (scrollRatio <= 0.82) {
+        // in
+        messageRef[3].current.style.opacity = calcValues(
+          values.messageD_opacity_in,
+          curYOffset,
+        );
+        messageRef[3].current.style.transform = `translate3d(0, ${calcValues(
+          values.messageD_translateY_in,
+          curYOffset,
+        )}%, 0)`;
+        messageRef[3].current.style.zIndex = "100";
+      } else {
+        // out
+        messageRef[3].current.style.opacity = calcValues(
+          values.messageD_opacity_out,
+          curYOffset,
+        );
+        messageRef[3].current.style.transform = `translate3d(0, ${calcValues(
+          values.messageD_translateY_out,
+          curYOffset,
+        )}%, 0)`;
+        messageRef[3].current.style.zIndex = "-1";
+      }
     }
   };
 
@@ -157,13 +154,13 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
     <Container>
       <div
         className="sticky-elem main-message main-message-a"
-        ref={(el) => (messageRef.current[0] = el)}>
+        ref={(el) => (messageRef[0] = el)}>
         <p className="main-message_text">Hi. I'M WEB DEVELOPER</p>
         <Stars size="30" color="#A0ACBD" />
       </div>
       <div
         className="sticky-elem main-message main-message-b"
-        ref={(el) => (messageRef.current[1] = el)}>
+        ref={(el) => (messageRef[1] = el)}>
         <p className="main-message_text">
           AND
           <br />
@@ -172,12 +169,12 @@ const TextScroll = ({ yOffset, height, sceneInfo, isInViewPort }) => {
       </div>
       <div
         className="sticky-elem main-message main-message-c"
-        ref={(el) => (messageRef.current[2] = el)}>
+        ref={(el) => (messageRef[2] = el)}>
         <p className="main-message_text">I HOPE CREATE DIGITAL PRODUCTS</p>
       </div>
       <div
         className="sticky-elem main-message main-message-d"
-        ref={(el) => (messageRef.current[3] = el)}>
+        ref={(el) => (messageRef[3] = el)}>
         <p className="main-message_text">
           THAT MAKE PEOPLE'S
           <br />
