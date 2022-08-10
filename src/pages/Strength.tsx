@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../components/header/Header";
 import Scene3 from "../components/Scene3";
 

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 import { DiamondFill, Stars } from "react-bootstrap-icons";

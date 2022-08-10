@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import BackgroundImg from "../../asset/images/noisy-texture.png";
@@ -75,16 +74,16 @@ const Menu = styled.span`
     transition: all 0.5s;
   }
 
-	&:after {
-		content: '';
-		position: absolute;
-		left: 50%;
-		bottom: 0;
-		width: 0;
-		height: 2px;
-		background-color: ${({ theme }) => theme.color.blue};
-		transition: all 0.5s;
-	}
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: ${({ theme }) => theme.color.blue};
+    transition: all 0.5s;
+  }
 
   &:hover&:before {
     width: 50%;

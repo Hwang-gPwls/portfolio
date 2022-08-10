@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import styled from "styled-components";
 import useScroll from "../hooks/useScroll";
 import Header from "../components/header/Header";
