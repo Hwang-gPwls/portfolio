@@ -3,8 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import React, { useEffect } from "react";
 
-const Strength = ({ skill, idx }) => {
+type skillProps = {
+  key: string;
+  title: string;
+  contents: string[];
+};
+
+const Strength = ({ skill, idx }: any) => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -16,7 +23,7 @@ const Strength = ({ skill, idx }) => {
       <div className={isEven ? "card card-right" : "card card-left"}>
         <div className="card_heading">{skill.title}</div>
         <div>
-          {skill.contents.map((content, idx) => (
+          {skill.contents.map((content: string, idx: number) => (
             <div
               className="card_wrapper_content card_paper"
               key={idx.toString()}>
