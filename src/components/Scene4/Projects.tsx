@@ -1,20 +1,32 @@
 import styled from "styled-components";
 import gsap from "gsap";
 import { DiamondFill, Stars } from "react-bootstrap-icons";
+import { useState } from "react";
 
-const Projects = ({ projects }) => {
-  const [item, setItem] = useState();
+type projectsProps = {
+  key: string;
+  title: string;
+  date: string;
+  skills: string[];
+  about: string;
+  contents: string[];
+};
 
-  const setProjectVal = (id) => {
-    const project = projects.filter((project) => project.key === id)[0];
+const Projects = (projects: projectsProps[]) => {
+  const [item, setItem] = useState<any>();
 
-    const skills = project.skills.map((skill, idx) => (
+  const setProjectVal = (id: string) => {
+    const project = projects.filter(
+      (project: { key: any }) => project.key === id,
+    )[0];
+
+    const skills = project.skills.map((skill: string, idx: number) => (
       <div className="skill" key={idx.toString()}>
         {skill}
       </div>
     ));
 
-    const contents = project.contents.map((content, idx) => (
+    const contents = project.contents.map((content: string, idx: number) => (
       <div className="content" key={idx.toString()}>
         <DiamondFill size="10" color="#4a6483" />
         <span>{content}</span>
@@ -39,7 +51,7 @@ const Projects = ({ projects }) => {
     );
   };
 
-  const hovalTitle = (e) => {
+  const hovalTitle = (e: any) => {
     let tl = gsap.timeline();
     tl.to(e.target, { y: -40, duration: 0.5 });
     tl.to(e.target, { y: 0, duration: 1 });
@@ -51,13 +63,18 @@ const Projects = ({ projects }) => {
     <Container>
       <div className="wrapper">
         <div className="wrapper_projects">
-          {projects.map((project, idx) => (
-            <div key={idx.toString()} className="wrapper_title">
-              <Title id={project.key} onMouseOver={hovalTitle}>
-                {project.title}
-              </Title>
-            </div>
-          ))}
+          {projects.map(
+            (
+              project: { key: string; title: string },
+              idx: { toString: () => Key },
+            ) => (
+              <div key={idx.toString()} className="wrapper_title">
+                <Title id={project.key} onMouseOver={hovalTitle}>
+                  {project.title}
+                </Title>
+              </div>
+            ),
+          )}
         </div>
         <div className="wrapper_projects">
           <Item>{item}</Item>

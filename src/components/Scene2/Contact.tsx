@@ -3,7 +3,6 @@ import { Github, Envelope } from "react-bootstrap-icons";
 
 const Contact = () => {
   const moveLocation = (e) => {
-    debugger;
     if (e.target.id === "github") {
       window.open("https://github.com/Hwang-gPwls");
     }
