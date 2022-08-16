@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { Github, Envelope } from "react-bootstrap-icons";
 
 const Contact = () => {
-  const moveLocation = (e) => {
+  const moveLocation = (e: any) => {
     if (e.target.id === "github") {
       window.open("https://github.com/Hwang-gPwls");
     }

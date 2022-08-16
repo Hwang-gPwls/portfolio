@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import gsap from "gsap";
 import { DiamondFill, Stars } from "react-bootstrap-icons";
-import { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
 
 type projectsProps = {
   key: string;
