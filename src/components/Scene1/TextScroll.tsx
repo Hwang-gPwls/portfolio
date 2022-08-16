@@ -2,6 +2,7 @@ import { useEffect, useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { Stars } from "react-bootstrap-icons";
 import { TextScrollPops } from "../type";
+import React from "react";
 
 const TextScroll = ({
   yOffset,
@@ -160,7 +161,7 @@ const TextScroll = ({
     <Container>
       <div
         className="sticky-elem main-message main-message-a"
-        ref={(el) => (messageRef.current[0] = el)}>
+        ref={(el) => (messageRef[0] = el)}>
         <p className="main-message_text">Hi. I'M WEB DEVELOPER</p>
         <Stars size="30" color="#A0ACBD" />
       </div>

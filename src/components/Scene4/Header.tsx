@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Stars } from "react-bootstrap-icons";
+import React from "react";
 
 const Header = () => {
   return (

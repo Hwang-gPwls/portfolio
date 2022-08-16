@@ -6,6 +6,7 @@ import Scene1 from "../components/Scene1";
 import Scene2 from "../components/Scene2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 
 const Main = () => {
   const [isShowButton, setIsShowButton] = useState(false);

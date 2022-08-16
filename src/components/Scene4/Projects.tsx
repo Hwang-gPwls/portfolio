@@ -2,6 +2,7 @@ import styled from "styled-components";
 import gsap from "gsap";
 import { DiamondFill, Stars } from "react-bootstrap-icons";
 import { useState } from "react";
+import React from "react";
 
 type projectsProps = {
   key: string;
@@ -12,7 +13,7 @@ type projectsProps = {
   contents: string[];
 };
 
-const Projects = (projects: projectsProps[]) => {
+const Projects = (projects: any) => {
   const [item, setItem] = useState<any>();
 
   const setProjectVal = (id: string) => {
@@ -64,10 +65,7 @@ const Projects = (projects: projectsProps[]) => {
       <div className="wrapper">
         <div className="wrapper_projects">
           {projects.map(
-            (
-              project: { key: string; title: string },
-              idx: { toString: () => Key },
-            ) => (
+            (project: { key: string; title: string }, idx: number) => (
               <div key={idx.toString()} className="wrapper_title">
                 <Title id={project.key} onMouseOver={hovalTitle}>
                   {project.title}

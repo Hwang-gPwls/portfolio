@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import BackgroundImg from "../../asset/images/noisy-texture.png";
+import React from "react";
 
 const menuItems = [
   {
