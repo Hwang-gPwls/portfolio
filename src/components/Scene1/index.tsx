@@ -8,6 +8,7 @@ import CheckIsInViewPort from "../../utils/CheckIsInViewPort";
 
 import Home from "./Home";
 import TextScroll from "./TextScroll";
+import React from "react";
 
 const Scene1 = () => {
   const [height, setHeight] = useState(5.5 * window.innerHeight);

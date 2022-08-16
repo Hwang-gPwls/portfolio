@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import React from "react";
 
 type skillProps = {
   key: string;
@@ -11,7 +11,7 @@ type skillProps = {
   contents: string[];
 };
 
-const Strength = ({ skill, idx }: any) => {
+const Strength = ({ skill, idx }) => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -27,7 +27,7 @@ const Strength = ({ skill, idx }: any) => {
             <div
               className="card_wrapper_content card_paper"
               key={idx.toString()}>
-              <FontAwesomeIcon icon={faSquareCheck} size="sm" fixedWidth />
+              <FontAwesomeIcon icon="square-check" size="sm" fixedWidth />
               <div className="wrapper_content_content" key={idx.toString()}>
                 {content}
               </div>

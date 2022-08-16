@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { projects } from "../../public/data";
 import Projects from "./Projects";
 import Header from "./Header";
+import React from "react";
 
 const Scene4 = () => {
   return (
