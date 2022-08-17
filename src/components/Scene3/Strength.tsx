@@ -6,12 +6,15 @@ import { useEffect } from "react";
 import React from "react";
 
 type skillProps = {
-  key: string;
-  title: string;
-  contents: string[];
+  skill: {
+    key: string;
+    title: string;
+    contents: string[];
+  };
+  idx: number;
 };
 
-const Strength = ({ skill, idx }) => {
+const Strength = ({ skill, idx }: skillProps) => {
   useEffect(() => {
     AOS.init();
   }, []);

@@ -1,28 +1,28 @@
+import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const TextWavy = () => {
   return (
     <Wavy>
       <div className="waviy">
-        <Char style={{ "--i": 1 }}>F</Char>
-        <Char style={{ "--i": 2 }}>R</Char>
-        <Char style={{ "--i": 3 }}>O</Char>
-        <Char style={{ "--i": 4 }}>N</Char>
-        <Char style={{ "--i": 5 }}>T</Char>
-        <Char style={{ "--i": 6 }}>E</Char>
-        <Char style={{ "--i": 7 }}>N</Char>
-        <Char style={{ "--i": 8 }}>D</Char>
+        <Char>F</Char>
+        <Char>R</Char>
+        <Char>O</Char>
+        <Char>N</Char>
+        <Char>T</Char>
+        <Char>E</Char>
+        <Char>N</Char>
+        <Char>D</Char>
         <span> </span>
-        <Char style={{ "--i": 9 }}>D</Char>
-        <Char style={{ "--i": 10 }}>E</Char>
-        <Char style={{ "--i": 11 }}>V</Char>
-        <Char style={{ "--i": 12 }}>E</Char>
-        <Char style={{ "--i": 13 }}>L</Char>
-        <Char style={{ "--i": 14 }}>O</Char>
-        <Char style={{ "--i": 15 }}>P</Char>
-        <Char style={{ "--i": 16 }}>E</Char>
-        <Char style={{ "--i": 17 }}>R</Char>
-        <Char style={{ "--i": 18 }}>.</Char>
+        <Char>E</Char>
+        <Char>V</Char>
+        <Char>E</Char>
+        <Char>L</Char>
+        <Char>O</Char>
+        <Char>P</Char>
+        <Char>E</Char>
+        <Char>R</Char>
+        <Char>.</Char>
       </div>
     </Wavy>
   );

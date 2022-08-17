@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { sceneInfo } from "../../public/data";
 
 import styled from "styled-components";
@@ -8,7 +8,6 @@ import CheckIsInViewPort from "../../utils/CheckIsInViewPort";
 
 import Home from "./Home";
 import TextScroll from "./TextScroll";
-import React from "react";
 
 const Scene1 = () => {
   const [height, setHeight] = useState(5.5 * window.innerHeight);

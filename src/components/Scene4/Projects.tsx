@@ -63,7 +63,7 @@ const Projects = (projects: any) => {
     <Container>
       <div className="wrapper">
         <div className="wrapper_projects">
-          {projects.map(
+          {/* {projects.map(
             (project: { key: string; title: string }, idx: number) => (
               <div key={idx.toString()} className="wrapper_title">
                 <Title id={project.key} onMouseOver={hovalTitle}>
@@ -71,7 +71,7 @@ const Projects = (projects: any) => {
                 </Title>
               </div>
             ),
-          )}
+          )} */}
         </div>
         <div className="wrapper_projects">
           <Item>{item}</Item>
@@ -82,11 +82,6 @@ const Projects = (projects: any) => {
 };
 
 const Container = styled.div`
-  height: 77vh;
-  border-left: 1.5px solid #7d97b8;
-  border-right: 1.5px solid #7d97b8;
-  border-bottom: 1.5px solid #7d97b8;
-
   .wrapper {
     display: flex;
     flex-direction: row;
