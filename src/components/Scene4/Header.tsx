@@ -17,7 +17,7 @@ const Header = () => {
 
 const Container = styled.div`
   width: 100%;
-  height: 15%;
+  height: 10%;
   margin: 0 auto;
 
   .section-0-frame {
