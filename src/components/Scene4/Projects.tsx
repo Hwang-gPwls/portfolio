@@ -1,80 +1,81 @@
+import React, { useState, MouseEvent } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
-import { DiamondFill, Stars } from "react-bootstrap-icons";
-import React, { useState } from "react";
+import { CircleFill, Stars } from "react-bootstrap-icons";
 
-type projectsProps = {
+type ProjectsProps = {
   key: string;
   title: string;
   date: string;
   skills: string[];
   about: string;
   contents: string[];
-};
+}[];
 
-const Projects = (projects: any) => {
-  const [item, setItem] = useState<any>();
+const Projects = ({ projects }: { projects: ProjectsProps }) => {
+  const [items, setItems] = useState({
+    key: projects[0].key,
+    date: projects[0].date,
+    about: projects[0].about,
+    skills: projects[0].skills,
+    contents: projects[0].contents,
+  });
 
   const setProjectVal = (id: string) => {
-    const project = projects.filter(
-      (project: { key: any }) => project.key === id,
-    )[0];
-
-    const skills = project.skills.map((skill: string, idx: number) => (
-      <div className="skill" key={idx.toString()}>
-        {skill}
-      </div>
-    ));
-
-    const contents = project.contents.map((content: string, idx: number) => (
-      <div className="content" key={idx.toString()}>
-        <DiamondFill size="10" color="#4a6483" />
-        <span>{content}</span>
-      </div>
-    ));
-
-    setItem(
-      <div key={project.key} className="itembox">
-        <Date>
-          {project.date}
-          <Stars size="25" color="#A0ACBD" />
-        </Date>
-        <div className="wrapper_pin">
-          <div className="wrapper_pin_pin" />
-        </div>
-        <h3>About : </h3>
-        <About>{project.about}</About>
-        <h3>Skills : </h3>
-        <Skills>{skills}</Skills>
-        <Contents>{contents}</Contents>
-      </div>,
-    );
+    const filteredItem = projects.filter((project) => project.key === id)[0];
+    setItems(filteredItem);
   };
 
-  const hovalTitle = (e: any) => {
+  const hovalTitle = (e: MouseEvent<HTMLElement>) => {
     let tl = gsap.timeline();
     tl.to(e.target, { y: -40, duration: 0.5 });
     tl.to(e.target, { y: 0, duration: 1 });
 
-    setProjectVal(e.target.id);
+    if (e.target instanceof Element) setProjectVal(e.target.id);
   };
 
   return (
     <Container>
-      <div className="wrapper">
-        <div className="wrapper_projects">
-          {/* {projects.map(
-            (project: { key: string; title: string }, idx: number) => (
-              <div key={idx.toString()} className="wrapper_title">
-                <Title id={project.key} onMouseOver={hovalTitle}>
-                  {project.title}
-                </Title>
-              </div>
-            ),
-          )} */}
+      <div className="box">
+        <div className="box_projects">
+          {projects.map((project, idx) => (
+            <div key={idx.toString()} className="box_title">
+              <Title id={project.key} onMouseOver={hovalTitle}>
+                {project.title}
+              </Title>
+            </div>
+          ))}
         </div>
-        <div className="wrapper_projects">
-          <Item>{item}</Item>
+        <div className="box_projects">
+          <Item>
+            <div key={items.key} className="itembox">
+              <Date>
+                <Stars size="25" color="#A0ACBD" />
+                {items.date}
+              </Date>
+              <div className="wrapper-pin">
+                <div className="wrapper-pin_pin" />
+              </div>
+              <h3>About : </h3>
+              <About>{items.about}</About>
+              <h3>Skills : </h3>
+              <Skills>
+                {items.skills.map((skill, idx) => (
+                  <div className="skill" key={idx.toString()}>
+                    {skill}
+                  </div>
+                ))}
+              </Skills>
+              <Contents>
+                {items.contents.map((content, idx) => (
+                  <div className="content" key={idx.toString()}>
+                    <CircleFill size="8" color="#4a6483" />
+                    <span>{content}</span>
+                  </div>
+                ))}
+              </Contents>
+            </div>
+          </Item>
         </div>
       </div>
     </Container>
@@ -82,7 +83,11 @@ const Projects = (projects: any) => {
 };
 
 const Container = styled.div`
-  .wrapper {
+  height: 77vh;
+  border-left: 1.5px solid ${({ theme }) => theme.color.black};
+  border-right: 1.5px solid ${({ theme }) => theme.color.black};
+  border-bottom: 1.5px solid ${({ theme }) => theme.color.black};
+  .box {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -100,18 +105,17 @@ const Container = styled.div`
       }
 
       &:not(:last-child) {
-        border-right: 1.5px solid #7d97b8;
+        border-right: 1.5px solid ${({ theme }) => theme.color.black};
       }
     }
   }
 
-  .wrapper_title {
+  .box_title {
     font-size: 0.5rem;
     width: 100%;
     height: 150px;
-
     &:not(:last-child) {
-      border-bottom: 1.5px solid #7d97b8;
+      border-bottom: 1.5px solid ${({ theme }) => theme.color.black};
     }
   }
 `;
@@ -124,12 +128,18 @@ const Title = styled.div`
   color: transparent;
   font-size: 2rem;
   font-weight: bolder;
-  -webkit-text-stroke: 1px #4a6483;
+  -webkit-text-stroke: 1px ${({ theme }) => theme.color.black};
 
   &:hover {
-    color: #4a6483;
-    -webkit-text-stroke: 1px #ffffff;
+    color: ${({ theme }) => theme.color.black};
+    -webkit-text-stroke: 1px ${({ theme }) => theme.color.white};
   }
+  
+  .titleHoval {
+    color: ${({ theme }) => theme.color.black};
+    -webkit-text-stroke: 1px ${({ theme }) => theme.color.white};
+  }
+  .
 `;
 
 const Item = styled.div`
@@ -145,10 +155,10 @@ const Item = styled.div`
 
   .itembox {
     padding: 3rem;
-    color: #4a6483;
+    color: ${({ theme }) => theme.color.black};
   }
 
-  .wrapper_pin {
+  .wrapper-pin {
     width: 100%;
     display: flex;
 
@@ -156,7 +166,7 @@ const Item = styled.div`
       width: 100%;
       height: 2px;
       margin: 0.3rem 0.5rem;
-      background-color: #a0acbd;
+      background-color: ${({ theme }) => theme.color.blueGray};
     }
   }
 `;
@@ -183,7 +193,7 @@ const Skills = styled.div`
     line-height: 2rem;
     padding: 0.5rem;
     border-radius: 1rem;
-    border: 1px solid #3d4856;
+    border: 1px solid ${({ theme }) => theme.color.black};
     border-radius: 0.5rem;
 
     &:not(:first-child) {
@@ -193,7 +203,7 @@ const Skills = styled.div`
 `;
 
 const Contents = styled.div`
-  border: 1.5px solid #7d97b8;
+  border: 1.5px solid ${({ theme }) => theme.color.black};
   white-space: pre-line;
   padding: 1rem;
   margin: 2rem 0 0 0;

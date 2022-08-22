@@ -27,11 +27,9 @@ const Strength = ({ skill, idx }: skillProps) => {
         <div className="card_heading">{skill.title}</div>
         <div>
           {skill.contents.map((content: string, idx: number) => (
-            <div
-              className="card_wrapper_content card_paper"
-              key={idx.toString()}>
+            <div className="card_content-box card_paper" key={idx.toString()}>
               <FontAwesomeIcon icon="square-check" size="sm" fixedWidth />
-              <div className="wrapper_content_content" key={idx.toString()}>
+              <div className="card_content-box_content" key={idx.toString()}>
                 {content}
               </div>
             </div>
@@ -56,7 +54,7 @@ const Container = styled.div`
     border-radius: 0.8rem;
     transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 
-    ::hover {
+    &:hover {
       box-shadow: 10px 14px 0 #3d4856,
         10px 10px 0 ${({ theme }) => theme.color.black};
       transform: translateY(-10px);
@@ -74,13 +72,14 @@ const Container = styled.div`
       border-radius: 1.7rem;
     }
 
-    &_wrapper_content {
+    &_content-box {
       display: flex;
       font-size: 1.1rem;
 
-      &_wrapper_content_content {
+      &_content {
         display: table-cell;
         vertical-align: middle;
+        margin-left: 10px;
       }
     }
 
