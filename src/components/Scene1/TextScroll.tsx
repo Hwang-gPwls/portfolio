@@ -1,4 +1,4 @@
-import { useEffect, useRef, useLayoutEffect } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Stars } from "react-bootstrap-icons";
 import { TextScrollPops } from "../type";
@@ -10,7 +10,7 @@ const TextScroll = ({
   sceneInfo,
   isInViewPort,
 }: TextScrollPops) => {
-  const messageRef = useRef<null | HTMLDivElement[]>([]);
+  const messageRef = useRef([]) as React.MutableRefObject<any>;
 
   useEffect(() => {
     let prevScrollHeight = 0;
@@ -60,6 +60,7 @@ const TextScroll = ({
     const curYOffset = yOffset - prevScollHeight;
     const scrollHeight = height;
     const scrollRatio = curYOffset / scrollHeight;
+
     if (messageRef.current !== null) {
       if (scrollRatio <= 0.22) {
         messageRef.current[0].style.opacity = calcValues(
@@ -161,13 +162,13 @@ const TextScroll = ({
     <Container>
       <div
         className="sticky-elem main-message main-message-a"
-        ref={(el) => (messageRef[0] = el)}>
+        ref={(el) => (messageRef.current[0] = el)}>
         <p className="main-message_text">Hi. I'M WEB DEVELOPER</p>
         <Stars size="30" color="#A0ACBD" />
       </div>
       <div
         className="sticky-elem main-message main-message-b"
-        ref={(el) => (messageRef[1] = el)}>
+        ref={(el) => (messageRef.current[1] = el)}>
         <p className="main-message_text">
           AND
           <br />
@@ -176,12 +177,12 @@ const TextScroll = ({
       </div>
       <div
         className="sticky-elem main-message main-message-c"
-        ref={(el) => (messageRef[2] = el)}>
+        ref={(el) => (messageRef.current[2] = el)}>
         <p className="main-message_text">I HOPE CREATE DIGITAL PRODUCTS</p>
       </div>
       <div
         className="sticky-elem main-message main-message-d"
-        ref={(el) => (messageRef[3] = el)}>
+        ref={(el) => (messageRef.current[3] = el)}>
         <p className="main-message_text">
           THAT MAKE PEOPLE'S
           <br />

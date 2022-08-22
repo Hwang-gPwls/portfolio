@@ -3,7 +3,7 @@ import Contact from "./Contact";
 import TextWavy from "./TextWavy";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Scene2 = () => {
   useEffect(() => {

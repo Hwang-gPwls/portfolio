@@ -37,7 +37,7 @@ const Header = () => {
 
 const Container = styled.div`
   position: fixed;
-  height: 6vh;
+  height: 40px;
   top: 0;
   left: 0;
   right: 0;

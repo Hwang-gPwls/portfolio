@@ -1,8 +1,8 @@
+import React from "react";
 import styled from "styled-components";
 import { projects } from "../../public/data";
 import Projects from "./Projects";
 import Header from "./Header";
-import React from "react";
 
 const Scene4 = () => {
   return (
@@ -16,7 +16,7 @@ const Scene4 = () => {
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  margin-top: 11vh;
+  margin-top: 90px;
 `;
 
 export default Scene4;
