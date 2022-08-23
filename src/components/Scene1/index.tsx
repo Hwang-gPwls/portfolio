@@ -42,7 +42,7 @@ const Scene1 = () => {
 
 const Container = styled.div<{ height: number }>`
   width: 100%;
-  height: "${({ height }) => `${height}px`}";
+  height: ${({ height }) => `${height}px`};
   margin-top: 3vh;
 `;
 
