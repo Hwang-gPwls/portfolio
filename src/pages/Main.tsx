@@ -48,7 +48,7 @@ const Main = () => {
         {isShowButton && (
           <ScrollBtn>
             <button onClick={scrollToTop} type="button" className="topButton">
-              <FontAwesomeIcon icon={faArrowUp} size="5x" fixedWidth />
+              <FontAwesomeIcon icon={faArrowUp} size="2x" fixedWidth />
             </button>
           </ScrollBtn>
         )}
@@ -68,7 +68,7 @@ const ScrollBtn = styled.div`
   z-index: 1;
 
   .topButton {
-    padding: 15px 13px;
+    padding: 14.5px 13px;
     background-color: transparent;
     color: #b78897;
     border: 1.5px solid #b78897;
