@@ -5,9 +5,6 @@
 ## 접근 URI
 http://hyejin-hwang.com
 
-DNS 서버가 불안정해 도메인으로의 접근이 되지 않는 경우가 있습니다. 그럴 경우 IP로 접근해주세요.
-http://3.132.242.49
-
 ## 사용 기술
 
 - Frontend
